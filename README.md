@@ -11,7 +11,7 @@ Original App Design Project - README
 
 ## Overview
 ### Description
-Roommate Tinder auto-suggests people with similar price upper bounds, in similar locations, and uses map APIs to find apartments and filter by prices, etc.. Each user can create a profile, where they input their price range, location (maybe like 1 mile radius from [address] if feasible? or just city), their living styles, age, college/adult, pets, integrate their social media profiles, etc.. Users can "swipe right" on the auto-suggested list of people, and start to message each other. 
+Room-match (like a Tinder but for finding roommates) auto-suggests people with similar price upper bounds, in similar locations, and uses map APIs to find apartments and filter by prices, etc.. Each user can create a profile, where they input their price range, location (maybe like 1 mile radius from [address] if feasible? or just city), their living styles, age, college/adult, pets, integrate their social media profiles, etc.. Users can "swipe right" on the auto-suggested list of people, and start to message each other. The app also includes a map feature, where people can search for apartment places and filter by price, size, etc.. 
 
 ### App Evaluation
 [Evaluation of your app across the following attributes]
