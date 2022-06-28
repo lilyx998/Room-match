@@ -11,7 +11,7 @@ Original App Design Project - README
 
 ## Overview
 ### Description
-Room-match (like a Tinder but for finding roommates) auto-suggests people with similar price upper bounds, in similar locations, and uses map APIs to find apartments and filter by prices, etc.. Each user can create a profile, where they input their price range, location (maybe like 1 mile radius from [address] if feasible? or just city), their living styles, age, college/adult, pets, integrate their social media profiles, etc.. Users can "swipe right" on the auto-suggested list of people, and start to message each other. The app also includes a map feature, where people can search for apartment places and filter by price, size, etc.. 
+Roommate Tinder auto-suggests people with similar price upper bounds, in similar locations, and uses map APIs to find apartments and filter by prices, etc.. Each user can create a profile, where they input their price range, location (maybe like 1 mile radius from [address] if feasible? or just city), their living styles, age, college/adult, pets, integrate their social media profiles, etc.. Users can "swipe right" on the auto-suggested list of people, and start to message each other. 
 
 ### App Evaluation
 [Evaluation of your app across the following attributes]
@@ -40,8 +40,13 @@ Room-match (like a Tinder but for finding roommates) auto-suggests people with s
 
 
 **Optional Nice-to-have Stories**
+* Chat box 
+* User can delete their own account
+* Overlapping location radius rather than city for matching
+* Auto-complete college and addresses
+* College students can choose to only room with others from their college
+* email verification to avoid spam account creation
 
-* chat box
 
 ### 2. Screen Archetypes
 
@@ -52,8 +57,6 @@ Room-match (like a Tinder but for finding roommates) auto-suggests people with s
    * required: name, price range, location, social media, age, pets, picture(s)
        * college [yes/no]
            * if yes, select your's from a list of colleges
-           * if yes, optional put ur graduation year? 
-       * if in college, do you only want to room with others from your college? 
    * optional: list more traits, or a bio
 * Chat view (optional story)
     * ...
@@ -77,15 +80,8 @@ Room-match (like a Tinder but for finding roommates) auto-suggests people with s
    * Profile
 * Tab bar at bottom at screen
 
-## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
-
-tab bar on bottom 
-
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
+## Digital Wireframes
+https://docs.google.com/presentation/d/1VT94967F8w928KYB4YxHWbRJeYeYF1Wx9abmrHMz2Sc/edit?usp=sharing
 
 ## Schema 
 [This section will be completed in Unit 9]
