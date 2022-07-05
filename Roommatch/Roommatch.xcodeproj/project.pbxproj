@@ -18,6 +18,7 @@
 		D8A9E3742874C1F6000ACF9A /* RoommatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E3732874C1F6000ACF9A /* RoommatchTests.m */; };
 		D8A9E37E2874C1F6000ACF9A /* RoommatchUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E37D2874C1F6000ACF9A /* RoommatchUITests.m */; };
 		D8A9E3802874C1F6000ACF9A /* RoommatchUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E37F2874C1F6000ACF9A /* RoommatchUITestsLaunchTests.m */; };
+		D8A9E38D2874D356000ACF9A /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8A9E38C2874D356000ACF9A /* Keys.plist */; };
 		DCD7ADF939C53B2812573372 /* Pods_Roommatch_RoommatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86D563282784DA15441EDCC /* Pods_Roommatch_RoommatchUITests.framework */; };
 		F4F0ED8473443ABFD42AC7AE /* Pods_Roommatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0078E87C30F3228B6310AA30 /* Pods_Roommatch.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		D8A9E3792874C1F6000ACF9A /* RoommatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoommatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A9E37D2874C1F6000ACF9A /* RoommatchUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoommatchUITests.m; sourceTree = "<group>"; };
 		D8A9E37F2874C1F6000ACF9A /* RoommatchUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoommatchUITestsLaunchTests.m; sourceTree = "<group>"; };
+		D8A9E38C2874D356000ACF9A /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,6 @@
 				333589C1E9113E63182C3A83 /* Pods-RoommatchTests.debug.xcconfig */,
 				19A1A64B594359AB1373D3B4 /* Pods-RoommatchTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -156,6 +157,7 @@
 				D8A9E3652874C1F5000ACF9A /* LaunchScreen.storyboard */,
 				D8A9E3682874C1F5000ACF9A /* Info.plist */,
 				D8A9E3692874C1F5000ACF9A /* main.m */,
+				D8A9E38C2874D356000ACF9A /* Keys.plist */,
 			);
 			path = Roommatch;
 			sourceTree = "<group>";
@@ -188,6 +190,7 @@
 				D8A9E3502874C1F4000ACF9A /* Sources */,
 				D8A9E3512874C1F4000ACF9A /* Frameworks */,
 				D8A9E3522874C1F4000ACF9A /* Resources */,
+				FA566CFD40331614ED12669F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,6 +228,7 @@
 				D8A9E3752874C1F6000ACF9A /* Sources */,
 				D8A9E3762874C1F6000ACF9A /* Frameworks */,
 				D8A9E3772874C1F6000ACF9A /* Resources */,
+				1720F3F79218D828BA903BD9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -283,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8A9E38D2874D356000ACF9A /* Keys.plist in Resources */,
 				D8A9E3672874C1F5000ACF9A /* LaunchScreen.storyboard in Resources */,
 				D8A9E3642874C1F5000ACF9A /* Assets.xcassets in Resources */,
 				D8A9E3622874C1F4000ACF9A /* Main.storyboard in Resources */,
@@ -306,6 +311,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1720F3F79218D828BA903BD9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Roommatch-RoommatchUITests/Pods-Roommatch-RoommatchUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Roommatch-RoommatchUITests/Pods-Roommatch-RoommatchUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Roommatch-RoommatchUITests/Pods-Roommatch-RoommatchUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		89F32C56E41F28A16EE8F0C2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -370,6 +392,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA566CFD40331614ED12669F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Roommatch/Pods-Roommatch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Roommatch/Pods-Roommatch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Roommatch/Pods-Roommatch-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

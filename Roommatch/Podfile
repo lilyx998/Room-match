@@ -6,6 +6,7 @@ target 'Roommatch' do
   use_frameworks!
 
   # Pods for Roommatch
+  pod 'Parse'
 
   target 'RoommatchTests' do
     inherit! :search_paths
