@@ -28,6 +28,36 @@
     }];
 
     [Parse initializeWithConfiguration:config];
+    
+//    PFObject *test = [PFObject objectWithClassName:@"Person"];
+////    NSMutableArray *array = [[NSMutableArray alloc]init]; //alloc
+//    NSMutableArray *array = [[NSMutableArray alloc] init];
+//    [array addObject:@"Lily"];
+//    test[@"usersSeen"] = array;
+//    [test[@"usersSeen"] addObject:@"Claire"];
+//    [test saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            NSLog(@"Object saved!");
+//        } else {
+//            NSLog(@"Error: %@", error.description);
+//        }
+//    }];
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:@"Person"];
+//    
+//    query.limit = 20;
+//    [query whereKey:@"usersSeen" notEqualTo:@"Lily"];
+//    // Find objects where "usersSeen" field is an array and does not contains current user's username
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
+//        if (users != nil) {
+//            NSLog(@"%@", [@(users.count) stringValue]);
+//            for(PFObject* user in users){
+//                NSLog(@"%@", user.description);
+//            }
+//        } else {
+//            NSLog(@"%@", error.localizedDescription);
+//        }
+//    }];
 
     return YES;
 }
