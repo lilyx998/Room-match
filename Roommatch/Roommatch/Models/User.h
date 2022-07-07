@@ -11,9 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface User : PFUser
 
-@property (strong, nonatomic) NSString *age;
-@property (strong, nonatomic) User *bestie; 
-
 
 
 @end
