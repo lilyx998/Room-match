@@ -53,7 +53,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
                                 <connections>
                                     <action selector="signUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nhz-M6-53Z"/>
-                                    <segue destination="ait-Fp-bUb" kind="presentation" identifier="Sign Up Segue" id="zSN-Md-dla"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uis-UV-8IS">
@@ -62,7 +61,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Login"/>
                                 <connections>
                                     <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hAT-0u-DBv"/>
-                                    <segue destination="7BQ-We-BZH" kind="presentation" identifier="Login Segue" id="NFh-oE-bio"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="House" translatesAutoresizingMaskIntoConstraints="NO" id="6dW-hP-tz1">
@@ -95,6 +93,8 @@
                     <connections>
                         <outlet property="passwordTextField" destination="Hms-X7-tgk" id="cdL-KL-ai4"/>
                         <outlet property="usernameTextField" destination="DXY-IT-voz" id="muK-Yq-bUh"/>
+                        <segue destination="ait-Fp-bUb" kind="presentation" identifier="Sign Up Segue" id="cKA-Mt-SI4"/>
+                        <segue destination="7BQ-We-BZH" kind="presentation" identifier="Login Segue" id="RO4-qF-6iq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

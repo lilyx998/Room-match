@@ -24,9 +24,12 @@
 - (IBAction)signUp:(id)sender {
     NSString *username = self.usernameTextField.text;
     NSString *password = self.passwordTextField.text;
+    
+    if([username isEqualToString:@""] || [password isEqualToString:@""]){
+        [self alertWithMessage:@"Please enter a valid username and password"];
+        return;
+    }
 
-    
-    
     User *user = [User user];
     user.username = username;
     user.password = password;
