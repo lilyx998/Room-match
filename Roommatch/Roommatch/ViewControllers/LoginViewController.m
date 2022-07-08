@@ -6,6 +6,7 @@
 //
 
 #import "LoginViewController.h"
+#import "Lib.h"
 #import "User.h"
 
 @interface LoginViewController ()
@@ -26,7 +27,7 @@
     NSString *password = self.passwordTextField.text;
     
     if([username isEqualToString:@""] || [password isEqualToString:@""]){
-        [self alertWithMessage:@"Please enter a valid username and password"];
+        [Lib alertViewController:self WithMessage:@"Please enter a valid username and password"];
         return;
     }
 
@@ -37,7 +38,7 @@
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
             NSLog(@"Error: %@", error.localizedDescription);
-            [self alertWithMessage:error.localizedDescription];
+            [Lib alertViewController:self WithMessage:error.localizedDescription];
         } else {
             NSLog(@"User registered successfully");
             [self performSegueWithIdentifier:@"Sign Up Segue" sender:nil];
@@ -50,32 +51,19 @@
     NSString *password = self.passwordTextField.text;
     
     if([username isEqualToString:@""] || [password isEqualToString:@""]){
-        [self alertWithMessage:@"Please enter a valid username and password"];
+        [Lib alertViewController:self WithMessage:@"Please enter a valid username and password"];
         return;
     }
     
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error) {
             NSLog(@"User log in failed: %@", error.localizedDescription);
-            [self alertWithMessage:error.localizedDescription];
+            [Lib alertViewController:self WithMessage:error.localizedDescription];
         } else {
             NSLog(@"🤓🤓🤓 User logged in successfully");
             [self performSegueWithIdentifier:@"Login Segue" sender:nil];
         }
     }];
-}
-
-- (void) alertWithMessage:(NSString *)message {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                   message:message
-                                                            preferredStyle:(UIAlertControllerStyleAlert)];
-    
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {}];
-    [alert addAction:okAction];
-    
-    [self presentViewController:alert animated:YES completion:^{}];
 }
 
 /*

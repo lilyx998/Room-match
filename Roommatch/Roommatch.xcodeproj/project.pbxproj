@@ -11,6 +11,8 @@
 		BAA8661335580629BCC8B0AB /* Pods_RoommatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E728E3E9F2FBE9C307DA388 /* Pods_RoommatchTests.framework */; };
 		D801C5D9287765F400F3A5FC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D801C5D8287765F400F3A5FC /* User.m */; };
 		D88C852D2878A339009533BB /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852C2878A339009533BB /* TabViewController.m */; };
+		D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852F2878C542009533BB /* CreateProfileViewController.m */; };
+		D88C85332878D2DA009533BB /* Lib.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85322878D2DA009533BB /* Lib.m */; };
 		D8A9E3592874C1F4000ACF9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E3582874C1F4000ACF9A /* AppDelegate.m */; };
 		D8A9E35C2874C1F4000ACF9A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E35B2874C1F4000ACF9A /* SceneDelegate.m */; };
 		D8A9E3622874C1F4000ACF9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8A9E3602874C1F4000ACF9A /* Main.storyboard */; };
@@ -55,6 +57,10 @@
 		D801C5D8287765F400F3A5FC /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D88C852B2878A339009533BB /* TabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		D88C852C2878A339009533BB /* TabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
+		D88C852E2878C542009533BB /* CreateProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProfileViewController.h; sourceTree = "<group>"; };
+		D88C852F2878C542009533BB /* CreateProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateProfileViewController.m; sourceTree = "<group>"; };
+		D88C85312878D2DA009533BB /* Lib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lib.h; sourceTree = "<group>"; };
+		D88C85322878D2DA009533BB /* Lib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Lib.m; sourceTree = "<group>"; };
 		D8A9E3542874C1F4000ACF9A /* Roommatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roommatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A9E3572874C1F4000ACF9A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D8A9E3582874C1F4000ACF9A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -164,6 +170,8 @@
 				D8A9E3682874C1F5000ACF9A /* Info.plist */,
 				D8A9E3692874C1F5000ACF9A /* main.m */,
 				D8A9E38C2874D356000ACF9A /* Keys.plist */,
+				D88C85312878D2DA009533BB /* Lib.h */,
+				D88C85322878D2DA009533BB /* Lib.m */,
 			);
 			path = Roommatch;
 			sourceTree = "<group>";
@@ -201,6 +209,8 @@
 				D8A9E39428774B1D000ACF9A /* LoginViewController.m */,
 				D88C852B2878A339009533BB /* TabViewController.h */,
 				D88C852C2878A339009533BB /* TabViewController.m */,
+				D88C852E2878C542009533BB /* CreateProfileViewController.h */,
+				D88C852F2878C542009533BB /* CreateProfileViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -448,8 +458,10 @@
 				D801C5D9287765F400F3A5FC /* User.m in Sources */,
 				D8A9E3592874C1F4000ACF9A /* AppDelegate.m in Sources */,
 				D8A9E36A2874C1F5000ACF9A /* main.m in Sources */,
+				D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */,
 				D8A9E35C2874C1F4000ACF9A /* SceneDelegate.m in Sources */,
 				D8A9E39528774B1D000ACF9A /* LoginViewController.m in Sources */,
+				D88C85332878D2DA009533BB /* Lib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
