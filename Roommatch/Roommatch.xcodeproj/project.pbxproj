@@ -10,6 +10,7 @@
 		B433612DA4C35A9F0252E02B /* Pods_Roommatch_RoommatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD518219B7867E4958AB038 /* Pods_Roommatch_RoommatchUITests.framework */; };
 		BAA8661335580629BCC8B0AB /* Pods_RoommatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E728E3E9F2FBE9C307DA388 /* Pods_RoommatchTests.framework */; };
 		D801C5D9287765F400F3A5FC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D801C5D8287765F400F3A5FC /* User.m */; };
+		D88C852D2878A339009533BB /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852C2878A339009533BB /* TabViewController.m */; };
 		D8A9E3592874C1F4000ACF9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E3582874C1F4000ACF9A /* AppDelegate.m */; };
 		D8A9E35C2874C1F4000ACF9A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E35B2874C1F4000ACF9A /* SceneDelegate.m */; };
 		D8A9E3622874C1F4000ACF9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8A9E3602874C1F4000ACF9A /* Main.storyboard */; };
@@ -52,6 +53,8 @@
 		A087A8CCFD1CFDE66FB90825 /* Pods-RoommatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoommatchTests.release.xcconfig"; path = "Target Support Files/Pods-RoommatchTests/Pods-RoommatchTests.release.xcconfig"; sourceTree = "<group>"; };
 		D801C5D7287765F400F3A5FC /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		D801C5D8287765F400F3A5FC /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		D88C852B2878A339009533BB /* TabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
+		D88C852C2878A339009533BB /* TabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		D8A9E3542874C1F4000ACF9A /* Roommatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roommatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A9E3572874C1F4000ACF9A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D8A9E3582874C1F4000ACF9A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 			children = (
 				D8A9E39328774B1D000ACF9A /* LoginViewController.h */,
 				D8A9E39428774B1D000ACF9A /* LoginViewController.m */,
+				D88C852B2878A339009533BB /* TabViewController.h */,
+				D88C852C2878A339009533BB /* TabViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -439,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D88C852D2878A339009533BB /* TabViewController.m in Sources */,
 				D801C5D9287765F400F3A5FC /* User.m in Sources */,
 				D8A9E3592874C1F4000ACF9A /* AppDelegate.m in Sources */,
 				D8A9E36A2874C1F5000ACF9A /* main.m in Sources */,

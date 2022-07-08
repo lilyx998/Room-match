@@ -93,8 +93,8 @@
                     <connections>
                         <outlet property="passwordTextField" destination="Hms-X7-tgk" id="cdL-KL-ai4"/>
                         <outlet property="usernameTextField" destination="DXY-IT-voz" id="muK-Yq-bUh"/>
-                        <segue destination="ait-Fp-bUb" kind="presentation" identifier="Sign Up Segue" id="cKA-Mt-SI4"/>
                         <segue destination="7BQ-We-BZH" kind="presentation" identifier="Login Segue" id="RO4-qF-6iq"/>
+                        <segue destination="Ui9-0S-9iJ" kind="show" identifier="Sign Up Segue" id="fpO-Ta-7yk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -149,10 +149,10 @@
             </objects>
             <point key="canvasLocation" x="659" y="104"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="JXv-vN-fmv">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="PHu-uE-b9G" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="fullScreen" id="PHu-uE-b9G" customClass="TabViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="pO3-Mk-XSt">
                         <barButtonItem key="leftBarButtonItem" title="Logout" style="plain" id="MeS-1V-My0">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="7Nc-HU-aA5">
@@ -160,6 +160,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="PHu-uE-b9G" eventType="touchUpInside" id="Tml-nn-jKC"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -177,26 +180,10 @@
             </objects>
             <point key="canvasLocation" x="1428" y="104"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="LPT-Lf-kkv">
-            <objects>
-                <navigationController modalPresentationStyle="fullScreen" id="ait-Fp-bUb" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ig7-EB-yQh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Ui9-0S-9iJ" kind="relationship" relationship="rootViewController" id="o8v-Ck-nfc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fbX-Qf-blQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-346" y="897"/>
-        </scene>
         <!--Create Profile-->
         <scene sceneID="tw2-Pp-EIp">
             <objects>
-                <viewController id="Ui9-0S-9iJ" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Ui9-0S-9iJ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A12-aq-72t">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
