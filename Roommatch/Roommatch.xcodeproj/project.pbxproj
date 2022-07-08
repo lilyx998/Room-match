@@ -13,6 +13,7 @@
 		D88C852D2878A339009533BB /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852C2878A339009533BB /* TabViewController.m */; };
 		D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852F2878C542009533BB /* CreateProfileViewController.m */; };
 		D88C85332878D2DA009533BB /* Lib.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85322878D2DA009533BB /* Lib.m */; };
+		D88C85362878F6A4009533BB /* ViewProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85352878F6A4009533BB /* ViewProfileViewController.m */; };
 		D8A9E3592874C1F4000ACF9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E3582874C1F4000ACF9A /* AppDelegate.m */; };
 		D8A9E35C2874C1F4000ACF9A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E35B2874C1F4000ACF9A /* SceneDelegate.m */; };
 		D8A9E3622874C1F4000ACF9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8A9E3602874C1F4000ACF9A /* Main.storyboard */; };
@@ -61,6 +62,8 @@
 		D88C852F2878C542009533BB /* CreateProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateProfileViewController.m; sourceTree = "<group>"; };
 		D88C85312878D2DA009533BB /* Lib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lib.h; sourceTree = "<group>"; };
 		D88C85322878D2DA009533BB /* Lib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Lib.m; sourceTree = "<group>"; };
+		D88C85342878F6A4009533BB /* ViewProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewProfileViewController.h; sourceTree = "<group>"; };
+		D88C85352878F6A4009533BB /* ViewProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewProfileViewController.m; sourceTree = "<group>"; };
 		D8A9E3542874C1F4000ACF9A /* Roommatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roommatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A9E3572874C1F4000ACF9A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D8A9E3582874C1F4000ACF9A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -211,6 +214,8 @@
 				D88C852C2878A339009533BB /* TabViewController.m */,
 				D88C852E2878C542009533BB /* CreateProfileViewController.h */,
 				D88C852F2878C542009533BB /* CreateProfileViewController.m */,
+				D88C85342878F6A4009533BB /* ViewProfileViewController.h */,
+				D88C85352878F6A4009533BB /* ViewProfileViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 				D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */,
 				D8A9E35C2874C1F4000ACF9A /* SceneDelegate.m in Sources */,
 				D8A9E39528774B1D000ACF9A /* LoginViewController.m in Sources */,
+				D88C85362878F6A4009533BB /* ViewProfileViewController.m in Sources */,
 				D88C85332878D2DA009533BB /* Lib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

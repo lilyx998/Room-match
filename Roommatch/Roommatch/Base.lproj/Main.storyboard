@@ -99,39 +99,161 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-100" y="104"/>
+            <point key="canvasLocation" x="-100" y="88"/>
         </scene>
-        <!--View Controller-->
+        <!--Discover-->
         <scene sceneID="Hau-Ms-kWo">
             <objects>
                 <viewController id="oed-v8-cZ2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2yf-29-oZ8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="ozB-UY-o5x"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="person.2.fill" catalog="system" id="cg2-SG-W8G"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="magnifyingglass" catalog="system" id="cg2-SG-W8G"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yz2-e1-cZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2236" y="407"/>
+            <point key="canvasLocation" x="2909" y="104"/>
         </scene>
         <!--My Profile-->
         <scene sceneID="sej-da-2VM">
             <objects>
-                <viewController id="V0e-aN-i4d" sceneMemberID="viewController">
+                <viewController id="V0e-aN-i4d" customClass="ViewProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wJL-lE-Fbw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View My Profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADU-uF-tRF">
+                                <rect key="frame" x="20" y="88" width="374" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h9A-Wc-F2l">
+                                <rect key="frame" x="20" y="138" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="2L9-HI-B8h"/>
+                                    <constraint firstAttribute="height" constant="150" id="YcV-dK-Fce"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="vvF-bk-bvQ">
+                                <rect key="frame" x="190" y="153" width="204" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVZ-HE-Qa6">
+                                        <rect key="frame" x="0.0" y="0.0" width="204" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Age:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nru-mr-kSL">
+                                        <rect key="frame" x="0.0" y="45" width="204" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pronouns" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XzY-tQ-bOG">
+                                        <rect key="frame" x="0.0" y="90" width="204" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="RpP-7y-yUW"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="VdR-rd-xNi">
+                                <rect key="frame" x="25" y="308" width="369" height="269"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnG-8x-AGH">
+                                        <rect key="frame" x="0.0" y="0.0" width="369" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price Range:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfW-wO-90n">
+                                        <rect key="frame" x="0.0" y="35.5" width="369" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GI4-Xz-Q6w">
+                                        <rect key="frame" x="0.0" y="71" width="369" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smoking: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bl3-sa-Sj5">
+                                        <rect key="frame" x="0.0" y="106.5" width="369" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pets: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5x-no-aa7">
+                                        <rect key="frame" x="0.0" y="142" width="369" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In College: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv1-FJ-7dr">
+                                        <rect key="frame" x="0.0" y="177.5" width="369" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="College Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejS-Je-YRG">
+                                        <rect key="frame" x="0.0" y="213" width="369" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxa-3O-7qQ">
+                                        <rect key="frame" x="0.0" y="248.5" width="369" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="BGD-Eh-EIB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ADU-uF-tRF" firstAttribute="leading" secondItem="wJL-lE-Fbw" secondAttribute="leading" constant="20" id="2pp-f0-Xog"/>
+                            <constraint firstItem="VdR-rd-xNi" firstAttribute="top" secondItem="h9A-Wc-F2l" secondAttribute="bottom" constant="20" id="BGt-xR-3b2"/>
+                            <constraint firstItem="BGD-Eh-EIB" firstAttribute="trailing" secondItem="vvF-bk-bvQ" secondAttribute="trailing" constant="20" id="CWQ-zG-vdw"/>
+                            <constraint firstItem="h9A-Wc-F2l" firstAttribute="top" secondItem="ADU-uF-tRF" secondAttribute="bottom" constant="20" id="Pyp-yi-JVc"/>
+                            <constraint firstItem="BGD-Eh-EIB" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VdR-rd-xNi" secondAttribute="bottom" constant="20" id="aJZ-Lb-P27"/>
+                            <constraint firstItem="ADU-uF-tRF" firstAttribute="top" secondItem="BGD-Eh-EIB" secondAttribute="top" id="aj2-aM-WEX"/>
+                            <constraint firstItem="vvF-bk-bvQ" firstAttribute="leading" secondItem="h9A-Wc-F2l" secondAttribute="trailing" constant="20" id="bov-mK-aCG"/>
+                            <constraint firstItem="VdR-rd-xNi" firstAttribute="leading" secondItem="BGD-Eh-EIB" secondAttribute="leading" constant="25" id="fDu-Xe-TiT"/>
+                            <constraint firstItem="BGD-Eh-EIB" firstAttribute="trailing" secondItem="VdR-rd-xNi" secondAttribute="trailing" constant="20" id="gvc-FN-Ka7"/>
+                            <constraint firstAttribute="trailing" secondItem="ADU-uF-tRF" secondAttribute="trailing" constant="20" id="oRP-BK-E9K"/>
+                            <constraint firstItem="vvF-bk-bvQ" firstAttribute="centerY" secondItem="h9A-Wc-F2l" secondAttribute="centerY" id="oto-bQ-Coa"/>
+                            <constraint firstItem="h9A-Wc-F2l" firstAttribute="leading" secondItem="BGD-Eh-EIB" secondAttribute="leading" constant="20" id="zqn-kY-g69"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Profile" image="person.fill" catalog="system" id="a5K-UW-yvw"/>
+                    <connections>
+                        <outlet property="ageLabel" destination="nru-mr-kSL" id="cJr-Bv-OTX"/>
+                        <outlet property="bioLabel" destination="GI4-Xz-Q6w" id="BNa-OP-hsU"/>
+                        <outlet property="collegeNameLabel" destination="ejS-Je-YRG" id="6pT-eu-lSN"/>
+                        <outlet property="imageView" destination="h9A-Wc-F2l" id="qm4-jZ-IQA"/>
+                        <outlet property="inCollegeLabel" destination="Bv1-FJ-7dr" id="4gu-bZ-B4X"/>
+                        <outlet property="instagramLabel" destination="mxa-3O-7qQ" id="pXM-3W-Z49"/>
+                        <outlet property="locationLabel" destination="jnG-8x-AGH" id="tZ5-aJ-36T"/>
+                        <outlet property="nameLabel" destination="GVZ-HE-Qa6" id="ktR-uE-VnV"/>
+                        <outlet property="petsLabel" destination="T5x-no-aa7" id="A5N-sB-2hH"/>
+                        <outlet property="priceRangeLabel" destination="rfW-wO-90n" id="UmZ-ZP-n3k"/>
+                        <outlet property="pronounsLabel" destination="XzY-tQ-bOG" id="CH2-Yw-ZhU"/>
+                        <outlet property="smokingLabel" destination="Bl3-sa-Sj5" id="TmP-gO-A7U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tPU-aW-Kk1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2236" y="-240"/>
+            <point key="canvasLocation" x="2189.8550724637685" y="-359.59821428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KoZ-xf-zEN">
@@ -157,7 +279,7 @@
                     <navigationItem key="navigationItem" id="pO3-Mk-XSt">
                         <barButtonItem key="leftBarButtonItem" title="Logout" style="plain" id="MeS-1V-My0">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="7Nc-HU-aA5">
-                                <rect key="frame" x="20" y="11" width="92" height="34.5"/>
+                                <rect key="frame" x="20" y="5" width="92" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Logout"/>
@@ -175,11 +297,28 @@
                     <connections>
                         <segue destination="V0e-aN-i4d" kind="relationship" relationship="viewControllers" id="bDh-0R-X6z"/>
                         <segue destination="oed-v8-cZ2" kind="relationship" relationship="viewControllers" id="IbE-mp-dZk"/>
+                        <segue destination="vb6-a4-bp0" kind="relationship" relationship="viewControllers" id="bls-L1-1IS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nGl-na-Sm3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1428" y="104"/>
+        </scene>
+        <!--Matches-->
+        <scene sceneID="m1i-1j-1rU">
+            <objects>
+                <viewController id="vb6-a4-bp0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ur5-fL-ZbK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="mBb-9K-2uh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Matches" image="person.2.fill" catalog="system" id="yDI-iI-UYB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GUM-aG-Eki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2209" y="576"/>
         </scene>
         <!--Create Profile-->
         <scene sceneID="tw2-Pp-EIp">
@@ -429,16 +568,16 @@
                         <outlet property="petsSegmentedControl" destination="6fa-4N-iil" id="AdA-Q3-kL1"/>
                         <outlet property="pronounsTextField" destination="tMy-JG-S3H" id="hVT-Eb-Go4"/>
                         <outlet property="smokingSegmentedControl" destination="T4j-l8-PlM" id="zTt-47-vpP"/>
-                        <segue destination="7BQ-We-BZH" kind="show" identifier="Create Profile Segue" id="LSm-NK-Qmh"/>
+                        <segue destination="7BQ-We-BZH" kind="presentation" id="3Zi-gR-oC4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kam-Wq-DBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-100.00000000000001" y="918.75"/>
+            <point key="canvasLocation" x="-100" y="928"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LSm-NK-Qmh"/>
+        <segue reference="RO4-qF-6iq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="House" width="1414" height="1414"/>
@@ -446,6 +585,7 @@
         <image name="Profile Picture Placeholder" width="360" height="360"/>
         <image name="cat" width="20" height="20"/>
         <image name="dog" width="20" height="20"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="labelColor">
