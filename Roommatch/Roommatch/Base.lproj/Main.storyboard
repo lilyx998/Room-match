@@ -101,7 +101,7 @@
             </objects>
             <point key="canvasLocation" x="-100" y="104"/>
         </scene>
-        <!--Item 2-->
+        <!--View Controller-->
         <scene sceneID="Hau-Ms-kWo">
             <objects>
                 <viewController id="oed-v8-cZ2" sceneMemberID="viewController">
@@ -111,13 +111,13 @@
                         <viewLayoutGuide key="safeArea" id="ozB-UY-o5x"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="cg2-SG-W8G"/>
+                    <tabBarItem key="tabBarItem" title="" image="person.2.fill" catalog="system" id="cg2-SG-W8G"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yz2-e1-cZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2236" y="407"/>
         </scene>
-        <!--Item 1-->
+        <!--My Profile-->
         <scene sceneID="sej-da-2VM">
             <objects>
                 <viewController id="V0e-aN-i4d" sceneMemberID="viewController">
@@ -127,7 +127,7 @@
                         <viewLayoutGuide key="safeArea" id="BGD-Eh-EIB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="a5K-UW-yvw"/>
+                    <tabBarItem key="tabBarItem" title="My Profile" image="person.fill" catalog="system" id="a5K-UW-yvw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tPU-aW-Kk1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -306,6 +306,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="(Describe yourself! Night owl or early bird? Extroverted or introverted? Who are you looking for?)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4s-Zb-vKw">
+                                <rect key="frame" x="71" y="391" width="281" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.43422506313131315" green="0.43422506313131315" blue="0.43422506313131315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Instagram tag (i.e. &quot;@zuck&quot;) *" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sbo-zw-QCA">
                                 <rect key="frame" x="20" y="686" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -338,12 +344,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="(Describe yourself! Night owl or early bird? Extroverted or introverted? Who are you looking for?)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4s-Zb-vKw">
-                                <rect key="frame" x="71" y="391" width="281" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" red="0.43422506313131315" green="0.43422506313131315" blue="0.43422506313131315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UXG-rX-olp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -446,6 +446,8 @@
         <image name="Profile Picture Placeholder" width="360" height="360"/>
         <image name="cat" width="20" height="20"/>
         <image name="dog" width="20" height="20"/>
+        <image name="person.2.fill" catalog="system" width="128" height="80"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

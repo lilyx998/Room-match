@@ -36,6 +36,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    tap.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
 }
 
@@ -102,6 +105,10 @@
         return NO;
     }
     return YES;
+}
+
+-(void)hideKeyboard {
+    [self.view endEditing:YES];
 }
 
 
