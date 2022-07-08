@@ -25,18 +25,16 @@
     NSString *username = self.usernameTextField.text;
     NSString *password = self.passwordTextField.text;
 
-    if([username isEqualToString:@""] || [password isEqualToString:@""]){
-        [self alertNoUsernameOrPassword];
-        return;
-    }
+    
     
     User *user = [User user];
     user.username = username;
     user.password = password;
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (error != nil) {
+        if (error) {
             NSLog(@"Error: %@", error.localizedDescription);
+            [self alertWithMessage:error.localizedDescription];
         } else {
             NSLog(@"User registered successfully");
             [self performSegueWithIdentifier:@"Sign Up Segue" sender:nil];
@@ -49,13 +47,14 @@
     NSString *password = self.passwordTextField.text;
     
     if([username isEqualToString:@""] || [password isEqualToString:@""]){
-        [self alertNoUsernameOrPassword];
+        [self alertWithMessage:@"Please enter a valid username and password"];
         return;
     }
     
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
-        if (error != nil) {
+        if (error) {
             NSLog(@"User log in failed: %@", error.localizedDescription);
+            [self alertWithMessage:error.localizedDescription];
         } else {
             NSLog(@"🤓🤓🤓 User logged in successfully");
             [self performSegueWithIdentifier:@"Login Segue" sender:nil];
@@ -63,9 +62,9 @@
     }];
 }
 
-- (void) alertNoUsernameOrPassword {
+- (void) alertWithMessage:(NSString *)message {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                   message:@"Please enter a valid username and password"
+                                                                   message:message
                                                             preferredStyle:(UIAlertControllerStyleAlert)];
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
