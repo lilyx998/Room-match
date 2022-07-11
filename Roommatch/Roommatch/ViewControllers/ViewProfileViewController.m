@@ -6,9 +6,12 @@
 //
 
 #import "ViewProfileViewController.h"
+#import "User.h"
+@import Parse;
+#import <Parse/Parse.h>
 
 @interface ViewProfileViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet PFImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pronounsLabel;
@@ -27,7 +30,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    User* user = [User currentUser];
+    
+    self.imageView.file = user.profilePicture;
+    [self.imageView loadInBackground];
+    
+    self.nameLabel.text = [@"Name: " stringByAppendingString:user.name];
+    self.ageLabel.text = [@"Age: " stringByAppendingString:user.age];
+    self.pronounsLabel.text = [@"Pronouns: " stringByAppendingString:user.pronouns];
+    self.locationLabel.text = [@"Location: " stringByAppendingString:user.city];
+    
+    
+    NSString *priceRange = [[user.priceLow stringByAppendingString:@" - "] stringByAppendingString:user.priceHigh];
+    self.priceRangeLabel.text = [@"Price Range: $" stringByAppendingString:priceRange];
+    self.bioLabel.text = [@"Bio: " stringByAppendingString:user.bio];
+    self.smokingLabel.text = [@"Smoking: " stringByAppendingString:user.smoking];
+    self.petsLabel.text = [@"Pets: " stringByAppendingString:user.pets];
+    self.inCollegeLabel.text = [@"Student: " stringByAppendingString:user.inCollege];
+    self.collegeNameLabel.text = [@"College Name: " stringByAppendingString:user.collegeName];
+    self.instagramLabel.text = [@"Instagram Tag: " stringByAppendingString:user.instagramTag];
+    
+    
 }
 
 /*

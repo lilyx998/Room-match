@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *pronounsTextField;
 @property (weak, nonatomic) IBOutlet UITextField *cityTextField;
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
+@property (weak, nonatomic) IBOutlet UITextField *priceLow;
+@property (weak, nonatomic) IBOutlet UITextField *priceHigh;
 
 @property (weak, nonatomic) IBOutlet UILabel *characterCountLabel;
 
@@ -69,6 +71,8 @@
     user.age = self.ageTextField.text;
     user.pronouns = self.pronounsTextField.text;
     user.profilePicture = [Lib getPFFileFromImage:self.imageView.image];
+    user.priceLow = self.priceLow.text;
+    user.priceHigh = self.priceHigh.text;
     user.city = self.cityTextField.text;
     user.bio = self.bioTextView.text;
     
