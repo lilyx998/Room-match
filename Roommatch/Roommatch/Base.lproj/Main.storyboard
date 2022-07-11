@@ -568,7 +568,7 @@
                         <outlet property="petsSegmentedControl" destination="6fa-4N-iil" id="AdA-Q3-kL1"/>
                         <outlet property="pronounsTextField" destination="tMy-JG-S3H" id="hVT-Eb-Go4"/>
                         <outlet property="smokingSegmentedControl" destination="T4j-l8-PlM" id="zTt-47-vpP"/>
-                        <segue destination="7BQ-We-BZH" kind="presentation" id="3Zi-gR-oC4"/>
+                        <segue destination="7BQ-We-BZH" kind="presentation" identifier="Create Profile Segue" id="3Zi-gR-oC4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kam-Wq-DBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -577,7 +577,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RO4-qF-6iq"/>
+        <segue reference="3Zi-gR-oC4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="House" width="1414" height="1414"/>
