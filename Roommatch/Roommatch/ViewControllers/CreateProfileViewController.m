@@ -10,7 +10,7 @@
 #import "User.h"
 #import <Parse/Parse.h>
 
-@interface CreateProfileViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface CreateProfileViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate, UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *priceLow;
 @property (weak, nonatomic) IBOutlet UITextField *priceHigh;
 
-@property (weak, nonatomic) IBOutlet UILabel *characterCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *charactersRemainingLabel;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *smokingSegmentedControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *petsSegmentedControl;
@@ -30,17 +30,21 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *collegeNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *instagramTagTextField;
-@property (nonatomic) BOOL choseImage; 
+
+@property (nonatomic) BOOL choseImage;
+@property int charLimit;
 
 @end
 
 @implementation CreateProfileViewController
 
 - (void)viewDidLoad {
+    self.charLimit = 280; 
     [super viewDidLoad];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
+    self.bioTextView.delegate = self;
     // Do any additional setup after loading the view.
 }
 
@@ -113,6 +117,21 @@
 
 -(void)hideKeyboard {
     [self.view endEditing:YES];
+}
+
+// shouldChangeTextInRange is called every
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    NSString *newText = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    
+    if(newText.length <= self.charLimit){
+        NSInteger remaining = self.charLimit - newText.length;
+        self.charactersRemainingLabel.text = [@(remaining) stringValue];
+        [self.charactersRemainingLabel setTextColor:[UIColor colorWithDisplayP3Red:0 green:0.5 blue:0.194 alpha:100]];
+        if(remaining == 0)
+           [self.charactersRemainingLabel setTextColor:[UIColor redColor]];
+    }
+    
+    return newText.length <= self.charLimit;
 }
 
 
