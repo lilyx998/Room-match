@@ -9,7 +9,7 @@
 
 @implementation Lib
 
-+ (void) alertViewController:(UIViewController *)viewController WithMessage:(NSString *)message {
++ (void)alertViewController:(UIViewController *)viewController WithMessage:(NSString *)message {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
                                                                    message:message
                                                             preferredStyle:(UIAlertControllerStyleAlert)];
@@ -19,7 +19,7 @@
                                                      handler:^(UIAlertAction * _Nonnull action) {}];
     [alert addAction:okAction];
     
-    [viewController presentViewController:alert animated:YES completion:^{}];
+    [viewController presentViewController:alert animated:YES completion:nil];
 }
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {

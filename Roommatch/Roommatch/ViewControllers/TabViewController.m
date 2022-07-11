@@ -9,10 +9,6 @@
 #import <Parse/Parse.h>
 #import "User.h"
 
-@interface TabViewController ()
-
-@end
-
 @implementation TabViewController
 
 - (void)viewDidLoad {

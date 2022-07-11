@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Lib : NSObject
 
-+ (void) alertViewController:(UIViewController *)viewController WithMessage:(NSString *)message;
++ (void)alertViewController:(UIViewController *)viewController WithMessage:(NSString *)message;
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
 
