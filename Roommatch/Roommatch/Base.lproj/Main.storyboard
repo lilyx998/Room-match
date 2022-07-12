@@ -128,20 +128,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View My Profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADU-uF-tRF">
-                                <rect key="frame" x="20" y="54" width="374" height="30"/>
+                                <rect key="frame" x="20" y="98" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h9A-Wc-F2l" customClass="PFImageView">
-                                <rect key="frame" x="20" y="104" width="150" height="150"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile Picture Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="h9A-Wc-F2l" customClass="PFImageView">
+                                <rect key="frame" x="20" y="148" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="2L9-HI-B8h"/>
                                     <constraint firstAttribute="height" constant="150" id="YcV-dK-Fce"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="vvF-bk-bvQ">
-                                <rect key="frame" x="190" y="119" width="204" height="120"/>
+                                <rect key="frame" x="190" y="163" width="204" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVZ-HE-Qa6">
                                         <rect key="frame" x="0.0" y="0.0" width="204" height="27"/>
@@ -167,7 +167,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="VdR-rd-xNi">
-                                <rect key="frame" x="25" y="274" width="369" height="269"/>
+                                <rect key="frame" x="25" y="318" width="369" height="269"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnG-8x-AGH">
                                         <rect key="frame" x="0.0" y="0.0" width="369" height="20.5"/>
@@ -260,7 +260,6 @@
         <!--Navigation Controller-->
         <scene sceneID="KoZ-xf-zEN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TWV-1I-HjU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController modalPresentationStyle="fullScreen" id="7BQ-We-BZH" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="fHg-JY-aAs"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yZr-i2-FX3">
@@ -271,6 +270,7 @@
                         <segue destination="PHu-uE-b9G" kind="relationship" relationship="rootViewController" id="x7n-xs-qgV"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TWV-1I-HjU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="278" y="104"/>
         </scene>
@@ -279,16 +279,10 @@
             <objects>
                 <tabBarController modalPresentationStyle="fullScreen" id="PHu-uE-b9G" customClass="TabViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="pO3-Mk-XSt">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" style="plain" id="MeS-1V-My0">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="7Nc-HU-aA5">
-                                <rect key="frame" x="20" y="5" width="92" height="34.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
-                                <connections>
-                                    <action selector="logout:" destination="PHu-uE-b9G" eventType="touchUpInside" id="Tml-nn-jKC"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="VPf-SS-lBU">
+                            <connections>
+                                <action selector="logout:" destination="PHu-uE-b9G" id="jeH-le-giR"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rgD-lR-2xb">
@@ -325,7 +319,6 @@
         <!--Navigation Controller-->
         <scene sceneID="xdh-Dn-yr6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Chu-jd-XPn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController modalPresentationStyle="fullScreen" id="8jH-xs-tbR" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="voz-1x-0rV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -335,8 +328,9 @@
                         <segue destination="Ui9-0S-9iJ" kind="relationship" relationship="rootViewController" id="rfa-Ru-ado"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Chu-jd-XPn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1129" y="931"/>
+            <point key="canvasLocation" x="-749" y="931"/>
         </scene>
         <!--Create Profile-->
         <scene sceneID="tw2-Pp-EIp">
@@ -606,11 +600,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kam-Wq-DBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-290" y="931"/>
+            <point key="canvasLocation" x="294" y="931"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gIf-Ay-unm"/>
+        <segue reference="x7n-xs-qgV"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="House" width="1414" height="1414"/>
