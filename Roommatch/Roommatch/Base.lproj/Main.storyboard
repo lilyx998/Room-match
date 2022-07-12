@@ -101,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-749" y="104"/>
+            <point key="canvasLocation" x="-830" y="136"/>
         </scene>
         <!--Discover-->
         <scene sceneID="Hau-Ms-kWo">
@@ -272,7 +272,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWV-1I-HjU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="278" y="104"/>
+            <point key="canvasLocation" x="693" y="121"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="JXv-vN-fmv">
@@ -330,7 +330,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Chu-jd-XPn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-749" y="931"/>
+            <point key="canvasLocation" x="-829" y="931"/>
         </scene>
         <!--Create Profile-->
         <scene sceneID="tw2-Pp-EIp">
@@ -595,16 +595,16 @@
                         <outlet property="priceLow" destination="i7V-fv-EII" id="SVo-9a-ZTX"/>
                         <outlet property="pronounsTextField" destination="tMy-JG-S3H" id="hVT-Eb-Go4"/>
                         <outlet property="smokingSegmentedControl" destination="T4j-l8-PlM" id="zTt-47-vpP"/>
-                        <segue destination="PHu-uE-b9G" kind="presentation" identifier="Create Profile Segue" id="gIf-Ay-unm"/>
+                        <segue destination="7BQ-We-BZH" kind="presentation" identifier="Create Profile Segue" id="ZQJ-wP-pw2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kam-Wq-DBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="294" y="931"/>
+            <point key="canvasLocation" x="-71" y="931"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="x7n-xs-qgV"/>
+        <segue reference="RO4-qF-6iq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="House" width="1414" height="1414"/>

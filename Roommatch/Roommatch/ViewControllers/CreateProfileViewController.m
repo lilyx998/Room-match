@@ -48,6 +48,13 @@
     // Do any additional setup after loading the view.
 }
 
+
+- (void)viewWillAppear:(BOOL)animated{
+    if(![User currentUser]){
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
 - (IBAction)chooseImage:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
