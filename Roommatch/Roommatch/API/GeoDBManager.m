@@ -6,6 +6,7 @@
 //
 
 #import "GeoDBManager.h"
+#import "Items.h"
 
 
 @interface RequestObject ()
@@ -25,8 +26,15 @@
 
 - (void)fetchSuggestionsForIncompleteString:(NSString*)incompleteString
                         withCompletionBlock:(FetchCompletionBlock)completion {
+    NSMutableArray* items;
     NSArray* cities = [self APICall:incompleteString];
-    completion(cities, @"title"); 
+    for(NSString* city in cities){
+        Items* item = [[Items alloc] init];
+        item.title = city; 
+        [items addObject:item];
+    }
+    
+    completion(items, @"title");
 }
 
 - (NSArray *)APICall:(NSString*)prefix{

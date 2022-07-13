@@ -11,10 +11,11 @@
 #import <Parse/Parse.h>
 @import AutoCompletion;
 #import "GeoDBManager.h"
+#import "AutoCompletionUIKitDynamicsAnimation.h"
 
 static const int charLimit = 280;
 
-@interface CreateProfileViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate, UITextViewDelegate>
+@interface CreateProfileViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
@@ -48,7 +49,9 @@ static const int charLimit = 280;
     [self.view addGestureRecognizer:tap];
     self.bioTextView.delegate = self;
     
-    self.cityTextField.suggestionsResultDataSource = [GeoDBManager new];
+    AutoCompletionUIKitDynamicsAnimation *animation = [[AutoCompletionUIKitDynamicsAnimation alloc] init];
+    self.cityTextField.suggestionsResultDataSource = [[GeoDBManager alloc] init];
+    self.cityTextField.animationDelegate = animation;
 }
 
 

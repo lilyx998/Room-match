@@ -219,6 +219,11 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sV2-5H-7A8">
+                                <rect key="frame" x="345" y="97.5" width="49" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Edit"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BGD-Eh-EIB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -226,6 +231,8 @@
                             <constraint firstItem="ADU-uF-tRF" firstAttribute="leading" secondItem="wJL-lE-Fbw" secondAttribute="leading" constant="20" id="2pp-f0-Xog"/>
                             <constraint firstItem="VdR-rd-xNi" firstAttribute="top" secondItem="h9A-Wc-F2l" secondAttribute="bottom" constant="20" id="BGt-xR-3b2"/>
                             <constraint firstItem="BGD-Eh-EIB" firstAttribute="trailing" secondItem="vvF-bk-bvQ" secondAttribute="trailing" constant="20" id="CWQ-zG-vdw"/>
+                            <constraint firstItem="sV2-5H-7A8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BGD-Eh-EIB" secondAttribute="leading" constant="20" id="EJj-VD-wO1"/>
+                            <constraint firstItem="sV2-5H-7A8" firstAttribute="centerY" secondItem="ADU-uF-tRF" secondAttribute="centerY" id="PF1-DI-rPH"/>
                             <constraint firstItem="h9A-Wc-F2l" firstAttribute="top" secondItem="ADU-uF-tRF" secondAttribute="bottom" constant="20" id="Pyp-yi-JVc"/>
                             <constraint firstItem="BGD-Eh-EIB" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VdR-rd-xNi" secondAttribute="bottom" constant="20" id="aJZ-Lb-P27"/>
                             <constraint firstItem="ADU-uF-tRF" firstAttribute="top" secondItem="BGD-Eh-EIB" secondAttribute="top" constant="10" id="aj2-aM-WEX"/>
@@ -234,10 +241,13 @@
                             <constraint firstItem="BGD-Eh-EIB" firstAttribute="trailing" secondItem="VdR-rd-xNi" secondAttribute="trailing" constant="20" id="gvc-FN-Ka7"/>
                             <constraint firstAttribute="trailing" secondItem="ADU-uF-tRF" secondAttribute="trailing" constant="20" id="oRP-BK-E9K"/>
                             <constraint firstItem="vvF-bk-bvQ" firstAttribute="centerY" secondItem="h9A-Wc-F2l" secondAttribute="centerY" id="oto-bQ-Coa"/>
+                            <constraint firstItem="BGD-Eh-EIB" firstAttribute="trailing" secondItem="sV2-5H-7A8" secondAttribute="trailing" constant="20" id="uBg-0L-3b9"/>
                             <constraint firstItem="h9A-Wc-F2l" firstAttribute="leading" secondItem="BGD-Eh-EIB" secondAttribute="leading" constant="20" id="zqn-kY-g69"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Profile" image="person.fill" catalog="system" id="a5K-UW-yvw"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ageLabel" destination="nru-mr-kSL" id="cJr-Bv-OTX"/>
                         <outlet property="bioLabel" destination="GI4-Xz-Q6w" id="BNa-OP-hsU"/>
@@ -361,8 +371,7 @@
                                                     <color key="titleColor" systemColor="linkColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="chooseImage" destination="O0r-9W-qBE" eventType="touchUpInside" id="nwG-0i-f8z"/>
-                                                    <action selector="chooseImage:" destination="O0r-9W-qBE" eventType="touchUpInside" id="9aj-T8-dyK"/>
+                                                    <action selector="chooseImage:" destination="O0r-9W-qBE" eventType="touchUpInside" id="zaH-0a-EbJ"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City, State (ie &quot;Seattle, WA&quot;) *" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UHE-80-nYH" customClass="AutoCompletionTextField">

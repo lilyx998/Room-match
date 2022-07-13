@@ -26,6 +26,8 @@
 		D8A9E3802874C1F6000ACF9A /* RoommatchUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E37F2874C1F6000ACF9A /* RoommatchUITestsLaunchTests.m */; };
 		D8A9E38D2874D356000ACF9A /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8A9E38C2874D356000ACF9A /* Keys.plist */; };
 		D8A9E39528774B1D000ACF9A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E39428774B1D000ACF9A /* LoginViewController.m */; };
+		D8E8307B287F62BE007EA0D0 /* AutoCompletionUIKitDynamicsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E83079287F62BE007EA0D0 /* AutoCompletionUIKitDynamicsAnimation.m */; };
+		D8E8307E287F647B007EA0D0 /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E8307D287F647B007EA0D0 /* Items.m */; };
 		E9DA0FD7C6E280E67B0A2E5D /* Pods_Roommatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B3C32F05D6B5D26556E893 /* Pods_Roommatch.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +87,10 @@
 		D8A9E38C2874D356000ACF9A /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		D8A9E39328774B1D000ACF9A /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D8A9E39428774B1D000ACF9A /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D8E83079287F62BE007EA0D0 /* AutoCompletionUIKitDynamicsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoCompletionUIKitDynamicsAnimation.m; sourceTree = "<group>"; };
+		D8E8307A287F62BE007EA0D0 /* AutoCompletionUIKitDynamicsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoCompletionUIKitDynamicsAnimation.h; sourceTree = "<group>"; };
+		D8E8307C287F647B007EA0D0 /* Items.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Items.h; sourceTree = "<group>"; };
+		D8E8307D287F647B007EA0D0 /* Items.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Items.m; sourceTree = "<group>"; };
 		D8F76225BF4577336C4B9511 /* Pods-Roommatch-RoommatchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roommatch-RoommatchUITests.release.xcconfig"; path = "Target Support Files/Pods-Roommatch-RoommatchUITests/Pods-Roommatch-RoommatchUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +179,7 @@
 		D8A9E3562874C1F4000ACF9A /* Roommatch */ = {
 			isa = PBXGroup;
 			children = (
+				D8E83078287F60EF007EA0D0 /* Animations */,
 				D83F2C92287E3BE700ADB034 /* API */,
 				D8A9E38F2874FBC7000ACF9A /* Models */,
 				D8A9E3982877542E000ACF9A /* ViewControllers */,
@@ -214,6 +221,8 @@
 			children = (
 				D801C5D7287765F400F3A5FC /* User.h */,
 				D801C5D8287765F400F3A5FC /* User.m */,
+				D8E8307C287F647B007EA0D0 /* Items.h */,
+				D8E8307D287F647B007EA0D0 /* Items.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,6 +240,15 @@
 				D88C85352878F6A4009533BB /* ViewProfileViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D8E83078287F60EF007EA0D0 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				D8E8307A287F62BE007EA0D0 /* AutoCompletionUIKitDynamicsAnimation.h */,
+				D8E83079287F62BE007EA0D0 /* AutoCompletionUIKitDynamicsAnimation.m */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,8 +490,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8E8307E287F647B007EA0D0 /* Items.m in Sources */,
 				D88C852D2878A339009533BB /* TabViewController.m in Sources */,
 				D801C5D9287765F400F3A5FC /* User.m in Sources */,
+				D8E8307B287F62BE007EA0D0 /* AutoCompletionUIKitDynamicsAnimation.m in Sources */,
 				D8A9E3592874C1F4000ACF9A /* AppDelegate.m in Sources */,
 				D8A9E36A2874C1F5000ACF9A /* main.m in Sources */,
 				D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */,
