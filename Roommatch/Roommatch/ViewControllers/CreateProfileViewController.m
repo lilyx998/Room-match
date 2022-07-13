@@ -10,6 +10,7 @@
 #import "User.h"
 #import <Parse/Parse.h>
 @import AutoCompletion;
+@import Parse;
 #import "GeoDBManager.h"
 #import "AutoCompletionUIKitDynamicsAnimation.h"
 
@@ -17,7 +18,7 @@ static const int charLimit = 280;
 
 @interface CreateProfileViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet PFImageView *imageView;
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *ageTextField;
@@ -54,10 +55,54 @@ static const int charLimit = 280;
     self.cityTextField.animationDelegate = animation;
 }
 
+- (void)setFields:(User *)user {
+    self.nameTextField.text = user.name;
+    self.ageTextField.text = user.age;
+    self.pronounsTextField.text = user.pronouns;
+    self.priceLow.text = user.priceLow;
+    self.priceHigh.text = user.priceHigh;
+    self.cityTextField.text = user.city;
+    self.bioTextView.text = user.bio;
+    self.charactersRemainingLabel.text = [@(charLimit - user.bio.length) stringValue];
+    
+    self.imageView.file = user.profilePicture;
+    [self.imageView loadInBackground];
+    
+    if([user.smoking isEqualToString:@"No"])
+        [self.smokingSegmentedControl setSelectedSegmentIndex:0];
+    else if([user.smoking isEqualToString:@"Sometimes"])
+        [self.smokingSegmentedControl setSelectedSegmentIndex:1];
+    else
+        [self.smokingSegmentedControl setSelectedSegmentIndex:2];
+    
+    if([user.pets isEqualToString:@"No"])
+        [self.petsSegmentedControl setSelectedSegmentIndex:0];
+    else if([user.pets isEqualToString:@"Dog(s)"])
+        [self.petsSegmentedControl setSelectedSegmentIndex:1];
+    else if([user.pets isEqualToString:@"Cat(s)"])
+        [self.petsSegmentedControl setSelectedSegmentIndex:2];
+    else if([user.pets isEqualToString:@"Dog(s) and cat(s)"])
+        [self.petsSegmentedControl setSelectedSegmentIndex:3];
+    else
+        [self.petsSegmentedControl setSelectedSegmentIndex:4];
+    
+    if([user.inCollege isEqualToString:@"No"])
+        [self.inCollegeSegmentedControl setSelectedSegmentIndex:0];
+    else
+        [self.inCollegeSegmentedControl setSelectedSegmentIndex:1];
+    
+    self.collegeNameTextField.text = user.collegeName;
+    self.instagramTagTextField.text = user.instagramTag;
+}
 
-- (void)viewWillAppear:(BOOL)animated{
-    if(![User currentUser]){
+- (void)viewWillAppear:(BOOL)animated {
+    User *user = [User currentUser];
+    if(!user){
         [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    if(user.profileCreated){
+        [self setFields:user];
+        self.choseImage = YES;
     }
 }
 
@@ -106,6 +151,7 @@ static const int charLimit = 280;
     
     user.collegeName = self.collegeNameTextField.text;
     user.instagramTag = self.instagramTagTextField.text;
+    user.profileCreated = YES; 
     
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error){
         if(error)
