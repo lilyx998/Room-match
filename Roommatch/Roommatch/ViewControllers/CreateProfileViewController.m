@@ -12,6 +12,8 @@
 @import AutoCompletion;
 #import "GeoDBManager.h"
 
+static const int charLimit = 280;
+
 @interface CreateProfileViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate, UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -19,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *ageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *pronounsTextField;
-//@property (weak, nonatomic) IBOutlet UITextField *cityTextField;
 @property (weak, nonatomic) IBOutlet AutoCompletionTextField *cityTextField;
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
 @property (weak, nonatomic) IBOutlet UITextField *priceLow;
@@ -35,14 +36,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *instagramTagTextField;
 
 @property (nonatomic) BOOL choseImage;
-@property int charLimit;
 
 @end
 
 @implementation CreateProfileViewController
 
 - (void)viewDidLoad {
-    self.charLimit = 280; 
     [super viewDidLoad];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     tap.cancelsTouchesInView = NO;
@@ -50,7 +49,6 @@
     self.bioTextView.delegate = self;
     
     self.cityTextField.suggestionsResultDataSource = [GeoDBManager new];
-    // Do any additional setup after loading the view.
 }
 
 
@@ -131,31 +129,18 @@
     [self.view endEditing:YES];
 }
 
-// shouldChangeTextInRange is called every
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     NSString *newText = [textView.text stringByReplacingCharactersInRange:range withString:text];
     
-    if(newText.length <= self.charLimit){
-        NSInteger remaining = self.charLimit - newText.length;
+    if(newText.length <= charLimit){
+        NSInteger remaining = charLimit - newText.length;
         self.charactersRemainingLabel.text = [@(remaining) stringValue];
         [self.charactersRemainingLabel setTextColor:[UIColor colorWithDisplayP3Red:0 green:0.5 blue:0.194 alpha:100]];
         if(remaining == 0)
            [self.charactersRemainingLabel setTextColor:[UIColor redColor]];
     }
     
-    return newText.length <= self.charLimit;
+    return newText.length <= charLimit;
 }
-
-
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

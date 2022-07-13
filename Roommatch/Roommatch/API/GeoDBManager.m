@@ -57,7 +57,6 @@
                                                             NSString *cityString = [[city[@"city"] stringByAppendingString:@", "] stringByAppendingString:city[@"regionCode"]];
                                                             NSLog(@"%@", cityString);
                                                             [cityNames addObject:cityString];
-//                                                            city[@"title"] = cityString;
                                                         }
                                                     }
                                                 }];

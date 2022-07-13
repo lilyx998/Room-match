@@ -50,18 +50,6 @@
     self.inCollegeLabel.text = [@"Student: " stringByAppendingString:user.inCollege];
     self.collegeNameLabel.text = [@"College Name: " stringByAppendingString:user.collegeName];
     self.instagramLabel.text = [@"Instagram Tag: " stringByAppendingString:user.instagramTag];
-    
-    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
