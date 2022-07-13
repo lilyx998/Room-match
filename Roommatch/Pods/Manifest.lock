@@ -1,4 +1,5 @@
 PODS:
+  - AutoCompletion (1.2.1)
   - Bolts/Tasks (1.9.1)
   - Parse (1.19.3):
     - Parse/Core (= 1.19.3)
@@ -6,20 +7,27 @@ PODS:
     - Bolts/Tasks (= 1.9.1)
   - Parse/UI (1.19.3):
     - Parse/Core
+  - YONAutoComplete (1.2.2)
 
 DEPENDENCIES:
+  - AutoCompletion
   - Parse
   - Parse/UI
+  - YONAutoComplete
 
 SPEC REPOS:
   trunk:
+    - AutoCompletion
     - Bolts
     - Parse
+    - YONAutoComplete
 
 SPEC CHECKSUMS:
+  AutoCompletion: ef2aef06b77e8f82dc49bff7e16860eacd891249
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   Parse: 0abb63a0ff6fa34a3f64b81d595a294e2ece143a
+  YONAutoComplete: 212eaaad6b93709780dab95797817817a41d2ed0
 
-PODFILE CHECKSUM: 5d043395e7c7fbc86e278c224d591dddb3174ef0
+PODFILE CHECKSUM: 5536aeb01aca9a929ac76ca803b9120d56952aa3
 
 COCOAPODS: 1.11.3

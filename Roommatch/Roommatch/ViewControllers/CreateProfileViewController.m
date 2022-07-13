@@ -9,6 +9,8 @@
 #import "Lib.h"
 #import "User.h"
 #import <Parse/Parse.h>
+@import AutoCompletion;
+#import "GeoDBManager.h"
 
 @interface CreateProfileViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate, UITextViewDelegate>
 
@@ -17,7 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *ageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *pronounsTextField;
-@property (weak, nonatomic) IBOutlet UITextField *cityTextField;
+//@property (weak, nonatomic) IBOutlet UITextField *cityTextField;
+@property (weak, nonatomic) IBOutlet AutoCompletionTextField *cityTextField;
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
 @property (weak, nonatomic) IBOutlet UITextField *priceLow;
 @property (weak, nonatomic) IBOutlet UITextField *priceHigh;
@@ -45,6 +48,8 @@
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
     self.bioTextView.delegate = self;
+    
+    self.cityTextField.suggestionsResultDataSource = [GeoDBManager new];
     // Do any additional setup after loading the view.
 }
 

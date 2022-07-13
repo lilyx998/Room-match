@@ -361,7 +361,7 @@
                                             <action selector="chooseImage:" destination="Ui9-0S-9iJ" eventType="touchUpInside" id="Os0-Rh-56P"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City, State (ie &quot;Seattle, WA&quot;) *" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-9f-r8D">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City, State (ie &quot;Seattle, WA&quot;) *" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-9f-r8D" customClass="AutoCompletionTextField">
                                         <rect key="frame" x="20" y="196" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -573,10 +573,10 @@
                         <viewLayoutGuide key="safeArea" id="UXG-rX-olp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8BS-wW-G4B" firstAttribute="top" secondItem="UXG-rX-olp" secondAttribute="top" id="1PE-y1-kc4"/>
-                            <constraint firstItem="8BS-wW-G4B" firstAttribute="leading" secondItem="UXG-rX-olp" secondAttribute="leading" id="9c0-NX-Erb"/>
-                            <constraint firstItem="8BS-wW-G4B" firstAttribute="trailing" secondItem="UXG-rX-olp" secondAttribute="trailing" id="g2F-iy-W0p"/>
-                            <constraint firstItem="UXG-rX-olp" firstAttribute="bottom" secondItem="8BS-wW-G4B" secondAttribute="bottom" id="yyd-pJ-pFy"/>
+                            <constraint firstItem="8BS-wW-G4B" firstAttribute="top" secondItem="A12-aq-72t" secondAttribute="top" id="1PE-y1-kc4"/>
+                            <constraint firstItem="8BS-wW-G4B" firstAttribute="leading" secondItem="A12-aq-72t" secondAttribute="leading" id="9c0-NX-Erb"/>
+                            <constraint firstItem="8BS-wW-G4B" firstAttribute="trailing" secondItem="A12-aq-72t" secondAttribute="trailing" id="g2F-iy-W0p"/>
+                            <constraint firstAttribute="bottom" secondItem="8BS-wW-G4B" secondAttribute="bottom" id="yyd-pJ-pFy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create Profile" id="we4-Jq-lmz"/>
@@ -584,7 +584,7 @@
                         <outlet property="ageTextField" destination="sVe-np-G1p" id="tqf-mV-Uu2"/>
                         <outlet property="bioTextView" destination="jKO-UL-Wsp" id="3SE-wr-SOx"/>
                         <outlet property="charactersRemainingLabel" destination="VP2-4O-Hje" id="kM7-mr-rSz"/>
-                        <outlet property="cityTextField" destination="Vcx-9f-r8D" id="t5M-0R-MFp"/>
+                        <outlet property="cityTextField" destination="Vcx-9f-r8D" id="ewW-Jk-Qoh"/>
                         <outlet property="collegeNameTextField" destination="y6S-d9-18R" id="6nJ-e9-9Pi"/>
                         <outlet property="imageView" destination="B4E-C2-FtU" id="kTQ-BB-XYO"/>
                         <outlet property="inCollegeSegmentedControl" destination="Q99-wn-JVT" id="BCs-cO-sDj"/>
@@ -603,8 +603,13 @@
             <point key="canvasLocation" x="-71" y="931"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Vcx-9f-r8D">
+            <size key="intrinsicContentSize" width="221" height="34"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="RO4-qF-6iq"/>
+        <segue reference="ZQJ-wP-pw2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="House" width="1414" height="1414"/>
