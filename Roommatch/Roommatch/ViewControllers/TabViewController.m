@@ -8,6 +8,8 @@
 #import "TabViewController.h"
 #import <Parse/Parse.h>
 #import "User.h"
+#import "SceneDelegate.h"
+#import "LoginViewController.h"
 
 @implementation TabViewController
 
@@ -23,7 +25,10 @@
         }
         else{
             NSLog(@"😇😇😇 Logout success!");
-            [self dismissViewControllerAnimated:YES completion:nil];
+            SceneDelegate *mySceneDelegate = (SceneDelegate * ) UIApplication.sharedApplication.connectedScenes.allObjects.firstObject.delegate;
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+            mySceneDelegate.window.rootViewController = loginViewController;
         }
     }];
 }

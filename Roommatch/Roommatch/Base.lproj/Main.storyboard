@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Login View Controller" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" title="Login View Controller" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -268,12 +268,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tPU-aW-Kk1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2177" y="-230"/>
+            <point key="canvasLocation" x="2183" y="491"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KoZ-xf-zEN">
             <objects>
-                <navigationController modalPresentationStyle="fullScreen" id="7BQ-We-BZH" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TabNavigationController" modalPresentationStyle="fullScreen" id="7BQ-We-BZH" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="fHg-JY-aAs"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yZr-i2-FX3">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -290,7 +290,7 @@
         <!--Tab View Controller-->
         <scene sceneID="JXv-vN-fmv">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="PHu-uE-b9G" customClass="TabViewController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabVC" modalPresentationStyle="fullScreen" id="PHu-uE-b9G" customClass="TabViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="pO3-Mk-XSt">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="VPf-SS-lBU">
                             <connections>
@@ -327,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUM-aG-Eki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2178" y="475"/>
+            <point key="canvasLocation" x="2183" y="-222"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xdh-Dn-yr6">
@@ -639,7 +639,7 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="U03-86-rFf"/>
-        <segue reference="aBn-Bm-j3f"/>
+        <segue reference="RO4-qF-6iq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="House" width="1414" height="1414"/>
