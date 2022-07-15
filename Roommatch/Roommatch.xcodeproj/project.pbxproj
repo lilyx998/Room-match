@@ -10,7 +10,6 @@
 		B433612DA4C35A9F0252E02B /* Pods_Roommatch_RoommatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD518219B7867E4958AB038 /* Pods_Roommatch_RoommatchUITests.framework */; };
 		BAA8661335580629BCC8B0AB /* Pods_RoommatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E728E3E9F2FBE9C307DA388 /* Pods_RoommatchTests.framework */; };
 		D801C5D9287765F400F3A5FC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D801C5D8287765F400F3A5FC /* User.m */; };
-		D83F2C91287DF47800ADB034 /* GeoDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D83F2C90287DF47800ADB034 /* GeoDBManager.m */; };
 		D88C852D2878A339009533BB /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852C2878A339009533BB /* TabViewController.m */; };
 		D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852F2878C542009533BB /* CreateProfileViewController.m */; };
 		D88C85332878D2DA009533BB /* Lib.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85322878D2DA009533BB /* Lib.m */; };
@@ -26,8 +25,9 @@
 		D8A9E3802874C1F6000ACF9A /* RoommatchUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E37F2874C1F6000ACF9A /* RoommatchUITestsLaunchTests.m */; };
 		D8A9E38D2874D356000ACF9A /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8A9E38C2874D356000ACF9A /* Keys.plist */; };
 		D8A9E39528774B1D000ACF9A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E39428774B1D000ACF9A /* LoginViewController.m */; };
-		D8E8307B287F62BE007EA0D0 /* AutoCompletionUIKitDynamicsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E83079287F62BE007EA0D0 /* AutoCompletionUIKitDynamicsAnimation.m */; };
 		D8E8307E287F647B007EA0D0 /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E8307D287F647B007EA0D0 /* Items.m */; };
+		D8EE169C2880CC950068FD1B /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE169B2880CC950068FD1B /* LocationViewController.m */; };
+		D8EE16A02880D4CE0068FD1B /* CityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE169F2880D4CE0068FD1B /* CityTableViewCell.m */; };
 		E9DA0FD7C6E280E67B0A2E5D /* Pods_Roommatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B3C32F05D6B5D26556E893 /* Pods_Roommatch.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,8 +59,6 @@
 		A087A8CCFD1CFDE66FB90825 /* Pods-RoommatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoommatchTests.release.xcconfig"; path = "Target Support Files/Pods-RoommatchTests/Pods-RoommatchTests.release.xcconfig"; sourceTree = "<group>"; };
 		D801C5D7287765F400F3A5FC /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		D801C5D8287765F400F3A5FC /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		D83F2C8F287DF47800ADB034 /* GeoDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeoDBManager.h; sourceTree = "<group>"; };
-		D83F2C90287DF47800ADB034 /* GeoDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeoDBManager.m; sourceTree = "<group>"; };
 		D88C852B2878A339009533BB /* TabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		D88C852C2878A339009533BB /* TabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		D88C852E2878C542009533BB /* CreateProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProfileViewController.h; sourceTree = "<group>"; };
@@ -87,10 +85,12 @@
 		D8A9E38C2874D356000ACF9A /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		D8A9E39328774B1D000ACF9A /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D8A9E39428774B1D000ACF9A /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		D8E83079287F62BE007EA0D0 /* AutoCompletionUIKitDynamicsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoCompletionUIKitDynamicsAnimation.m; sourceTree = "<group>"; };
-		D8E8307A287F62BE007EA0D0 /* AutoCompletionUIKitDynamicsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoCompletionUIKitDynamicsAnimation.h; sourceTree = "<group>"; };
 		D8E8307C287F647B007EA0D0 /* Items.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Items.h; sourceTree = "<group>"; };
 		D8E8307D287F647B007EA0D0 /* Items.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Items.m; sourceTree = "<group>"; };
+		D8EE169A2880CC950068FD1B /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		D8EE169B2880CC950068FD1B /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		D8EE169E2880D4CE0068FD1B /* CityTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityTableViewCell.h; sourceTree = "<group>"; };
+		D8EE169F2880D4CE0068FD1B /* CityTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityTableViewCell.m; sourceTree = "<group>"; };
 		D8F76225BF4577336C4B9511 /* Pods-Roommatch-RoommatchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roommatch-RoommatchUITests.release.xcconfig"; path = "Target Support Files/Pods-Roommatch-RoommatchUITests/Pods-Roommatch-RoommatchUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,15 +145,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		D83F2C92287E3BE700ADB034 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				D83F2C90287DF47800ADB034 /* GeoDBManager.m */,
-				D83F2C8F287DF47800ADB034 /* GeoDBManager.h */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
 		D8A9E34B2874C1F4000ACF9A = {
 			isa = PBXGroup;
 			children = (
@@ -179,22 +170,21 @@
 		D8A9E3562874C1F4000ACF9A /* Roommatch */ = {
 			isa = PBXGroup;
 			children = (
-				D8E83078287F60EF007EA0D0 /* Animations */,
-				D83F2C92287E3BE700ADB034 /* API */,
-				D8A9E38F2874FBC7000ACF9A /* Models */,
-				D8A9E3982877542E000ACF9A /* ViewControllers */,
+				D8EE169D2880D4AB0068FD1B /* Views */,
 				D8A9E3572874C1F4000ACF9A /* AppDelegate.h */,
 				D8A9E3582874C1F4000ACF9A /* AppDelegate.m */,
-				D8A9E35A2874C1F4000ACF9A /* SceneDelegate.h */,
-				D8A9E35B2874C1F4000ACF9A /* SceneDelegate.m */,
-				D8A9E3602874C1F4000ACF9A /* Main.storyboard */,
 				D8A9E3632874C1F5000ACF9A /* Assets.xcassets */,
-				D8A9E3652874C1F5000ACF9A /* LaunchScreen.storyboard */,
 				D8A9E3682874C1F5000ACF9A /* Info.plist */,
-				D8A9E3692874C1F5000ACF9A /* main.m */,
 				D8A9E38C2874D356000ACF9A /* Keys.plist */,
+				D8A9E3652874C1F5000ACF9A /* LaunchScreen.storyboard */,
 				D88C85312878D2DA009533BB /* Lib.h */,
 				D88C85322878D2DA009533BB /* Lib.m */,
+				D8A9E3692874C1F5000ACF9A /* main.m */,
+				D8A9E3602874C1F4000ACF9A /* Main.storyboard */,
+				D8A9E38F2874FBC7000ACF9A /* Models */,
+				D8A9E35A2874C1F4000ACF9A /* SceneDelegate.h */,
+				D8A9E35B2874C1F4000ACF9A /* SceneDelegate.m */,
+				D8A9E3982877542E000ACF9A /* ViewControllers */,
 			);
 			path = Roommatch;
 			sourceTree = "<group>";
@@ -238,17 +228,19 @@
 				D88C852F2878C542009533BB /* CreateProfileViewController.m */,
 				D88C85342878F6A4009533BB /* ViewProfileViewController.h */,
 				D88C85352878F6A4009533BB /* ViewProfileViewController.m */,
+				D8EE169A2880CC950068FD1B /* LocationViewController.h */,
+				D8EE169B2880CC950068FD1B /* LocationViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		D8E83078287F60EF007EA0D0 /* Animations */ = {
+		D8EE169D2880D4AB0068FD1B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D8E8307A287F62BE007EA0D0 /* AutoCompletionUIKitDynamicsAnimation.h */,
-				D8E83079287F62BE007EA0D0 /* AutoCompletionUIKitDynamicsAnimation.m */,
+				D8EE169E2880D4CE0068FD1B /* CityTableViewCell.h */,
+				D8EE169F2880D4CE0068FD1B /* CityTableViewCell.m */,
 			);
-			path = Animations;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -493,14 +485,14 @@
 				D8E8307E287F647B007EA0D0 /* Items.m in Sources */,
 				D88C852D2878A339009533BB /* TabViewController.m in Sources */,
 				D801C5D9287765F400F3A5FC /* User.m in Sources */,
-				D8E8307B287F62BE007EA0D0 /* AutoCompletionUIKitDynamicsAnimation.m in Sources */,
 				D8A9E3592874C1F4000ACF9A /* AppDelegate.m in Sources */,
 				D8A9E36A2874C1F5000ACF9A /* main.m in Sources */,
 				D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */,
-				D83F2C91287DF47800ADB034 /* GeoDBManager.m in Sources */,
+				D8EE169C2880CC950068FD1B /* LocationViewController.m in Sources */,
 				D8A9E35C2874C1F4000ACF9A /* SceneDelegate.m in Sources */,
 				D8A9E39528774B1D000ACF9A /* LoginViewController.m in Sources */,
 				D88C85362878F6A4009533BB /* ViewProfileViewController.m in Sources */,
+				D8EE16A02880D4CE0068FD1B /* CityTableViewCell.m in Sources */,
 				D88C85332878D2DA009533BB /* Lib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

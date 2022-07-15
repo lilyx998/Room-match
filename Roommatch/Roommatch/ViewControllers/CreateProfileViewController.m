@@ -11,8 +11,6 @@
 #import <Parse/Parse.h>
 @import AutoCompletion;
 @import Parse;
-#import "GeoDBManager.h"
-#import "AutoCompletionUIKitDynamicsAnimation.h"
 
 static const int charLimit = 280;
 
@@ -23,7 +21,6 @@ static const int charLimit = 280;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *ageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *pronounsTextField;
-@property (weak, nonatomic) IBOutlet AutoCompletionTextField *cityTextField;
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
 @property (weak, nonatomic) IBOutlet UITextField *priceLow;
 @property (weak, nonatomic) IBOutlet UITextField *priceHigh;
@@ -49,10 +46,6 @@ static const int charLimit = 280;
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
     self.bioTextView.delegate = self;
-    
-    AutoCompletionUIKitDynamicsAnimation *animation = [[AutoCompletionUIKitDynamicsAnimation alloc] init];
-    self.cityTextField.suggestionsResultDataSource = [[GeoDBManager alloc] init];
-    self.cityTextField.animationDelegate = animation;
 }
 
 - (void)setFields:(User *)user {
@@ -61,7 +54,6 @@ static const int charLimit = 280;
     self.pronounsTextField.text = user.pronouns;
     self.priceLow.text = user.priceLow;
     self.priceHigh.text = user.priceHigh;
-    self.cityTextField.text = user.city;
     self.bioTextView.text = user.bio;
     self.charactersRemainingLabel.text = [@(charLimit - user.bio.length) stringValue];
     
@@ -135,7 +127,6 @@ static const int charLimit = 280;
     user.profilePicture = [Lib getPFFileFromImage:self.imageView.image];
     user.priceLow = self.priceLow.text;
     user.priceHigh = self.priceHigh.text;
-    user.city = self.cityTextField.text;
     user.bio = self.bioTextView.text;
     
     NSInteger smokingIndex = [self.smokingSegmentedControl selectedSegmentIndex];
@@ -166,7 +157,6 @@ static const int charLimit = 280;
     if(!self.choseImage
        || [self.nameTextField.text isEqualToString:@""]
        || [self.ageTextField.text isEqualToString:@""]
-       || [self.cityTextField.text isEqualToString:@""]
        || [self.bioTextView.text isEqualToString:@""]
        || [self.instagramTagTextField.text isEqualToString:@""]){
         return NO;
