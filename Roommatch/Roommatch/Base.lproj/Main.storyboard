@@ -620,7 +620,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zkq-XO-IZy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-74" y="931"/>
+            <point key="canvasLocation" x="-14" y="931"/>
         </scene>
         <!--Location-->
         <scene sceneID="sfd-d2-j5c">
@@ -692,13 +692,14 @@
                     <navigationItem key="navigationItem" title="Location" id="sTT-Iy-aZT">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="QBu-Wf-sPW">
                             <connections>
-                                <segue destination="O0r-9W-qBE" kind="show" id="V22-AT-y7j"/>
+                                <action selector="tappedNext:" destination="4gs-7E-nDg" id="bd4-sP-AQs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="V28-cg-ZHg" id="UaY-kK-bkA"/>
                         <outlet property="tableView" destination="AZY-mZ-6QF" id="K8Q-ex-N3D"/>
+                        <segue destination="O0r-9W-qBE" kind="show" identifier="Selected Location Segue" id="VDD-3l-fAA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pc-hE-d8t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -707,7 +708,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="V22-AT-y7j"/>
+        <segue reference="VDD-3l-fAA"/>
         <segue reference="aBn-Bm-j3f"/>
     </inferredMetricsTieBreakers>
     <resources>

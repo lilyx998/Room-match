@@ -5,9 +5,9 @@
 //  Created by Lily Yang on 7/8/22.
 //
 
-#import "Lib.h"
+#import "Utils.h"
 
-@implementation Lib
+@implementation Utils
 
 + (void)alertViewController:(UIViewController *)viewController WithMessage:(NSString *)message {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"

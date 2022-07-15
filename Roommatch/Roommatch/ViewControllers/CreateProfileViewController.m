@@ -6,7 +6,7 @@
 //
 
 #import "CreateProfileViewController.h"
-#import "Lib.h"
+#import "Utils.h"
 #import "User.h"
 #import <Parse/Parse.h>
 @import AutoCompletion;
@@ -116,7 +116,7 @@ static const int charLimit = 280;
 
 - (IBAction)tapDoneButton:(id)sender {
     if(![self areRequiredFeaturesFilled]){
-        [Lib alertViewController:self WithMessage:@"Please fill out all required fields"];
+        [Utils alertViewController:self WithMessage:@"Please fill out all required fields"];
         return;
     }
     
@@ -124,7 +124,7 @@ static const int charLimit = 280;
     user.name = self.nameTextField.text;
     user.age = self.ageTextField.text;
     user.pronouns = self.pronounsTextField.text;
-    user.profilePicture = [Lib getPFFileFromImage:self.imageView.image];
+    user.profilePicture = [Utils getPFFileFromImage:self.imageView.image];
     user.priceLow = self.priceLow.text;
     user.priceHigh = self.priceHigh.text;
     user.bio = self.bioTextView.text;
@@ -146,7 +146,7 @@ static const int charLimit = 280;
     
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error){
         if(error)
-            [Lib alertViewController:self WithMessage:error.localizedDescription];
+            [Utils alertViewController:self WithMessage:error.localizedDescription];
         else{
             [self performSegueWithIdentifier:@"Create Profile Segue" sender:nil];
         }

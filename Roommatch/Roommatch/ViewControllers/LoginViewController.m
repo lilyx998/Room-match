@@ -6,7 +6,7 @@
 //
 
 #import "LoginViewController.h"
-#import "Lib.h"
+#import "Utils.h"
 #import "User.h"
 
 @interface LoginViewController ()
@@ -26,7 +26,7 @@
     NSString *password = self.passwordTextField.text;
     
     if([username isEqualToString:@""] || [password isEqualToString:@""]){
-        [Lib alertViewController:self WithMessage:@"Please enter a valid username and password"];
+        [Utils alertViewController:self WithMessage:@"Please enter a valid username and password"];
         return;
     }
 
@@ -38,7 +38,7 @@
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
             NSLog(@"Error: %@", error.localizedDescription);
-            [Lib alertViewController:self WithMessage:error.localizedDescription];
+            [Utils alertViewController:self WithMessage:error.localizedDescription];
         } else {
             NSLog(@"User registered successfully");
             [self performSegueWithIdentifier:@"Sign Up Segue" sender:nil];
@@ -51,14 +51,14 @@
     NSString *password = self.passwordTextField.text;
     
     if([username isEqualToString:@""] || [password isEqualToString:@""]){
-        [Lib alertViewController:self WithMessage:@"Please enter a valid username and password"];
+        [Utils alertViewController:self WithMessage:@"Please enter a valid username and password"];
         return;
     }
     
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error) {
             NSLog(@"User log in failed: %@", error.localizedDescription);
-            [Lib alertViewController:self WithMessage:error.localizedDescription];
+            [Utils alertViewController:self WithMessage:error.localizedDescription];
         } else {
             NSLog(@"🤓🤓🤓 User logged in successfully");
             [self performSegueWithIdentifier:@"Login Segue" sender:nil];

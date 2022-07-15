@@ -8,6 +8,7 @@
 #import "LocationViewController.h"
 #import "User.h"
 #import "CityTableViewCell.h"
+#import "Utils.h"
 
 @interface LocationViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -42,8 +43,6 @@
     CityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cityCell" forIndexPath:indexPath];
     cell.cityNameLabel.text = self.cities[indexPath.row];
     if([cell.cityNameLabel.text isEqualToString:self.selectedCity]){
-        if(self.selectedCell)
-            [self.selectedCell.checkImageView setImage:[UIImage systemImageNamed:@""]];
         [cell.checkImageView setImage:[UIImage systemImageNamed:@"checkmark.circle.fill"]];
         self.selectedCell = cell;
     }
@@ -115,7 +114,17 @@
             [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:0]];
         }
     }
+    if(self.selectedCell)
+        [self.selectedCell.checkImageView setImage:[UIImage systemImageNamed:@""]];
     [self.tableView reloadData];
+}
+
+- (IBAction)tappedNext:(id)sender {
+    if(!self.selectedCell){
+        [Utils alertViewController:self WithMessage:@"Must select a city"];
+        return;
+    }
+    [self performSegueWithIdentifier:@"Selected Location Segue" sender:nil]; 
 }
 
 @end
