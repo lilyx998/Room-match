@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Lib : NSObject
+@interface Utils : NSObject
 
 + (void)alertViewController:(UIViewController *)viewController WithMessage:(NSString *)message;
 

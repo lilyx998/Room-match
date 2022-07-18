@@ -6,23 +6,21 @@
 //
 
 #import "CreateProfileViewController.h"
-#import "Lib.h"
+#import "Utils.h"
 #import "User.h"
 #import <Parse/Parse.h>
 @import AutoCompletion;
-#import "GeoDBManager.h"
-#import "AutoCompletionUIKitDynamicsAnimation.h"
+@import Parse;
 
 static const int charLimit = 280;
 
 @interface CreateProfileViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet PFImageView *imageView;
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *ageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *pronounsTextField;
-@property (weak, nonatomic) IBOutlet AutoCompletionTextField *cityTextField;
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
 @property (weak, nonatomic) IBOutlet UITextField *priceLow;
 @property (weak, nonatomic) IBOutlet UITextField *priceHigh;
@@ -48,16 +46,55 @@ static const int charLimit = 280;
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
     self.bioTextView.delegate = self;
-    
-    AutoCompletionUIKitDynamicsAnimation *animation = [[AutoCompletionUIKitDynamicsAnimation alloc] init];
-    self.cityTextField.suggestionsResultDataSource = [[GeoDBManager alloc] init];
-    self.cityTextField.animationDelegate = animation;
 }
 
+- (void)setFields:(User *)user {
+    self.nameTextField.text = user.name;
+    self.ageTextField.text = user.age;
+    self.pronounsTextField.text = user.pronouns;
+    self.priceLow.text = user.priceLow;
+    self.priceHigh.text = user.priceHigh;
+    self.bioTextView.text = user.bio;
+    self.charactersRemainingLabel.text = [@(charLimit - user.bio.length) stringValue];
+    
+    self.imageView.file = user.profilePicture;
+    [self.imageView loadInBackground];
+    
+    if([user.smoking isEqualToString:@"No"])
+        [self.smokingSegmentedControl setSelectedSegmentIndex:0];
+    else if([user.smoking isEqualToString:@"Sometimes"])
+        [self.smokingSegmentedControl setSelectedSegmentIndex:1];
+    else
+        [self.smokingSegmentedControl setSelectedSegmentIndex:2];
+    
+    if([user.pets isEqualToString:@"No"])
+        [self.petsSegmentedControl setSelectedSegmentIndex:0];
+    else if([user.pets isEqualToString:@"Dog(s)"])
+        [self.petsSegmentedControl setSelectedSegmentIndex:1];
+    else if([user.pets isEqualToString:@"Cat(s)"])
+        [self.petsSegmentedControl setSelectedSegmentIndex:2];
+    else if([user.pets isEqualToString:@"Dog(s) and cat(s)"])
+        [self.petsSegmentedControl setSelectedSegmentIndex:3];
+    else
+        [self.petsSegmentedControl setSelectedSegmentIndex:4];
+    
+    if([user.inCollege isEqualToString:@"No"])
+        [self.inCollegeSegmentedControl setSelectedSegmentIndex:0];
+    else
+        [self.inCollegeSegmentedControl setSelectedSegmentIndex:1];
+    
+    self.collegeNameTextField.text = user.collegeName;
+    self.instagramTagTextField.text = user.instagramTag;
+}
 
-- (void)viewWillAppear:(BOOL)animated{
-    if(![User currentUser]){
+- (void)viewWillAppear:(BOOL)animated {
+    User *user = [User currentUser];
+    if(!user){
         [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    if(user.profileCreated){
+        [self setFields:user];
+        self.choseImage = YES;
     }
 }
 
@@ -79,7 +116,7 @@ static const int charLimit = 280;
 
 - (IBAction)tapDoneButton:(id)sender {
     if(![self areRequiredFeaturesFilled]){
-        [Lib alertViewController:self WithMessage:@"Please fill out all required fields"];
+        [Utils alertViewController:self WithMessage:@"Please fill out all required fields"];
         return;
     }
     
@@ -87,10 +124,9 @@ static const int charLimit = 280;
     user.name = self.nameTextField.text;
     user.age = self.ageTextField.text;
     user.pronouns = self.pronounsTextField.text;
-    user.profilePicture = [Lib getPFFileFromImage:self.imageView.image];
+    user.profilePicture = [Utils getPFFileFromImage:self.imageView.image];
     user.priceLow = self.priceLow.text;
     user.priceHigh = self.priceHigh.text;
-    user.city = self.cityTextField.text;
     user.bio = self.bioTextView.text;
     
     NSInteger smokingIndex = [self.smokingSegmentedControl selectedSegmentIndex];
@@ -106,10 +142,11 @@ static const int charLimit = 280;
     
     user.collegeName = self.collegeNameTextField.text;
     user.instagramTag = self.instagramTagTextField.text;
+    user.profileCreated = YES; 
     
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error){
         if(error)
-            [Lib alertViewController:self WithMessage:error.localizedDescription];
+            [Utils alertViewController:self WithMessage:error.localizedDescription];
         else{
             [self performSegueWithIdentifier:@"Create Profile Segue" sender:nil];
         }
@@ -120,7 +157,6 @@ static const int charLimit = 280;
     if(!self.choseImage
        || [self.nameTextField.text isEqualToString:@""]
        || [self.ageTextField.text isEqualToString:@""]
-       || [self.cityTextField.text isEqualToString:@""]
        || [self.bioTextView.text isEqualToString:@""]
        || [self.instagramTagTextField.text isEqualToString:@""]){
         return NO;
