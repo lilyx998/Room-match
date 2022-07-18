@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString* instagramTag;
 @property (nonatomic) BOOL profileCreated;
 
-
+@property (strong, nonatomic) NSMutableArray *usersSeen;
 
 @end
 
