@@ -1,49 +1,50 @@
 //
-//  RequestsViewController.m
+//  MatchesViewController.m
 //  Roommatch
 //
 //  Created by Lily Yang on 7/19/22.
 //
 
-#import "RequestsViewController.h"
+#import "MatchesViewController.h"
 #import "User.h"
-#import "ProfileCell.h"
 #import <Parse/Parse.h>
+#import "MatchCell.h"
 
-@interface RequestsViewController () <UITableViewDataSource>
+@interface MatchesViewController () <UITableViewDataSource>
 
-@property (strong, nonatomic) NSMutableArray *usersToDisplay;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *usersToDisplay;
 
 @end
 
-@implementation RequestsViewController
+@implementation MatchesViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.dataSource = self; 
-    
-    UINib *nib = [UINib nibWithNibName:@"ProfileCell" bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:@"profileCell"];
-    
-    [self queryRequests];
+    self.tableView.dataSource = self;
+    [self queryMatches];
 }
 
-- (void)queryRequests {
-    PFQuery *query = [PFQuery queryWithClassName:@"Requests"];
+- (void)queryMatches {
+    self.usersToDisplay = [NSMutableArray array];
+    [self queryMatchesWhereCurrentUserIsKey:@"user1" matchIsKey:@"user2"];
+    [self queryMatchesWhereCurrentUserIsKey:@"user2" matchIsKey:@"user1"];
+}
+
+- (void)queryMatchesWhereCurrentUserIsKey:(NSString *)currentUserKey matchIsKey:(NSString *)matchKey{
+    PFQuery *query = [PFQuery queryWithClassName:@"Matches"];
     User *curUser = [User currentUser];
     
-    [query whereKey:@"to" equalTo:curUser];
+    [query whereKey:currentUserKey equalTo:curUser];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *requests, NSError *error) {
         if (requests) {
             self.usersToDisplay = [NSMutableArray array];
             for(PFObject *request in requests){
-                PFUser* user = request[@"from"];
+                PFUser* user = request[matchKey];
                 user = [PFQuery getUserObjectWithId:user.objectId];
                 [self.usersToDisplay addObject:user];
-                
             }
             [self.tableView reloadData];
         } else {
@@ -63,7 +64,7 @@
 */
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    ProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:@"profileCell" forIndexPath:indexPath];
+    MatchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"matchCell" forIndexPath:indexPath];
     
     User* user = self.usersToDisplay[indexPath.row];
     [cell initWithUserObject:user];

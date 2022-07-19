@@ -40,6 +40,10 @@
 - (IBAction)tapYes:(id)sender {
     User *curUser = [User currentUser];
     
+    [curUser.usersSeen addObject:self.user.objectId];
+    curUser.usersSeen = curUser.usersSeen;
+    [curUser saveInBackground];
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Requests"];
     [query whereKey:@"from" equalTo:self.user];
     [query whereKey:@"to" equalTo:curUser];
@@ -57,10 +61,6 @@
     request[@"from"] = curUser;
     request[@"to"] = self.user;
     [request saveInBackground];
-    
-    [curUser.usersSeen addObject:self.user.objectId];
-    curUser.usersSeen = curUser.usersSeen;
-    [curUser saveInBackground];
 }
 
 @end
