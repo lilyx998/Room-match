@@ -28,23 +28,23 @@
 
 - (void)queryMatches {
     self.usersToDisplay = [NSMutableArray array];
-    [self queryMatchesWhereCurrentUserIsKey:@"user1" matchIsKey:@"user2"];
-    [self queryMatchesWhereCurrentUserIsKey:@"user2" matchIsKey:@"user1"];
-}
-
-- (void)queryMatchesWhereCurrentUserIsKey:(NSString *)currentUserKey matchIsKey:(NSString *)matchKey{
-    PFQuery *query = [PFQuery queryWithClassName:@"Matches"];
     User *curUser = [User currentUser];
     
-    [query whereKey:currentUserKey equalTo:curUser];
+    PFQuery *queryCurrentUserIsUser1 = [PFQuery queryWithClassName:@"Matches"];
+    [queryCurrentUserIsUser1 whereKey:@"user1" equalTo:curUser.objectId];
+    PFQuery *queryCurrentUserIsUser2 = [PFQuery queryWithClassName:@"Matches"];
+    [queryCurrentUserIsUser2 whereKey:@"user2" equalTo:curUser.objectId];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *requests, NSError *error) {
-        if (requests) {
-            self.usersToDisplay = [NSMutableArray array];
-            for(PFObject *request in requests){
-                PFUser* user = request[matchKey];
-                user = [PFQuery getUserObjectWithId:user.objectId];
-                [self.usersToDisplay addObject:user];
+    PFQuery *query = [PFQuery orQueryWithSubqueries:@[queryCurrentUserIsUser1, queryCurrentUserIsUser2]];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *matches, NSError *error) {
+        if (matches) {
+            for(PFObject *matchPair in matches){
+                NSString *idString = matchPair[@"user1"];
+                if([idString isEqualToString:curUser.objectId])
+                    idString = matchPair[@"user2"];
+                PFUser* matchUser = [PFQuery getUserObjectWithId:idString];
+                [self.usersToDisplay addObject:matchUser];
             }
             [self.tableView reloadData];
         } else {

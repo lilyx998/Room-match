@@ -45,21 +45,21 @@
     [curUser saveInBackground];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Requests"];
-    [query whereKey:@"from" equalTo:self.user];
-    [query whereKey:@"to" equalTo:curUser];
+    [query whereKey:@"from" equalTo:self.user.objectId];
+    [query whereKey:@"to" equalTo:curUser.objectId];
     NSArray* results = [query findObjects];
     if(results.count != 0){
         [results[0] deleteInBackground];
         PFObject *match = [PFObject objectWithClassName:@"Matches"];
-        match[@"user1"] = self.user;
-        match[@"user2"] = curUser;
+        match[@"user1"] = self.user.objectId;
+        match[@"user2"] = curUser.objectId;
         [match saveInBackground];
         return;
     }
     
     PFObject *request = [PFObject objectWithClassName:@"Requests"];
-    request[@"from"] = curUser;
-    request[@"to"] = self.user;
+    request[@"from"] = curUser.objectId;
+    request[@"to"] = self.user.objectId;
     [request saveInBackground];
 }
 

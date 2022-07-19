@@ -34,16 +34,14 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Requests"];
     User *curUser = [User currentUser];
     
-    [query whereKey:@"to" equalTo:curUser];
+    [query whereKey:@"to" equalTo:curUser.objectId];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *requests, NSError *error) {
         if (requests) {
             self.usersToDisplay = [NSMutableArray array];
             for(PFObject *request in requests){
-                PFUser* user = request[@"from"];
-                user = [PFQuery getUserObjectWithId:user.objectId];
+                PFUser* user = [PFQuery getUserObjectWithId:request[@"from"]];
                 [self.usersToDisplay addObject:user];
-                
             }
             [self.tableView reloadData];
         } else {
