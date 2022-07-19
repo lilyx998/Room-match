@@ -34,9 +34,6 @@
     self.searchBar.delegate = self;
     
     [self queryCitiesStartingWithPrefix];
-    
-    for(NSString* cityName in self.cities)
-        NSLog(@"%@", cityName);
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -98,7 +95,6 @@
             
             for(NSDictionary *city in cities){
                 NSString *cityString = [[city[@"city"] stringByAppendingString:@", "] stringByAppendingString:city[@"regionCode"]];
-                NSLog(@"%@", cityString);
                 [cityNames addObject:cityString];
             }
             self.cities = cityNames;

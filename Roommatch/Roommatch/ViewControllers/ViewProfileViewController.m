@@ -42,7 +42,7 @@
     self.locationLabel.text = [@"Location: " stringByAppendingString:user.city];
     
     
-    NSString *priceRange = [[user.priceLow stringByAppendingString:@" - "] stringByAppendingString:user.priceHigh];
+    NSString *priceRange = [[[@(user.priceLow.integerValue) stringValue] stringByAppendingString:@" - "] stringByAppendingString:[@(user.priceHigh.integerValue) stringValue]];
     self.priceRangeLabel.text = [@"Price Range: $" stringByAppendingString:priceRange];
     self.bioLabel.text = [@"Bio: " stringByAppendingString:user.bio];
     self.smokingLabel.text = [@"Smoking: " stringByAppendingString:user.smoking];

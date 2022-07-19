@@ -52,8 +52,8 @@ static const int charLimit = 280;
     self.nameTextField.text = user.name;
     self.ageTextField.text = user.age;
     self.pronounsTextField.text = user.pronouns;
-    self.priceLow.text = user.priceLow;
-    self.priceHigh.text = user.priceHigh;
+    self.priceLow.text = [@(user.priceLow.integerValue) stringValue];
+    self.priceHigh.text = [@(user.priceHigh.integerValue) stringValue];
     self.bioTextView.text = user.bio;
     self.charactersRemainingLabel.text = [@(charLimit - user.bio.length) stringValue];
     
@@ -125,8 +125,10 @@ static const int charLimit = 280;
     user.age = self.ageTextField.text;
     user.pronouns = self.pronounsTextField.text;
     user.profilePicture = [Utils getPFFileFromImage:self.imageView.image];
-    user.priceLow = self.priceLow.text;
-    user.priceHigh = self.priceHigh.text;
+    
+    user.priceLow = [NSNumber numberWithInteger:[self.priceLow.text integerValue]];
+    user.priceHigh = [NSNumber numberWithInteger:[self.priceHigh.text integerValue]];
+    
     user.bio = self.bioTextView.text;
     
     user.usersSeen = [NSMutableArray array];

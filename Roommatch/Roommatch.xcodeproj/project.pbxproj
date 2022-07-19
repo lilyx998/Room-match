@@ -10,6 +10,9 @@
 		B433612DA4C35A9F0252E02B /* Pods_Roommatch_RoommatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD518219B7867E4958AB038 /* Pods_Roommatch_RoommatchUITests.framework */; };
 		BAA8661335580629BCC8B0AB /* Pods_RoommatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E728E3E9F2FBE9C307DA388 /* Pods_RoommatchTests.framework */; };
 		D801C5D9287765F400F3A5FC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D801C5D8287765F400F3A5FC /* User.m */; };
+		D8838B4A28873AAE00C72808 /* RequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B4928873AAE00C72808 /* RequestsViewController.m */; };
+		D8838B4D28873EDD00C72808 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8838B4C28873EDD00C72808 /* ProfileCell.xib */; };
+		D8838B50288749A900C72808 /* MatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B4F288749A900C72808 /* MatchesViewController.m */; };
 		D88C852D2878A339009533BB /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852C2878A339009533BB /* TabViewController.m */; };
 		D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852F2878C542009533BB /* CreateProfileViewController.m */; };
 		D88C85332878D2DA009533BB /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85322878D2DA009533BB /* Utils.m */; };
@@ -61,6 +64,11 @@
 		A087A8CCFD1CFDE66FB90825 /* Pods-RoommatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoommatchTests.release.xcconfig"; path = "Target Support Files/Pods-RoommatchTests/Pods-RoommatchTests.release.xcconfig"; sourceTree = "<group>"; };
 		D801C5D7287765F400F3A5FC /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		D801C5D8287765F400F3A5FC /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		D8838B4828873AAE00C72808 /* RequestsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestsViewController.h; sourceTree = "<group>"; };
+		D8838B4928873AAE00C72808 /* RequestsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestsViewController.m; sourceTree = "<group>"; };
+		D8838B4C28873EDD00C72808 /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
+		D8838B4E288749A900C72808 /* MatchesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchesViewController.h; sourceTree = "<group>"; };
+		D8838B4F288749A900C72808 /* MatchesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchesViewController.m; sourceTree = "<group>"; };
 		D88C852B2878A339009533BB /* TabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		D88C852C2878A339009533BB /* TabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		D88C852E2878C542009533BB /* CreateProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProfileViewController.h; sourceTree = "<group>"; };
@@ -151,6 +159,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D8838B4B28873ECB00C72808 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D8838B4C28873EDD00C72808 /* ProfileCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D8A9E34B2874C1F4000ACF9A = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +192,7 @@
 		D8A9E3562874C1F4000ACF9A /* Roommatch */ = {
 			isa = PBXGroup;
 			children = (
+				D8838B4B28873ECB00C72808 /* Views */,
 				D8EE16AA28861E570068FD1B /* Cells */,
 				D8A9E3572874C1F4000ACF9A /* AppDelegate.h */,
 				D8A9E3582874C1F4000ACF9A /* AppDelegate.m */,
@@ -238,6 +255,10 @@
 				D8EE169B2880CC950068FD1B /* LocationViewController.m */,
 				D8EE16AE28861F050068FD1B /* DiscoverViewController.h */,
 				D8EE16AF28861F050068FD1B /* DiscoverViewController.m */,
+				D8838B4828873AAE00C72808 /* RequestsViewController.h */,
+				D8838B4928873AAE00C72808 /* RequestsViewController.m */,
+				D8838B4E288749A900C72808 /* MatchesViewController.h */,
+				D8838B4F288749A900C72808 /* MatchesViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -365,6 +386,7 @@
 				D8A9E3672874C1F5000ACF9A /* LaunchScreen.storyboard in Resources */,
 				D8A9E3642874C1F5000ACF9A /* Assets.xcassets in Resources */,
 				D8A9E3622874C1F4000ACF9A /* Main.storyboard in Resources */,
+				D8838B4D28873EDD00C72808 /* ProfileCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +519,8 @@
 				D801C5D9287765F400F3A5FC /* User.m in Sources */,
 				D8A9E3592874C1F4000ACF9A /* AppDelegate.m in Sources */,
 				D8A9E36A2874C1F5000ACF9A /* main.m in Sources */,
+				D8838B4A28873AAE00C72808 /* RequestsViewController.m in Sources */,
+				D8838B50288749A900C72808 /* MatchesViewController.m in Sources */,
 				D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */,
 				D8EE169C2880CC950068FD1B /* LocationViewController.m in Sources */,
 				D8A9E35C2874C1F4000ACF9A /* SceneDelegate.m in Sources */,
