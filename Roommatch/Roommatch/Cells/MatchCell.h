@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet PFImageView *profilePictureImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *instagramLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bioLabel;
 
 - (void)initWithUserObject:(User *)user;
 

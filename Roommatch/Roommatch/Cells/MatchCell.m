@@ -22,8 +22,9 @@
 
 - (void)initWithUserObject:(User *)user {
     self.nameLabel.text = user.name;
-    self.instagramLabel.text = user.instagramTag;
+    self.instagramLabel.text = [@"Instagram: " stringByAppendingString:user.instagramTag];
     self.profilePictureImageView.file = user.profilePicture;
+    self.bioLabel.text = [@"Bio: " stringByAppendingString:user.bio];
     [self.profilePictureImageView loadInBackground];
 }
 

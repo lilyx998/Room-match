@@ -739,13 +739,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reach out to someone! 🤠" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRv-Nu-UPa">
-                                <rect key="frame" x="20" y="123" width="374" height="21"/>
+                                <rect key="frame" x="20" y="123" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sV1-SL-CJW">
-                                <rect key="frame" x="0.0" y="154" width="414" height="659"/>
+                                <rect key="frame" x="0.0" y="153.5" width="414" height="659.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="matchCell" rowHeight="139" id="Q8x-Iy-sYg" customClass="MatchCell">
@@ -762,33 +762,42 @@
                                                         <constraint firstAttribute="width" constant="100" id="nFd-a6-jTY"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjM-Zr-ajR">
-                                                    <rect key="frame" x="140" y="21" width="254" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRK-jM-Y9B">
-                                                    <rect key="frame" x="140" y="61.5" width="254" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="voX-4Z-Eqh">
+                                                    <rect key="frame" x="140" y="21" width="254" height="97"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjM-Zr-ajR">
+                                                            <rect key="frame" x="0.0" y="0.0" width="254" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNQ-kE-Y2N">
+                                                            <rect key="frame" x="0.0" y="35" width="254" height="22"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRK-jM-Y9B">
+                                                            <rect key="frame" x="0.0" y="62" width="254" height="35"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="XjM-Zr-ajR" firstAttribute="leading" secondItem="97I-6d-ydf" secondAttribute="trailing" constant="20" id="4HI-G6-XZ2"/>
                                                 <constraint firstItem="97I-6d-ydf" firstAttribute="leading" secondItem="yeV-Ae-5AD" secondAttribute="leadingMargin" id="KbD-zc-t2r"/>
-                                                <constraint firstItem="GRK-jM-Y9B" firstAttribute="top" secondItem="XjM-Zr-ajR" secondAttribute="bottom" constant="20" id="Nda-wD-0tL"/>
-                                                <constraint firstItem="GRK-jM-Y9B" firstAttribute="leading" secondItem="97I-6d-ydf" secondAttribute="trailing" constant="20" id="Nlm-Uj-NSz"/>
+                                                <constraint firstItem="voX-4Z-Eqh" firstAttribute="top" secondItem="97I-6d-ydf" secondAttribute="top" id="LCa-sf-oov"/>
+                                                <constraint firstAttribute="trailing" secondItem="voX-4Z-Eqh" secondAttribute="trailing" constant="20" id="MSk-gC-r6G"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="97I-6d-ydf" secondAttribute="bottom" constant="10" id="PLv-WL-ASY"/>
-                                                <constraint firstAttribute="trailing" secondItem="GRK-jM-Y9B" secondAttribute="trailing" constant="20" id="e86-zw-0Nm"/>
-                                                <constraint firstItem="XjM-Zr-ajR" firstAttribute="top" secondItem="97I-6d-ydf" secondAttribute="top" id="hhA-So-yh6"/>
                                                 <constraint firstItem="97I-6d-ydf" firstAttribute="top" secondItem="yeV-Ae-5AD" secondAttribute="topMargin" constant="10" id="imX-cl-QFf"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="GRK-jM-Y9B" secondAttribute="bottom" constant="20" id="mhf-pB-DVC"/>
-                                                <constraint firstAttribute="trailing" secondItem="XjM-Zr-ajR" secondAttribute="trailing" constant="20" id="shx-vq-BJz"/>
+                                                <constraint firstItem="voX-4Z-Eqh" firstAttribute="leading" secondItem="97I-6d-ydf" secondAttribute="trailing" constant="20" id="kKa-na-rYD"/>
+                                                <constraint firstItem="voX-4Z-Eqh" firstAttribute="bottom" secondItem="97I-6d-ydf" secondAttribute="bottom" id="pXg-Bq-fqX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="bioLabel" destination="MNQ-kE-Y2N" id="9KP-It-4cH"/>
                                             <outlet property="instagramLabel" destination="GRK-jM-Y9B" id="15b-kE-SVF"/>
                                             <outlet property="nameLabel" destination="XjM-Zr-ajR" id="B3N-Gk-p3k"/>
                                             <outlet property="profilePictureImageView" destination="97I-6d-ydf" id="hWI-sw-t0Y"/>
