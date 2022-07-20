@@ -33,7 +33,10 @@
     User *user = [User user];
     user.username = username;
     user.password = password;
-    user.profileCreated = NO; 
+    user.profileCreated = NO;
+    
+    user.usersSeen = [NSMutableArray array];
+    [user.usersSeen addObject:user.objectId];
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {

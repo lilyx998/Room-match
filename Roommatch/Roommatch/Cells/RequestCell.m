@@ -49,20 +49,20 @@
     [query whereKey:@"to" equalTo:curUser.objectId];
     NSArray* results = [query findObjects];
     if(results.count != 0){
+        [self clearCellAndDisplayMessage:@"It's a match! 🥳"];
         [results[0] deleteInBackground];
         PFObject *match = [PFObject objectWithClassName:@"Matches"];
         match[@"user1"] = self.user.objectId;
         match[@"user2"] = curUser.objectId;
         [match saveInBackground];
-        [self clearCellAndDisplayMessage:@"It's a match! 🥳"];
         return;
     }
     
+    [self clearCellAndDisplayMessage:@"Sent a match request 🙏"];
     PFObject *request = [PFObject objectWithClassName:@"Requests"];
     request[@"from"] = curUser.objectId;
     request[@"to"] = self.user.objectId;
     [request saveInBackground];
-    [self clearCellAndDisplayMessage:@"Sent a match request 🙏"];
 }
 
 - (void)clearCellAndDisplayMessage:(NSString *)message {

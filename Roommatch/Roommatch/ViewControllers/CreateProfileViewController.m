@@ -127,10 +127,7 @@ static const int charLimit = 280;
     user.priceHigh = [NSNumber numberWithInteger:[self.priceHigh.text integerValue]];
     
     user.bio = self.bioTextView.text;
-    
-    user.usersSeen = [NSMutableArray array];
-    [user.usersSeen addObject:user.objectId];
-    
+        
     NSInteger smokingIndex = [self.smokingSegmentedControl selectedSegmentIndex];
     user.smoking = smokingIndex == 0 ? @"No" : (smokingIndex == 1 ? @"Sometimes" : @"Yes");
     
