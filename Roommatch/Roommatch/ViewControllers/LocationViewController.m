@@ -53,7 +53,6 @@
     if(self.selectedCell){
         [self.selectedCell.checkImageView setImage:[UIImage systemImageNamed:@""]];
     }
-    [User currentUser].city = self.cities[indexPath.row];
     CityTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     [cell.checkImageView setImage:[UIImage systemImageNamed:@"checkmark.circle.fill"]];
     self.selectedCell = cell;
@@ -115,10 +114,11 @@
 }
 
 - (IBAction)tappedNext:(id)sender {
-    if(!self.selectedCell){
+    if(!self.selectedCity){
         [Utils alertViewController:self WithMessage:@"Must select a city"];
         return;
     }
+    [User currentUser].city = self.selectedCity;
     [self performSegueWithIdentifier:@"Selected Location Segue" sender:nil]; 
 }
 

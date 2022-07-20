@@ -7,7 +7,7 @@
 
 #import "RequestsViewController.h"
 #import "User.h"
-#import "ProfileCell.h"
+#import "RequestCell.h"
 #import <Parse/Parse.h>
 
 @interface RequestsViewController () <UITableViewDataSource>
@@ -61,7 +61,7 @@
 */
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    ProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:@"profileCell" forIndexPath:indexPath];
+    RequestCell *cell = [tableView dequeueReusableCellWithIdentifier:@"profileCell" forIndexPath:indexPath];
     
     User* user = self.usersToDisplay[indexPath.row];
     [cell initWithUserObject:user];

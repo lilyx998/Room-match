@@ -33,7 +33,7 @@
 		D8E8307E287F647B007EA0D0 /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E8307D287F647B007EA0D0 /* Items.m */; };
 		D8EE169C2880CC950068FD1B /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE169B2880CC950068FD1B /* LocationViewController.m */; };
 		D8EE16A02880D4CE0068FD1B /* CityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE169F2880D4CE0068FD1B /* CityTableViewCell.m */; };
-		D8EE16AD28861E990068FD1B /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE16AC28861E990068FD1B /* ProfileCell.m */; };
+		D8EE16AD28861E990068FD1B /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE16AC28861E990068FD1B /* RequestCell.m */; };
 		D8EE16B028861F050068FD1B /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE16AF28861F050068FD1B /* DiscoverViewController.m */; };
 		E9DA0FD7C6E280E67B0A2E5D /* Pods_Roommatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B3C32F05D6B5D26556E893 /* Pods_Roommatch.framework */; };
 /* End PBXBuildFile section */
@@ -107,8 +107,8 @@
 		D8EE169B2880CC950068FD1B /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		D8EE169E2880D4CE0068FD1B /* CityTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityTableViewCell.h; sourceTree = "<group>"; };
 		D8EE169F2880D4CE0068FD1B /* CityTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityTableViewCell.m; sourceTree = "<group>"; };
-		D8EE16AB28861E990068FD1B /* ProfileCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileCell.h; sourceTree = "<group>"; };
-		D8EE16AC28861E990068FD1B /* ProfileCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileCell.m; sourceTree = "<group>"; };
+		D8EE16AB28861E990068FD1B /* RequestCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestCell.h; sourceTree = "<group>"; };
+		D8EE16AC28861E990068FD1B /* RequestCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestCell.m; sourceTree = "<group>"; };
 		D8EE16AE28861F050068FD1B /* DiscoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
 		D8EE16AF28861F050068FD1B /* DiscoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
 		D8F76225BF4577336C4B9511 /* Pods-Roommatch-RoommatchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roommatch-RoommatchUITests.release.xcconfig"; path = "Target Support Files/Pods-Roommatch-RoommatchUITests/Pods-Roommatch-RoommatchUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -198,10 +198,14 @@
 		D8A9E3562874C1F4000ACF9A /* Roommatch */ = {
 			isa = PBXGroup;
 			children = (
+				D8A9E38F2874FBC7000ACF9A /* Models */,
+				D8A9E3982877542E000ACF9A /* ViewControllers */,
 				D8838B4B28873ECB00C72808 /* Views */,
 				D8EE16AA28861E570068FD1B /* Cells */,
 				D8A9E3572874C1F4000ACF9A /* AppDelegate.h */,
 				D8A9E3582874C1F4000ACF9A /* AppDelegate.m */,
+				D8A9E35A2874C1F4000ACF9A /* SceneDelegate.h */,
+				D8A9E35B2874C1F4000ACF9A /* SceneDelegate.m */,
 				D8A9E3632874C1F5000ACF9A /* Assets.xcassets */,
 				D8A9E3682874C1F5000ACF9A /* Info.plist */,
 				D8A9E38C2874D356000ACF9A /* Keys.plist */,
@@ -210,10 +214,6 @@
 				D88C85322878D2DA009533BB /* Utils.m */,
 				D8A9E3692874C1F5000ACF9A /* main.m */,
 				D8A9E3602874C1F4000ACF9A /* Main.storyboard */,
-				D8A9E38F2874FBC7000ACF9A /* Models */,
-				D8A9E35A2874C1F4000ACF9A /* SceneDelegate.h */,
-				D8A9E35B2874C1F4000ACF9A /* SceneDelegate.m */,
-				D8A9E3982877542E000ACF9A /* ViewControllers */,
 			);
 			path = Roommatch;
 			sourceTree = "<group>";
@@ -276,8 +276,8 @@
 			children = (
 				D8EE169E2880D4CE0068FD1B /* CityTableViewCell.h */,
 				D8EE169F2880D4CE0068FD1B /* CityTableViewCell.m */,
-				D8EE16AB28861E990068FD1B /* ProfileCell.h */,
-				D8EE16AC28861E990068FD1B /* ProfileCell.m */,
+				D8EE16AB28861E990068FD1B /* RequestCell.h */,
+				D8EE16AC28861E990068FD1B /* RequestCell.m */,
 				D8838B512887661B00C72808 /* MatchCell.h */,
 				D8838B522887661B00C72808 /* MatchCell.m */,
 			);
@@ -538,7 +538,7 @@
 				D8A9E35C2874C1F4000ACF9A /* SceneDelegate.m in Sources */,
 				D8A9E39528774B1D000ACF9A /* LoginViewController.m in Sources */,
 				D8EE16B028861F050068FD1B /* DiscoverViewController.m in Sources */,
-				D8EE16AD28861E990068FD1B /* ProfileCell.m in Sources */,
+				D8EE16AD28861E990068FD1B /* RequestCell.m in Sources */,
 				D88C85362878F6A4009533BB /* ViewProfileViewController.m in Sources */,
 				D8EE16A02880D4CE0068FD1B /* CityTableViewCell.m in Sources */,
 				D88C85332878D2DA009533BB /* Utils.m in Sources */,

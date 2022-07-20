@@ -6,7 +6,7 @@
 //
 
 #import "DiscoverViewController.h"
-#import "ProfileCell.h"
+#import "RequestCell.h"
 #import <Parse/Parse.h>
 #import "User.h"
 
@@ -22,7 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.usersToDisplay = [NSMutableArray array];
     [self queryUsersToDisplay];
     self.tableView.dataSource = self;
     
@@ -43,6 +42,7 @@
  */
 
 - (void)queryUsersToDisplay {
+    self.usersToDisplay = [NSMutableArray array];
     PFQuery *query = [User query];
     User *curUser = [User currentUser];
     
@@ -65,7 +65,7 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    ProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:@"profileCell" forIndexPath:indexPath];
+    RequestCell *cell = [tableView dequeueReusableCellWithIdentifier:@"profileCell" forIndexPath:indexPath];
     
     User* user = self.usersToDisplay[indexPath.row];
     [cell initWithUserObject:user];

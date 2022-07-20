@@ -5,10 +5,10 @@
 //  Created by Lily Yang on 7/18/22.
 //
 
-#import "ProfileCell.h"
+#import "RequestCell.h"
 #import "Utils.h"
 
-@implementation ProfileCell
+@implementation RequestCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -34,7 +34,7 @@
     [me.usersSeen addObject:self.user.objectId];
     me.usersSeen = me.usersSeen;
     [me saveInBackground];
-    NSLog(@"Tapped No");
+    [self clearCellAndDisplayMessage:@"Rejected match request 🫢"];
 }
 
 - (IBAction)tapYes:(id)sender {
@@ -54,6 +54,7 @@
         match[@"user1"] = self.user.objectId;
         match[@"user2"] = curUser.objectId;
         [match saveInBackground];
+        [self clearCellAndDisplayMessage:@"It's a match! 🥳"];
         return;
     }
     
@@ -61,6 +62,18 @@
     request[@"from"] = curUser.objectId;
     request[@"to"] = self.user.objectId;
     [request saveInBackground];
+    [self clearCellAndDisplayMessage:@"Sent a match request 🙏"];
+}
+
+- (void)clearCellAndDisplayMessage:(NSString *)message {
+    [self.profilePictureImageView setHidden:YES];
+    [self.nameLabel setHidden:YES];
+    [self.bioLabel setHidden:YES];
+    [self.noButton setHidden:YES];
+    [self.yesButton setHidden:YES];
+    
+    self.interactionMessage.text = message;
+    [self.interactionMessage setHidden:NO];
 }
 
 @end
