@@ -14,6 +14,7 @@
 		D8838B4D28873EDD00C72808 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8838B4C28873EDD00C72808 /* ProfileCell.xib */; };
 		D8838B50288749A900C72808 /* MatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B4F288749A900C72808 /* MatchesViewController.m */; };
 		D8838B532887661B00C72808 /* MatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B522887661B00C72808 /* MatchCell.m */; };
+		D8838B56288780DE00C72808 /* ProfileDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B55288780DE00C72808 /* ProfileDetailsViewController.m */; };
 		D88C852D2878A339009533BB /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852C2878A339009533BB /* TabViewController.m */; };
 		D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852F2878C542009533BB /* CreateProfileViewController.m */; };
 		D88C85332878D2DA009533BB /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85322878D2DA009533BB /* Utils.m */; };
@@ -72,6 +73,8 @@
 		D8838B4F288749A900C72808 /* MatchesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchesViewController.m; sourceTree = "<group>"; };
 		D8838B512887661B00C72808 /* MatchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchCell.h; sourceTree = "<group>"; };
 		D8838B522887661B00C72808 /* MatchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchCell.m; sourceTree = "<group>"; };
+		D8838B54288780DE00C72808 /* ProfileDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileDetailsViewController.h; sourceTree = "<group>"; };
+		D8838B55288780DE00C72808 /* ProfileDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailsViewController.m; sourceTree = "<group>"; };
 		D88C852B2878A339009533BB /* TabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		D88C852C2878A339009533BB /* TabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		D88C852E2878C542009533BB /* CreateProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProfileViewController.h; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 				D8838B4928873AAE00C72808 /* RequestsViewController.m */,
 				D8838B4E288749A900C72808 /* MatchesViewController.h */,
 				D8838B4F288749A900C72808 /* MatchesViewController.m */,
+				D8838B54288780DE00C72808 /* ProfileDetailsViewController.h */,
+				D8838B55288780DE00C72808 /* ProfileDetailsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -528,6 +533,7 @@
 				D8838B50288749A900C72808 /* MatchesViewController.m in Sources */,
 				D8838B532887661B00C72808 /* MatchCell.m in Sources */,
 				D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */,
+				D8838B56288780DE00C72808 /* ProfileDetailsViewController.m in Sources */,
 				D8EE169C2880CC950068FD1B /* LocationViewController.m in Sources */,
 				D8A9E35C2874C1F4000ACF9A /* SceneDelegate.m in Sources */,
 				D8A9E39528774B1D000ACF9A /* LoginViewController.m in Sources */,

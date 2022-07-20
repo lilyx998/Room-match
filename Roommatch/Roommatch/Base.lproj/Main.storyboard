@@ -239,13 +239,13 @@
                         <outlet property="ageLabel" destination="nru-mr-kSL" id="cJr-Bv-OTX"/>
                         <outlet property="bioLabel" destination="GI4-Xz-Q6w" id="BNa-OP-hsU"/>
                         <outlet property="collegeNameLabel" destination="ejS-Je-YRG" id="6pT-eu-lSN"/>
-                        <outlet property="imageView" destination="h9A-Wc-F2l" id="oLo-1y-peP"/>
                         <outlet property="inCollegeLabel" destination="Bv1-FJ-7dr" id="4gu-bZ-B4X"/>
-                        <outlet property="instagramLabel" destination="mxa-3O-7qQ" id="pXM-3W-Z49"/>
+                        <outlet property="instagramTagLabel" destination="mxa-3O-7qQ" id="pXM-3W-Z49"/>
                         <outlet property="locationLabel" destination="jnG-8x-AGH" id="tZ5-aJ-36T"/>
                         <outlet property="nameLabel" destination="GVZ-HE-Qa6" id="ktR-uE-VnV"/>
                         <outlet property="petsLabel" destination="T5x-no-aa7" id="A5N-sB-2hH"/>
                         <outlet property="priceRangeLabel" destination="rfW-wO-90n" id="UmZ-ZP-n3k"/>
+                        <outlet property="profilePictureImageView" destination="h9A-Wc-F2l" id="oLo-1y-peP"/>
                         <outlet property="pronounsLabel" destination="XzY-tQ-bOG" id="CH2-Yw-ZhU"/>
                         <outlet property="smokingLabel" destination="Bl3-sa-Sj5" id="TmP-gO-A7U"/>
                     </connections>
@@ -600,11 +600,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search for city name..." translatesAutoresizingMaskIntoConstraints="NO" id="V28-cg-ZHg">
-                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AZY-mZ-6QF">
-                                <rect key="frame" x="0.0" y="95" width="414" height="801"/>
+                                <rect key="frame" x="0.0" y="139" width="414" height="757"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" rowHeight="42" id="RuS-Me-09C" customClass="CityTableViewCell">
@@ -722,7 +722,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1NN-eF-kkv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2970" y="-285"/>
+            <point key="canvasLocation" x="2670" y="-510"/>
         </scene>
         <!--Matches-->
         <scene sceneID="Nnq-l7-UHJ">
@@ -792,6 +792,7 @@
                                             <outlet property="instagramLabel" destination="GRK-jM-Y9B" id="15b-kE-SVF"/>
                                             <outlet property="nameLabel" destination="XjM-Zr-ajR" id="B3N-Gk-p3k"/>
                                             <outlet property="profilePictureImageView" destination="97I-6d-ydf" id="hWI-sw-t0Y"/>
+                                            <segue destination="joN-45-iII" kind="show" id="wxT-P7-A04"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -819,7 +820,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZw-ph-Hm6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2969.5652173913045" y="535.71428571428567"/>
+            <point key="canvasLocation" x="2670" y="766"/>
         </scene>
         <!--Requests-->
         <scene sceneID="EsY-LS-6zm">
@@ -868,28 +869,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbi-6g-Irv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3890" y="121"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="veu-gi-N3b">
-            <objects>
-                <navigationController id="h20-O8-WZx" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1yp-p1-dgA">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="joN-45-iII" kind="relationship" relationship="rootViewController" id="fZh-eg-Yp5"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4OT-1b-R82" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4883" y="931"/>
+            <point key="canvasLocation" x="3413" y="121"/>
         </scene>
         <!--Profile Details-->
         <scene sceneID="9Mp-XI-Qap">
             <objects>
-                <viewController id="joN-45-iII" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kNL-Ua-HT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="joN-45-iII" userLabel="Profile Details" customClass="ProfileDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ciK-y0-GWQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1001,11 +987,25 @@
                             <constraint firstItem="lHq-Ko-3nC" firstAttribute="leading" secondItem="tPc-ia-g8H" secondAttribute="trailing" constant="20" id="yWq-Mc-4Ya"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile Details" id="RJW-i9-SHf"/>
+                    <navigationItem key="navigationItem" id="RJW-i9-SHf"/>
+                    <connections>
+                        <outlet property="ageLabel" destination="Cm5-0t-FiI" id="Sg3-WS-bSL"/>
+                        <outlet property="bioLabel" destination="x2g-0k-hrY" id="cLd-Z4-goJ"/>
+                        <outlet property="collegeNameLabel" destination="WN6-F0-EoP" id="gVJ-j0-Y0s"/>
+                        <outlet property="inCollegeLabel" destination="hPJ-Rz-9A1" id="bpO-cm-YXb"/>
+                        <outlet property="instagramTagLabel" destination="ao3-le-o3L" id="43p-hr-nSa"/>
+                        <outlet property="locationLabel" destination="Ap3-qL-nnO" id="VY3-LD-Rgo"/>
+                        <outlet property="nameLabel" destination="0eV-cP-Sjh" id="aq9-Me-ALd"/>
+                        <outlet property="petsLabel" destination="Trq-pF-dVU" id="wDb-9F-3Zp"/>
+                        <outlet property="priceRangeLabel" destination="JRO-Bg-bM2" id="o1w-H0-cOZ"/>
+                        <outlet property="profilePictureImageView" destination="tPc-ia-g8H" id="DKb-Mn-O12"/>
+                        <outlet property="pronounsLabel" destination="xnN-Xp-oyu" id="M9L-II-swG"/>
+                        <outlet property="smokingLabel" destination="lMm-Mi-moG" id="MLl-U2-0FH"/>
+                        <outlet property="titleLabel" destination="pwz-KO-vMq" id="ZkZ-ZD-y6R"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kNL-Ua-HT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5614" y="931"/>
+            <point key="canvasLocation" x="5667" y="121"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

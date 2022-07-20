@@ -89,9 +89,6 @@ static const int charLimit = 280;
 
 - (void)viewWillAppear:(BOOL)animated {
     User *user = [User currentUser];
-    if(!user){
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
     if(user.profileCreated){
         [self setFields:user];
         self.choseImage = YES;

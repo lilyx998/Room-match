@@ -9,6 +9,7 @@
 #import "User.h"
 #import <Parse/Parse.h>
 #import "MatchCell.h"
+#import "ProfileDetailsViewController.h"
 
 @interface MatchesViewController () <UITableViewDataSource>
 
@@ -53,15 +54,13 @@
     }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    
+    User *userToPass = self.usersToDisplay[indexPath.row];
+    ProfileDetailsViewController *detailsVC = [segue destinationViewController];
+    detailsVC.user = userToPass;
 }
-*/
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MatchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"matchCell" forIndexPath:indexPath];
