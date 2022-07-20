@@ -18,7 +18,6 @@
 @property (nonatomic) NSArray *cities;
 
 @property (strong, nonatomic) CityTableViewCell *selectedCell;
-@property (strong, nonatomic) NSString *selectedCity;
 
 @end
 

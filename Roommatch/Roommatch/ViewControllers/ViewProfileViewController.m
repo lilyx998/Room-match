@@ -6,6 +6,7 @@
 //
 
 #import "ViewProfileViewController.h"
+#import "LocationViewController.h"
 #import "User.h"
 @import Parse;
 #import <Parse/Parse.h>
@@ -50,6 +51,11 @@
     self.inCollegeLabel.text = [@"Student: " stringByAppendingString:user.inCollege];
     self.collegeNameLabel.text = [@"College Name: " stringByAppendingString:user.collegeName];
     self.instagramTagLabel.text = [@"Instagram Tag: " stringByAppendingString:user.instagramTag];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    LocationViewController *vc = [segue destinationViewController];
+    vc.selectedCity = [User currentUser].city;
 }
 
 @end
