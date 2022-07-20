@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) NSMutableArray *usersToDisplay;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -22,11 +23,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(queryRequests) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+    
     self.tableView.dataSource = self; 
     
     UINib *nib = [UINib nibWithNibName:@"ProfileCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"profileCell"];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     [self queryRequests];
 }
 
@@ -47,6 +54,7 @@
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
+        [self.refreshControl endRefreshing];
     }];
 }
 

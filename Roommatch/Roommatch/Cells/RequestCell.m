@@ -30,15 +30,24 @@
 }
 
 - (IBAction)tapNo:(id)sender {
-    User *me = [User currentUser];
-    [me.usersSeen addObject:self.user.objectId];
-    me.usersSeen = me.usersSeen;
-    [me saveInBackground];
+    User *curUser = [User currentUser];
+    if([curUser.usersSeen containsObject:self.user.objectId]){
+        [self clearCellAndDisplayMessage:@"Already interacted with user..."];
+        return;
+    }
+    
+    [curUser.usersSeen addObject:self.user.objectId];
+    curUser.usersSeen = curUser.usersSeen;
+    [curUser saveInBackground];
     [self clearCellAndDisplayMessage:@"Rejected match request 🫢"];
 }
 
 - (IBAction)tapYes:(id)sender {
     User *curUser = [User currentUser];
+    if([curUser.usersSeen containsObject:self.user.objectId]){
+        [self clearCellAndDisplayMessage:@"Already interacted with user..."];
+        return;
+    }
     
     [curUser.usersSeen addObject:self.user.objectId];
     curUser.usersSeen = curUser.usersSeen;

@@ -13,7 +13,7 @@
 @interface DiscoverViewController () <UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSMutableArray *usersToDisplay;
 
 @end
@@ -22,13 +22,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self queryUsersToDisplay];
     self.tableView.dataSource = self;
     
-    [self.tableView reloadData];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(queryUsersToDisplay) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
     
     UINib *nib = [UINib nibWithNibName:@"ProfileCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"profileCell"];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self queryUsersToDisplay];
 }
 
 /*
@@ -42,7 +47,6 @@
  */
 
 - (void)queryUsersToDisplay {
-    self.usersToDisplay = [NSMutableArray array];
     PFQuery *query = [User query];
     User *curUser = [User currentUser];
     
@@ -52,6 +56,7 @@
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         if (users) {
+            self.usersToDisplay = [NSMutableArray array];
             for(PFObject* user in users){
                 if([curUser.usersSeen containsObject:user.objectId])
                     continue;
@@ -61,6 +66,7 @@
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
+        [self.refreshControl endRefreshing];
     }];
 }
 
