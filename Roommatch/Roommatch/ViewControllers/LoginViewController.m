@@ -35,15 +35,16 @@
     user.password = password;
     user.profileCreated = NO;
     
-    user.usersSeen = [NSMutableArray array];
-    [user.usersSeen addObject:user.objectId];
-    
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
             NSLog(@"Error: %@", error.localizedDescription);
             [Utils alertViewController:self WithMessage:error.localizedDescription];
         } else {
             NSLog(@"User registered successfully");
+            User* curUser = [User currentUser];
+            curUser.usersSeen = [NSMutableArray array];
+            [curUser.usersSeen addObject:curUser.objectId];
+            [curUser saveInBackground]; 
             [self performSegueWithIdentifier:@"Sign Up Segue" sender:nil];
         }
     }];
