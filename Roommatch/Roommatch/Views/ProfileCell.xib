@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -11,7 +12,7 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileCell" rowHeight="139" id="6YJ-6u-8v7" customClass="ProfileCell">
             <rect key="frame" x="0.0" y="0.0" width="414" height="139"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6YJ-6u-8v7" id="XAl-8c-beO">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6YJ-6u-8v7" id="XAl-8c-beO">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="139"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -28,24 +29,37 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuL-TT-hbB">
-                        <rect key="frame" x="140" y="62" width="254" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuL-TT-hbB">
+                        <rect key="frame" x="140" y="50" width="254" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8h-l5-LFK">
-                        <rect key="frame" x="223" y="102.5" width="47" height="31"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="Yes"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8h-l5-LFK">
+                        <rect key="frame" x="239" y="101" width="77" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="N0s-jP-ptK"/>
+                        </constraints>
+                        <color key="tintColor" red="0.39142219389999999" green="0.49351615650000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Accept" image="checkmark.circle.fill" catalog="system">
+                            <color key="titleColor" red="0.39142219389999999" green="0.49351615650000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
                         <connections>
                             <action selector="tapYes:" destination="6YJ-6u-8v7" eventType="touchUpInside" id="chM-aB-vrI"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BU-Hb-tgx">
-                        <rect key="frame" x="140" y="102.5" width="43" height="31"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="No"/>
+                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BU-Hb-tgx">
+                        <rect key="frame" x="138" y="101" width="71" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="JPi-Sx-JN8"/>
+                        </constraints>
+                        <color key="tintColor" red="0.8000315657" green="0.28123950679999998" blue="0.29885628110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Reject">
+                            <color key="titleColor" red="0.8000315657" green="0.28123950679999998" blue="0.29885628110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <imageReference key="image" image="xmark.circle.fill" catalog="system" renderingMode="template"/>
+                        </state>
                         <connections>
                             <action selector="tapNo:" destination="6YJ-6u-8v7" eventType="touchUpInside" id="ym8-c2-jvS"/>
                         </connections>
@@ -53,19 +67,19 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="xuL-TT-hbB" firstAttribute="leading" secondItem="3ne-4I-adC" secondAttribute="trailing" constant="20" id="9aK-qD-3Je"/>
+                    <constraint firstItem="N8h-l5-LFK" firstAttribute="centerY" secondItem="7BU-Hb-tgx" secondAttribute="centerY" id="Bsp-gd-7xg"/>
                     <constraint firstItem="3ne-4I-adC" firstAttribute="leading" secondItem="XAl-8c-beO" secondAttribute="leadingMargin" id="I1P-yY-wwP"/>
-                    <constraint firstItem="xuL-TT-hbB" firstAttribute="top" secondItem="kH8-dt-VbB" secondAttribute="bottom" constant="20" id="QU0-vP-U2c"/>
+                    <constraint firstItem="7BU-Hb-tgx" firstAttribute="bottom" secondItem="3ne-4I-adC" secondAttribute="bottom" id="IFf-I1-bXN"/>
+                    <constraint firstItem="xuL-TT-hbB" firstAttribute="top" secondItem="kH8-dt-VbB" secondAttribute="bottom" constant="8" id="QU0-vP-U2c"/>
                     <constraint firstItem="3ne-4I-adC" firstAttribute="top" secondItem="XAl-8c-beO" secondAttribute="topMargin" constant="10" id="SYX-vh-kpa"/>
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="3ne-4I-adC" secondAttribute="bottom" constant="10" id="Z8i-GV-y5b"/>
-                    <constraint firstItem="N8h-l5-LFK" firstAttribute="centerY" secondItem="7BU-Hb-tgx" secondAttribute="centerY" id="aPO-Jf-GPP"/>
+                    <constraint firstItem="N8h-l5-LFK" firstAttribute="leading" secondItem="7BU-Hb-tgx" secondAttribute="trailing" constant="30" id="a04-cu-a9f"/>
                     <constraint firstItem="kH8-dt-VbB" firstAttribute="leading" secondItem="3ne-4I-adC" secondAttribute="trailing" constant="20" id="ake-oc-ELU"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="N8h-l5-LFK" secondAttribute="trailing" constant="20" id="cZR-5P-OkE"/>
-                    <constraint firstItem="7BU-Hb-tgx" firstAttribute="leading" secondItem="3ne-4I-adC" secondAttribute="trailing" constant="20" id="irW-ax-7hn"/>
-                    <constraint firstItem="7BU-Hb-tgx" firstAttribute="top" secondItem="xuL-TT-hbB" secondAttribute="bottom" constant="20" id="kEA-IZ-xSv"/>
+                    <constraint firstItem="7BU-Hb-tgx" firstAttribute="leading" secondItem="3ne-4I-adC" secondAttribute="trailing" constant="18" id="gCG-cT-s6C"/>
                     <constraint firstAttribute="trailing" secondItem="xuL-TT-hbB" secondAttribute="trailing" constant="20" id="mHz-ST-5EO"/>
-                    <constraint firstAttribute="bottom" secondItem="7BU-Hb-tgx" secondAttribute="bottom" constant="10" id="p37-s9-WJH"/>
+                    <constraint firstItem="N8h-l5-LFK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xuL-TT-hbB" secondAttribute="bottom" constant="8" id="mwR-Ok-0iJ"/>
                     <constraint firstAttribute="trailing" secondItem="kH8-dt-VbB" secondAttribute="trailing" constant="20" id="qWX-Er-5ci"/>
-                    <constraint firstItem="N8h-l5-LFK" firstAttribute="leading" secondItem="7BU-Hb-tgx" secondAttribute="trailing" constant="40" id="vCn-nv-qF9"/>
                     <constraint firstItem="kH8-dt-VbB" firstAttribute="top" secondItem="3ne-4I-adC" secondAttribute="top" id="x9M-MP-ZwE"/>
                 </constraints>
             </tableViewCellContentView>
@@ -74,7 +88,11 @@
                 <outlet property="nameLabel" destination="kH8-dt-VbB" id="VIm-dd-b0s"/>
                 <outlet property="profilePictureImageView" destination="3ne-4I-adC" id="0L6-tO-i5y"/>
             </connections>
-            <point key="canvasLocation" x="-432" y="130"/>
+            <point key="canvasLocation" x="-433.33333333333337" y="129.57589285714286"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
 </document>
