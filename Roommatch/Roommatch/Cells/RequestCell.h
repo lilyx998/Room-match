@@ -9,6 +9,13 @@
 #import "User.h"
 @import Parse;
 
+@protocol RequestCellDelegate
+
+- (void)didInteractWithUser;
+
+@end
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RequestCell : UITableViewCell
@@ -20,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *interactionMessage;
 
 @property (strong, nonatomic) User *user;
+
+@property (nonatomic, weak) id<RequestCellDelegate> delegate;
 
 - (void)initWithUserObject:(User *)user;
 

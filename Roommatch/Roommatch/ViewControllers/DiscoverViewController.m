@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import "User.h"
 
-@interface DiscoverViewController () <UITableViewDataSource>
+@interface DiscoverViewController () <UITableViewDataSource, RequestCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
@@ -25,7 +25,7 @@
     self.tableView.dataSource = self;
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(queryUsersToDisplay) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(queryAndDisplayUsers) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     
     UINib *nib = [UINib nibWithNibName:@"ProfileCell" bundle:nil];
@@ -33,7 +33,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self queryUsersToDisplay];
+    [self queryAndDisplayUsers];
 }
 
 /*
@@ -46,7 +46,7 @@
  }
  */
 
-- (void)queryUsersToDisplay {
+- (void)queryAndDisplayUsers {
     PFQuery *query = [User query];
     User *curUser = [User currentUser];
     
@@ -75,12 +75,18 @@
     
     User* user = self.usersToDisplay[indexPath.row];
     [cell initWithUserObject:user];
+    cell.delegate = self;
     
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.usersToDisplay.count;
+}
+
+- (void)didInteractWithUser {
+    [self.class cancelPreviousPerformRequestsWithTarget:self selector:@selector(queryAndDisplayUsers) object:nil];
+    [self performSelector:@selector(queryAndDisplayUsers) withObject:nil afterDelay:2.0];
 }
 
 @end

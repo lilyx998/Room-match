@@ -25,17 +25,17 @@
     [super viewDidLoad];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(queryMatches) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(queryAndDisplayMatches) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     
     self.tableView.dataSource = self;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    [self queryMatches];
+    [self queryAndDisplayMatches];
 }
 
-- (void)queryMatches {
+- (void)queryAndDisplayMatches {
     self.usersToDisplay = [NSMutableArray array];
     User *curUser = [User currentUser];
     

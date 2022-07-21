@@ -259,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tPU-aW-Kk1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1919" y="1442"/>
+            <point key="canvasLocation" x="1409" y="1705"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="JXv-vN-fmv">
@@ -584,11 +584,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search for city name..." translatesAutoresizingMaskIntoConstraints="NO" id="V28-cg-ZHg">
-                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AZY-mZ-6QF">
-                                <rect key="frame" x="0.0" y="95" width="414" height="801"/>
+                                <rect key="frame" x="0.0" y="139" width="414" height="757"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" rowHeight="42" id="RuS-Me-09C" customClass="CityTableViewCell">
@@ -723,7 +723,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SAm-34-M1M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="940"/>
+            <point key="canvasLocation" x="1409" y="973"/>
         </scene>
         <!--Matches-->
         <scene sceneID="Nnq-l7-UHJ">
@@ -1041,7 +1041,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="7kD-9Z-NMe"/>
-        <segue reference="suR-Qc-pOH"/>
+        <segue reference="nNj-SB-mLI"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="House" width="1414" height="1414"/>

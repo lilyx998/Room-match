@@ -9,7 +9,6 @@
 #import "Utils.h"
 #import "User.h"
 #import <Parse/Parse.h>
-@import AutoCompletion;
 @import Parse;
 
 static const int charLimit = 280;

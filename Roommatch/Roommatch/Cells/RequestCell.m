@@ -21,6 +21,17 @@
     // Configure the view for the selected state
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    
+    [self.profilePictureImageView setHidden:NO];
+    [self.nameLabel setHidden:NO];
+    [self.bioLabel setHidden:NO];
+    [self.noButton setHidden:NO];
+    [self.yesButton setHidden:NO];
+    [self.interactionMessage setHidden:YES];
+}
+
 - (void)initWithUserObject:(User *)user {
     self.user = user;
     self.nameLabel.text = user.name;
@@ -83,6 +94,8 @@
     
     self.interactionMessage.text = message;
     [self.interactionMessage setHidden:NO];
+    
+    [self.delegate didInteractWithUser]; 
 }
 
 @end

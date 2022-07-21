@@ -10,7 +10,7 @@
 #import "RequestCell.h"
 #import <Parse/Parse.h>
 
-@interface RequestsViewController () <UITableViewDataSource>
+@interface RequestsViewController () <UITableViewDataSource, RequestCellDelegate>
 
 @property (strong, nonatomic) NSMutableArray *usersToDisplay;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -24,7 +24,7 @@
     [super viewDidLoad];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(queryRequests) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(queryAndDisplayRequests) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     
     self.tableView.dataSource = self; 
@@ -34,10 +34,10 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self queryRequests];
+    [self queryAndDisplayRequests];
 }
 
-- (void)queryRequests {
+- (void)queryAndDisplayRequests {
     PFQuery *query = [PFQuery queryWithClassName:@"Requests"];
     User *curUser = [User currentUser];
     
@@ -73,12 +73,22 @@
     
     User* user = self.usersToDisplay[indexPath.row];
     [cell initWithUserObject:user];
+    cell.delegate = self;
     
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.usersToDisplay.count;
+}
+
+- (void)didInteractWithUser {
+//    [NSTimer scheduledTimerWithTimeInterval:2.0
+//             target:self
+//             selector:@selector(queryUsersToDisplay)
+//             userInfo:nil
+//             repeats:NO];
+    [self queryAndDisplayRequests];
 }
 
 @end
