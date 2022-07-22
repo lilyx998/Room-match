@@ -42,10 +42,6 @@
 
 - (IBAction)tapNo:(id)sender {
     User *curUser = [User currentUser];
-    if([curUser.usersSeen containsObject:self.user.objectId]){
-        [self clearCellAndDisplayMessage:@"Already interacted with user..."];
-        return;
-    }
     
     [curUser.usersSeen addObject:self.user.objectId];
     curUser.usersSeen = curUser.usersSeen;
@@ -55,10 +51,6 @@
 
 - (IBAction)tapYes:(id)sender {
     User *curUser = [User currentUser];
-    if([curUser.usersSeen containsObject:self.user.objectId]){
-        [self clearCellAndDisplayMessage:@"Already interacted with user..."];
-        return;
-    }
     
     [curUser.usersSeen addObject:self.user.objectId];
     curUser.usersSeen = curUser.usersSeen;

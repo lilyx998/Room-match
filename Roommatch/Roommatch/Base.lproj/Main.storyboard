@@ -679,34 +679,49 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YNz-WC-MHA">
-                                <rect key="frame" x="0.0" y="155" width="414" height="658"/>
+                            <view contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNP-uv-AVu">
+                                <rect key="frame" x="30" y="185" width="354" height="588"/>
+                                <subviews>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No new users to display 😢" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jsu-Qa-RMB">
+                                        <rect key="frame" x="60" y="282" width="234" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstItem="Jsu-Qa-RMB" firstAttribute="centerY" secondItem="aNP-uv-AVu" secondAttribute="centerY" id="7nc-5j-Edd"/>
+                                    <constraint firstItem="Jsu-Qa-RMB" firstAttribute="centerX" secondItem="aNP-uv-AVu" secondAttribute="centerX" id="DDx-s3-jkb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="H7B-S4-HCU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="H7B-S4-HCU" firstAttribute="trailing" secondItem="YNz-WC-MHA" secondAttribute="trailing" id="3X5-3T-bnh"/>
+                            <constraint firstItem="H7B-S4-HCU" firstAttribute="trailing" secondItem="aNP-uv-AVu" secondAttribute="trailing" constant="30" id="2zR-zj-YGC"/>
+                            <constraint firstItem="aNP-uv-AVu" firstAttribute="top" secondItem="oud-Jk-IOm" secondAttribute="bottom" constant="40" id="78N-Se-j72"/>
                             <constraint firstItem="H7B-S4-HCU" firstAttribute="trailing" secondItem="POX-PL-THE" secondAttribute="trailing" id="BWv-wJ-xFY"/>
+                            <constraint firstItem="aNP-uv-AVu" firstAttribute="leading" secondItem="H7B-S4-HCU" secondAttribute="leading" constant="30" id="Boe-QK-4oO"/>
                             <constraint firstItem="POX-PL-THE" firstAttribute="top" secondItem="H7B-S4-HCU" secondAttribute="top" constant="20" id="DSY-Gx-12C"/>
                             <constraint firstItem="POX-PL-THE" firstAttribute="leading" secondItem="H7B-S4-HCU" secondAttribute="leading" id="c5U-0K-wQd"/>
                             <constraint firstItem="oud-Jk-IOm" firstAttribute="top" secondItem="POX-PL-THE" secondAttribute="bottom" constant="10" id="kZM-do-Vkq"/>
-                            <constraint firstItem="YNz-WC-MHA" firstAttribute="top" secondItem="oud-Jk-IOm" secondAttribute="bottom" constant="10" id="kiw-TH-Y9A"/>
                             <constraint firstAttribute="trailing" secondItem="oud-Jk-IOm" secondAttribute="trailing" constant="40" id="llq-ns-Ptf"/>
-                            <constraint firstItem="H7B-S4-HCU" firstAttribute="bottom" secondItem="YNz-WC-MHA" secondAttribute="bottom" id="mYc-TK-6mP"/>
+                            <constraint firstItem="aNP-uv-AVu" firstAttribute="centerX" secondItem="iVz-8b-IZs" secondAttribute="centerX" id="qc3-iq-7si"/>
                             <constraint firstItem="oud-Jk-IOm" firstAttribute="leading" secondItem="H7B-S4-HCU" secondAttribute="leading" constant="40" id="sS4-kD-9Sp"/>
-                            <constraint firstItem="YNz-WC-MHA" firstAttribute="leading" secondItem="H7B-S4-HCU" secondAttribute="leading" id="sxv-Rb-Tjv"/>
+                            <constraint firstItem="H7B-S4-HCU" firstAttribute="bottom" secondItem="aNP-uv-AVu" secondAttribute="bottom" constant="40" id="xvp-DO-zGp"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" image="magnifyingglass" catalog="system" id="ySh-NJ-ZhJ"/>
                     <connections>
-                        <outlet property="tableView" destination="YNz-WC-MHA" id="EDt-YP-vmn"/>
+                        <outlet property="descriptionLabel" destination="oud-Jk-IOm" id="Ubk-sL-pLV"/>
+                        <outlet property="noUsersToDisplayLabel" destination="Jsu-Qa-RMB" id="hJr-Hx-B0M"/>
+                        <outlet property="swipeContentView" destination="aNP-uv-AVu" id="M6c-gY-Mqi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1NN-eF-kkv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2670" y="-510"/>
+            <point key="canvasLocation" x="2669.5652173913045" y="-510.26785714285711"/>
         </scene>
         <!--Item-->
         <scene sceneID="Gfm-Sz-rWN">
@@ -885,7 +900,6 @@
         <!--Profile Details-->
         <scene sceneID="9Mp-XI-Qap">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kNL-Ua-HT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="joN-45-iII" userLabel="Profile Details" customClass="ProfileDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ciK-y0-GWQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -1018,6 +1032,7 @@
                         <outlet property="titleLabel" destination="pwz-KO-vMq" id="ZkZ-ZD-y6R"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kNL-Ua-HT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5667" y="121"/>
         </scene>

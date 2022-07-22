@@ -83,12 +83,8 @@
 }
 
 - (void)didInteractWithUser {
-//    [NSTimer scheduledTimerWithTimeInterval:2.0
-//             target:self
-//             selector:@selector(queryUsersToDisplay)
-//             userInfo:nil
-//             repeats:NO];
-    [self queryAndDisplayRequests];
+    [self.class cancelPreviousPerformRequestsWithTarget:self selector:@selector(queryAndDisplayRequests) object:nil];
+    [self performSelector:@selector(queryAndDisplayRequests) withObject:nil afterDelay:2.0];
 }
 
 @end

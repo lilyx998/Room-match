@@ -15,6 +15,8 @@
 		D8838B50288749A900C72808 /* MatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B4F288749A900C72808 /* MatchesViewController.m */; };
 		D8838B532887661B00C72808 /* MatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B522887661B00C72808 /* MatchCell.m */; };
 		D8838B56288780DE00C72808 /* ProfileDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B55288780DE00C72808 /* ProfileDetailsViewController.m */; };
+		D8838B5C2889D19100C72808 /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B5B2889D19100C72808 /* SwipeView.m */; };
+		D8838B602889EFCE00C72808 /* SwipeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8838B5F2889EFCE00C72808 /* SwipeView.xib */; };
 		D88C852D2878A339009533BB /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852C2878A339009533BB /* TabViewController.m */; };
 		D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852F2878C542009533BB /* CreateProfileViewController.m */; };
 		D88C85332878D2DA009533BB /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85322878D2DA009533BB /* Utils.m */; };
@@ -75,6 +77,9 @@
 		D8838B522887661B00C72808 /* MatchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchCell.m; sourceTree = "<group>"; };
 		D8838B54288780DE00C72808 /* ProfileDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileDetailsViewController.h; sourceTree = "<group>"; };
 		D8838B55288780DE00C72808 /* ProfileDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailsViewController.m; sourceTree = "<group>"; };
+		D8838B5A2889D19100C72808 /* SwipeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
+		D8838B5B2889D19100C72808 /* SwipeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
+		D8838B5F2889EFCE00C72808 /* SwipeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwipeView.xib; sourceTree = "<group>"; };
 		D88C852B2878A339009533BB /* TabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		D88C852C2878A339009533BB /* TabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		D88C852E2878C542009533BB /* CreateProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProfileViewController.h; sourceTree = "<group>"; };
@@ -169,6 +174,9 @@
 			isa = PBXGroup;
 			children = (
 				D8838B4C28873EDD00C72808 /* ProfileCell.xib */,
+				D8838B5A2889D19100C72808 /* SwipeView.h */,
+				D8838B5B2889D19100C72808 /* SwipeView.m */,
+				D8838B5F2889EFCE00C72808 /* SwipeView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -395,6 +403,7 @@
 				D8A9E38D2874D356000ACF9A /* Keys.plist in Resources */,
 				D8A9E3672874C1F5000ACF9A /* LaunchScreen.storyboard in Resources */,
 				D8A9E3642874C1F5000ACF9A /* Assets.xcassets in Resources */,
+				D8838B602889EFCE00C72808 /* SwipeView.xib in Resources */,
 				D8A9E3622874C1F4000ACF9A /* Main.storyboard in Resources */,
 				D8838B4D28873EDD00C72808 /* ProfileCell.xib in Resources */,
 			);
@@ -540,6 +549,7 @@
 				D8EE16B028861F050068FD1B /* DiscoverViewController.m in Sources */,
 				D8EE16AD28861E990068FD1B /* RequestCell.m in Sources */,
 				D88C85362878F6A4009533BB /* ViewProfileViewController.m in Sources */,
+				D8838B5C2889D19100C72808 /* SwipeView.m in Sources */,
 				D8EE16A02880D4CE0068FD1B /* CityTableViewCell.m in Sources */,
 				D88C85332878D2DA009533BB /* Utils.m in Sources */,
 			);

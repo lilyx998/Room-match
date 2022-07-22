@@ -6,10 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SwipeView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DiscoverViewController : UIViewController
+@interface DiscoverViewController : UIViewController <MDCSwipeToChooseDelegate>
 
 @end
 
