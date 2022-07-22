@@ -22,7 +22,7 @@
                                     <constraint firstAttribute="height" constant="40" id="23f-Bo-DIM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                <color key="textColor" red="0.54509803921568623" green="0.47843137254901957" blue="1" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.54509803921568623" green="0.47843137254901957" blue="1" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DXY-IT-voz">
@@ -695,6 +695,13 @@
                                     <constraint firstItem="Jsu-Qa-RMB" firstAttribute="centerX" secondItem="aNP-uv-AVu" secondAttribute="centerX" id="DDx-s3-jkb"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's a match! 🥳" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xej-IT-kge">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.60242827670939736" green="0.57065197002527912" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="H7B-S4-HCU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -704,9 +711,13 @@
                             <constraint firstItem="H7B-S4-HCU" firstAttribute="trailing" secondItem="POX-PL-THE" secondAttribute="trailing" id="BWv-wJ-xFY"/>
                             <constraint firstItem="aNP-uv-AVu" firstAttribute="leading" secondItem="H7B-S4-HCU" secondAttribute="leading" constant="30" id="Boe-QK-4oO"/>
                             <constraint firstItem="POX-PL-THE" firstAttribute="top" secondItem="H7B-S4-HCU" secondAttribute="top" constant="20" id="DSY-Gx-12C"/>
+                            <constraint firstItem="xej-IT-kge" firstAttribute="leading" secondItem="iVz-8b-IZs" secondAttribute="leading" id="JjZ-9C-aAD"/>
+                            <constraint firstItem="xej-IT-kge" firstAttribute="top" secondItem="iVz-8b-IZs" secondAttribute="top" id="MLo-sn-p7s"/>
                             <constraint firstItem="POX-PL-THE" firstAttribute="leading" secondItem="H7B-S4-HCU" secondAttribute="leading" id="c5U-0K-wQd"/>
+                            <constraint firstAttribute="bottom" secondItem="xej-IT-kge" secondAttribute="bottom" id="hpa-jo-wBG"/>
                             <constraint firstItem="oud-Jk-IOm" firstAttribute="top" secondItem="POX-PL-THE" secondAttribute="bottom" constant="10" id="kZM-do-Vkq"/>
                             <constraint firstAttribute="trailing" secondItem="oud-Jk-IOm" secondAttribute="trailing" constant="40" id="llq-ns-Ptf"/>
+                            <constraint firstAttribute="trailing" secondItem="xej-IT-kge" secondAttribute="trailing" id="qb4-Qu-0sJ"/>
                             <constraint firstItem="aNP-uv-AVu" firstAttribute="centerX" secondItem="iVz-8b-IZs" secondAttribute="centerX" id="qc3-iq-7si"/>
                             <constraint firstItem="oud-Jk-IOm" firstAttribute="leading" secondItem="H7B-S4-HCU" secondAttribute="leading" constant="40" id="sS4-kD-9Sp"/>
                             <constraint firstItem="H7B-S4-HCU" firstAttribute="bottom" secondItem="aNP-uv-AVu" secondAttribute="bottom" constant="40" id="xvp-DO-zGp"/>
@@ -715,6 +726,7 @@
                     <tabBarItem key="tabBarItem" title="Discover" image="magnifyingglass" catalog="system" id="ySh-NJ-ZhJ"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="oud-Jk-IOm" id="Ubk-sL-pLV"/>
+                        <outlet property="matchMessageLabel" destination="xej-IT-kge" id="MYc-H1-6kl"/>
                         <outlet property="noUsersToDisplayLabel" destination="Jsu-Qa-RMB" id="hJr-Hx-B0M"/>
                         <outlet property="swipeContentView" destination="aNP-uv-AVu" id="M6c-gY-Mqi"/>
                     </connections>

@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet PFImageView *profilePictureImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameAndAgeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bioLabel;
+@property (weak, nonatomic) IBOutlet UILabel *matchMessageLabel;
 
 - (void)initWithUserObject:(User *)user;
 

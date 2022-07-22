@@ -17,6 +17,7 @@
 		D8838B56288780DE00C72808 /* ProfileDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B55288780DE00C72808 /* ProfileDetailsViewController.m */; };
 		D8838B5C2889D19100C72808 /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B5B2889D19100C72808 /* SwipeView.m */; };
 		D8838B602889EFCE00C72808 /* SwipeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8838B5F2889EFCE00C72808 /* SwipeView.xib */; };
+		D8838B6C288B22F300C72808 /* ConfettiAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8838B6B288B22F300C72808 /* ConfettiAnimation.swift */; };
 		D88C852D2878A339009533BB /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852C2878A339009533BB /* TabViewController.m */; };
 		D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852F2878C542009533BB /* CreateProfileViewController.m */; };
 		D88C85332878D2DA009533BB /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85322878D2DA009533BB /* Utils.m */; };
@@ -80,6 +81,8 @@
 		D8838B5A2889D19100C72808 /* SwipeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
 		D8838B5B2889D19100C72808 /* SwipeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
 		D8838B5F2889EFCE00C72808 /* SwipeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwipeView.xib; sourceTree = "<group>"; };
+		D8838B6B288B22F300C72808 /* ConfettiAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiAnimation.swift; sourceTree = "<group>"; };
+		D8838B70288B48BE00C72808 /* Roommatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Roommatch-Bridging-Header.h"; sourceTree = "<group>"; };
 		D88C852B2878A339009533BB /* TabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		D88C852C2878A339009533BB /* TabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		D88C852E2878C542009533BB /* CreateProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProfileViewController.h; sourceTree = "<group>"; };
@@ -181,6 +184,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		D8838B6A288B22AA00C72808 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				D8838B6B288B22F300C72808 /* ConfettiAnimation.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		D8A9E34B2874C1F4000ACF9A = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +217,8 @@
 		D8A9E3562874C1F4000ACF9A /* Roommatch */ = {
 			isa = PBXGroup;
 			children = (
+				D8838B70288B48BE00C72808 /* Roommatch-Bridging-Header.h */,
+				D8838B6A288B22AA00C72808 /* Animation */,
 				D8A9E38F2874FBC7000ACF9A /* Models */,
 				D8A9E3982877542E000ACF9A /* ViewControllers */,
 				D8838B4B28873ECB00C72808 /* Views */,
@@ -364,6 +377,7 @@
 				TargetAttributes = {
 					D8A9E3532874C1F4000ACF9A = {
 						CreatedOnToolsVersion = 13.4;
+						LastSwiftMigration = 1340;
 					};
 					D8A9E36E2874C1F6000ACF9A = {
 						CreatedOnToolsVersion = 13.4;
@@ -543,6 +557,7 @@
 				D8838B532887661B00C72808 /* MatchCell.m in Sources */,
 				D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */,
 				D8838B56288780DE00C72808 /* ProfileDetailsViewController.m in Sources */,
+				D8838B6C288B22F300C72808 /* ConfettiAnimation.swift in Sources */,
 				D8EE169C2880CC950068FD1B /* LocationViewController.m in Sources */,
 				D8A9E35C2874C1F4000ACF9A /* SceneDelegate.m in Sources */,
 				D8A9E39528774B1D000ACF9A /* LoginViewController.m in Sources */,
@@ -723,8 +738,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = QHGU34F67Y;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -742,6 +759,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lilyyang.Roommatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Roommatch/Roommatch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -752,8 +772,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = QHGU34F67Y;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -771,6 +793,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lilyyang.Roommatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Roommatch/Roommatch-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -779,6 +803,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1BFC4C11AF92636A2CA74AFE /* Pods-RoommatchTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -798,6 +823,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A087A8CCFD1CFDE66FB90825 /* Pods-RoommatchTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -817,6 +843,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 047F3A4AB297C830E321D268 /* Pods-Roommatch-RoommatchUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QHGU34F67Y;
@@ -834,6 +861,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D8F76225BF4577336C4B9511 /* Pods-Roommatch-RoommatchUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QHGU34F67Y;

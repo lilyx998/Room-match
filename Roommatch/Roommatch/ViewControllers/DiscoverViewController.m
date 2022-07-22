@@ -10,17 +10,18 @@
 #import <Parse/Parse.h>
 #import "User.h"
 
+#import "Roommatch-Swift.h"
+
 int userIdx;
 
 @interface DiscoverViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-
-@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSMutableArray *usersToDisplay;
 @property (strong, nonatomic) MDCSwipeToChooseViewOptions *options;
 @property (weak, nonatomic) IBOutlet UIView *swipeContentView;
 @property (weak, nonatomic) IBOutlet UILabel *noUsersToDisplayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *matchMessageLabel;
 
 @end
 
@@ -34,22 +35,11 @@ int userIdx;
     self.options.likedText = @"Yes 🫂";
     self.options.nopeText = @"Nope 🫣";
     self.options.delegate = self;
-    
-    
-//    MDCSwipeToChooseView *view = [[MDCSwipeToChooseView alloc] initWithFrame:self.view.bounds
-//                                                                         options:self.options];
-//    view.imageView.image = [UIImage imageNamed:@"cat"];
-//    [self.view addSubview:view];
-
-    
-    
-    [self queryUsers];
-//    [self displayNextUser];
 }
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    [self queryAndDisplayUsers];
-//}
+- (void)viewWillAppear:(BOOL)animated {
+    [self queryUsers];
+}
 
 - (void)queryUsers {
     userIdx = 0; 
@@ -72,8 +62,6 @@ int userIdx;
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
-        
-        [self.refreshControl endRefreshing];
     }];
 }
 
@@ -81,29 +69,13 @@ int userIdx;
     NSLog(@"Couldn't decide, huh?");
 }
 
-// Sent before a choice is made. Cancel the choice by returning `NO`. Otherwise return `YES`.
-- (BOOL)view:(UIView *)view shouldBeChosenWithDirection:(MDCSwipeDirection)direction {
-//    if (direction == MDCSwipeDirectionLeft) {
-        return YES;
-//    } else {
-//        // Snap the view back and cancel the choice.
-//        [UIView animateWithDuration:0.16 animations:^{
-//            view.transform = CGAffineTransformIdentity;
-//            view.center = [view superview].center;
-//        }];
-//        return NO;
-//    }
-}
-
-// This is called then a user swipes the view fully left or right.
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
     if (direction == MDCSwipeDirectionLeft) {
         [self swipedLeft];
+        [self displayNextUser];
     } else {
-        [self swipedRight]; 
+        [self swipedRight];
     }
-    userIdx++;
-    [self displayNextUser];
 }
 
 - (void)displayNextUser {
@@ -126,7 +98,7 @@ int userIdx;
 
 - (void)swipedLeft {
     User *curUser = [User currentUser];
-    User *them = self.usersToDisplay[userIdx];
+    User *them = self.usersToDisplay[userIdx++];
     [curUser.usersSeen addObject:them.objectId];
     curUser.usersSeen = curUser.usersSeen;
     [curUser saveInBackground];
@@ -134,7 +106,7 @@ int userIdx;
 
 - (void)swipedRight {
     User *curUser = [User currentUser];
-    User *them = self.usersToDisplay[userIdx];
+    User *them = self.usersToDisplay[userIdx++];
     
     [curUser.usersSeen addObject:them.objectId];
     curUser.usersSeen = curUser.usersSeen;
@@ -146,7 +118,7 @@ int userIdx;
     NSArray* results = [query findObjects];
     if(results.count != 0){
         [results[0] deleteInBackground];
-        // match animation!!!
+        [self matchAnimation];
         PFObject *match = [PFObject objectWithClassName:@"Matches"];
         match[@"user1"] = them.objectId;
         match[@"user2"] = curUser.objectId;
@@ -158,6 +130,22 @@ int userIdx;
     request[@"from"] = curUser.objectId;
     request[@"to"] = them.objectId;
     [request saveInBackground];
+    [self displayNextUser];
+}
+
+- (void)matchAnimation {
+    ConfettiAnimation * confettiAnimation = [[ConfettiAnimation alloc] init];
+    [self.matchMessageLabel setHidden:NO];
+
+    [confettiAnimation playMatchAnimationForView:self.view];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+      [NSThread sleepForTimeInterval:2.0f];
+      dispatch_async(dispatch_get_main_queue(), ^{
+          [self.matchMessageLabel setHidden:YES];
+          [self displayNextUser];
+      });
+    });
+    
 }
 
 @end
