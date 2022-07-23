@@ -9,12 +9,15 @@
 #import "RequestCell.h"
 #import <Parse/Parse.h>
 #import "User.h"
+#import "SwipeView.h"
 
 #import "Roommatch-Swift.h"
 
 int userIdx;
 
 @interface DiscoverViewController ()
+
+@property (strong, nonatomic) SwipeView *currentSwipeView;
 
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (strong, nonatomic) NSMutableArray *usersToDisplay;
@@ -35,7 +38,11 @@ int userIdx;
     self.options.likedText = @"Yes 🫂";
     self.options.nopeText = @"Nope 🫣";
     self.options.delegate = self;
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    if(self.currentSwipeView)
+        [self.currentSwipeView removeFromSuperview];
     [self queryUsers];
 }
 
@@ -87,6 +94,7 @@ int userIdx;
     view = [view initWithFrame:self.swipeContentView.frame options:self.options];
     [view initWithUserObject:user];
     view.frame = self.swipeContentView.frame;
+    self.currentSwipeView = view;
     [self.view addSubview:view];
 }
 

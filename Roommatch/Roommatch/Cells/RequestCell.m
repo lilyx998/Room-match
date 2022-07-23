@@ -46,6 +46,13 @@
     [curUser.usersSeen addObject:self.user.objectId];
     curUser.usersSeen = curUser.usersSeen;
     [curUser saveInBackground];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Requests"];
+    [query whereKey:@"from" equalTo:self.user.objectId];
+    [query whereKey:@"to" equalTo:curUser.objectId];
+    NSArray* results = [query findObjects];
+    [results[0] deleteInBackground];
+    
     [self clearCellAndDisplayMessage:@"Rejected match request 🫢"];
 }
 
