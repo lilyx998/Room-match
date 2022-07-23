@@ -35,9 +35,7 @@ int userIdx;
     self.options.likedText = @"Yes 🫂";
     self.options.nopeText = @"Nope 🫣";
     self.options.delegate = self;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
+    
     [self queryUsers];
 }
 
