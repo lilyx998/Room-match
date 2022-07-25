@@ -14,7 +14,7 @@ public class ConfettiAnimation : NSObject {
         let layer = CAEmitterLayer();
         layer.emitterPosition = CGPoint(
             x: view.center.x,
-            y: 0
+            y: -100
         )
         
         let colors: [UIColor] = [
