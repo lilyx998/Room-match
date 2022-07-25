@@ -45,6 +45,7 @@
     [queryCurrentUserIsUser2 whereKey:@"user2" equalTo:curUser.objectId];
     
     PFQuery *query = [PFQuery orQueryWithSubqueries:@[queryCurrentUserIsUser1, queryCurrentUserIsUser2]];
+    [query orderByDescending:@"updatedAt"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *matches, NSError *error) {
         if (matches) {

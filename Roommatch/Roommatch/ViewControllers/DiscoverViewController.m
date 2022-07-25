@@ -35,8 +35,8 @@ int userIdx;
         
     // You can customize MDCSwipeToChooseView using MDCSwipeToChooseViewOptions.
     self.options = [MDCSwipeToChooseViewOptions new];
-    self.options.likedText = @"Yes 🫂";
-    self.options.nopeText = @"Nope 🫣";
+    self.options.likedText = @"Yes";
+    self.options.nopeText = @"Nope";
     self.options.delegate = self;
 }
 
@@ -151,7 +151,6 @@ int userIdx;
           [self displayNextUser];
       });
     });
-    
 }
 
 @end

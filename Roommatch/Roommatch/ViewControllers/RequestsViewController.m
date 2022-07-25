@@ -42,6 +42,7 @@
     User *curUser = [User currentUser];
     
     [query whereKey:@"to" equalTo:curUser.objectId];
+    [query orderByDescending:@"updatedAt"]; 
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *requests, NSError *error) {
         if (requests) {
