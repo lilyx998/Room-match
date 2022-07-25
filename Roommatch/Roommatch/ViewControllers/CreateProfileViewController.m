@@ -9,7 +9,6 @@
 #import "Utils.h"
 #import "User.h"
 #import <Parse/Parse.h>
-@import AutoCompletion;
 @import Parse;
 
 static const int charLimit = 280;
@@ -52,8 +51,8 @@ static const int charLimit = 280;
     self.nameTextField.text = user.name;
     self.ageTextField.text = user.age;
     self.pronounsTextField.text = user.pronouns;
-    self.priceLow.text = user.priceLow;
-    self.priceHigh.text = user.priceHigh;
+    self.priceLow.text = [@(user.priceLow.integerValue) stringValue];
+    self.priceHigh.text = [@(user.priceHigh.integerValue) stringValue];
     self.bioTextView.text = user.bio;
     self.charactersRemainingLabel.text = [@(charLimit - user.bio.length) stringValue];
     
@@ -89,9 +88,6 @@ static const int charLimit = 280;
 
 - (void)viewWillAppear:(BOOL)animated {
     User *user = [User currentUser];
-    if(!user){
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
     if(user.profileCreated){
         [self setFields:user];
         self.choseImage = YES;
@@ -125,10 +121,12 @@ static const int charLimit = 280;
     user.age = self.ageTextField.text;
     user.pronouns = self.pronounsTextField.text;
     user.profilePicture = [Utils getPFFileFromImage:self.imageView.image];
-    user.priceLow = self.priceLow.text;
-    user.priceHigh = self.priceHigh.text;
-    user.bio = self.bioTextView.text;
     
+    user.priceLow = [NSNumber numberWithInteger:[self.priceLow.text integerValue]];
+    user.priceHigh = [NSNumber numberWithInteger:[self.priceHigh.text integerValue]];
+    
+    user.bio = self.bioTextView.text;
+        
     NSInteger smokingIndex = [self.smokingSegmentedControl selectedSegmentIndex];
     user.smoking = smokingIndex == 0 ? @"No" : (smokingIndex == 1 ? @"Sometimes" : @"Yes");
     

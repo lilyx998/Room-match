@@ -23,7 +23,7 @@
     if (user) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         if(user.profileCreated)
-            self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabNavigationController"];
+            self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabController"];
         else
             self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"CreateProfileNavController"];
     }

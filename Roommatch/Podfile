@@ -8,8 +8,7 @@ target 'Roommatch' do
   # Pods for Roommatch
   pod 'Parse'
   pod 'Parse/UI'
-  pod 'AutoCompletion'
-  pod 'YONAutoComplete'
+  pod "MDCSwipeToChoose"
 
   target 'RoommatchTests' do
     inherit! :search_paths

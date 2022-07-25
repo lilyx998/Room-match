@@ -14,8 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString* name;
 @property (strong, nonatomic) NSString* age;
 @property (strong, nonatomic) NSString* pronouns;
-@property (strong, nonatomic) NSString* priceLow;
-@property (strong, nonatomic) NSString* priceHigh;
+
+@property (strong, nonatomic) NSNumber* priceLow;
+@property (strong, nonatomic) NSNumber* priceHigh;
+
 @property (strong, nonatomic) PFFileObject* profilePicture; 
 @property (strong, nonatomic) NSString* city;
 @property (strong, nonatomic) NSString* bio;
@@ -26,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString* instagramTag;
 @property (nonatomic) BOOL profileCreated;
 
-
+@property (strong, nonatomic) NSMutableArray *usersSeen;
 
 @end
 

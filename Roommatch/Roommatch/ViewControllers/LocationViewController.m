@@ -18,7 +18,6 @@
 @property (nonatomic) NSArray *cities;
 
 @property (strong, nonatomic) CityTableViewCell *selectedCell;
-@property (strong, nonatomic) NSString *selectedCity;
 
 @end
 
@@ -34,9 +33,6 @@
     self.searchBar.delegate = self;
     
     [self queryCitiesStartingWithPrefix];
-    
-    for(NSString* cityName in self.cities)
-        NSLog(@"%@", cityName);
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -57,7 +53,6 @@
     if(self.selectedCell){
         [self.selectedCell.checkImageView setImage:[UIImage systemImageNamed:@""]];
     }
-    [User currentUser].city = self.cities[indexPath.row];
     CityTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     [cell.checkImageView setImage:[UIImage systemImageNamed:@"checkmark.circle.fill"]];
     self.selectedCell = cell;
@@ -98,7 +93,6 @@
             
             for(NSDictionary *city in cities){
                 NSString *cityString = [[city[@"city"] stringByAppendingString:@", "] stringByAppendingString:city[@"regionCode"]];
-                NSLog(@"%@", cityString);
                 [cityNames addObject:cityString];
             }
             self.cities = cityNames;
@@ -120,10 +114,11 @@
 }
 
 - (IBAction)tappedNext:(id)sender {
-    if(!self.selectedCell){
+    if(!self.selectedCity){
         [Utils alertViewController:self WithMessage:@"Must select a city"];
         return;
     }
+    [User currentUser].city = self.selectedCity;
     [self performSegueWithIdentifier:@"Selected Location Segue" sender:nil]; 
 }
 
