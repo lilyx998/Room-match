@@ -6,6 +6,7 @@
 //
 
 #import "RequestsViewController.h"
+#import "ProfileDetailsViewController.h"
 #import "User.h"
 #import "RequestCell.h"
 #import <Parse/Parse.h>
@@ -28,9 +29,6 @@
     [self.tableView addSubview:self.refreshControl];
     
     self.tableView.dataSource = self; 
-    
-    UINib *nib = [UINib nibWithNibName:@"ProfileCell" bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:@"profileCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -68,6 +66,15 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    
+    User *userToPass = self.usersToDisplay[indexPath.row];
+    ProfileDetailsViewController *detailsVC = [segue destinationViewController];
+    detailsVC.user = userToPass;
+}
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     RequestCell *cell = [tableView dequeueReusableCellWithIdentifier:@"profileCell" forIndexPath:indexPath];

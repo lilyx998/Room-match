@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *petsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *inCollegeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *collegeNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *instagramTagLabel;
 
 @end
 
@@ -51,7 +50,6 @@
     self.petsLabel.text = [@"Pets: " stringByAppendingString:self.user.pets];
     self.inCollegeLabel.text = [@"Student: " stringByAppendingString:self.user.inCollege];
     self.collegeNameLabel.text = [@"College Name: " stringByAppendingString:self.user.collegeName];
-    self.instagramTagLabel.text = [@"Instagram Tag: " stringByAppendingString:self.user.instagramTag];
 }
 
 @end
