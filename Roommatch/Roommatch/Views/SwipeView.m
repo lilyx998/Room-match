@@ -16,4 +16,8 @@
     [self.profilePictureImageView loadInBackground];
 }
 
+- (IBAction)tapSeeMoreDetails:(id)sender {
+    [self.delegate showDetailedView]; 
+}
+
 @end

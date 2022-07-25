@@ -11,12 +11,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol SwipeViewDelegate
+
+- (void)showDetailedView;
+
+@end
+
 @interface SwipeView : MDCSwipeToChooseView
 
 @property (weak, nonatomic) IBOutlet PFImageView *profilePictureImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameAndAgeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bioLabel;
-@property (weak, nonatomic) IBOutlet UILabel *matchMessageLabel;
+
+@property (nonatomic, weak) id<SwipeViewDelegate> delegate;
 
 - (void)initWithUserObject:(User *)user;
 

@@ -25,24 +25,38 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hup-Pv-RM7">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hup-Pv-RM7">
                     <rect key="frame" x="40" y="448" width="354" height="24"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3b-sD-EXS">
+                    <rect key="frame" x="142" y="847.5" width="130.5" height="28.5"/>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="See More Details...">
+                        <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="tapSeeMoreDetails:" destination="V0q-xk-0Pv" eventType="touchUpInside" id="Sja-UU-Bed"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" systemColor="systemGreenColor"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="hup-Pv-RM7" secondAttribute="trailing" constant="20" id="26d-nH-GvF"/>
                 <constraint firstAttribute="trailing" secondItem="tly-Cs-mIQ" secondAttribute="trailing" constant="20" id="AUg-5g-3KQ"/>
                 <constraint firstItem="jAP-UH-8lC" firstAttribute="leading" secondItem="V0q-xk-0Pv" secondAttribute="leading" constant="40" id="FSM-y6-Los"/>
                 <constraint firstItem="hup-Pv-RM7" firstAttribute="top" secondItem="tly-Cs-mIQ" secondAttribute="bottom" constant="20" id="G7I-zn-5Vw"/>
+                <constraint firstItem="e3b-sD-EXS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hup-Pv-RM7" secondAttribute="bottom" constant="20" id="Jcd-Bc-Xxv"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hup-Pv-RM7" secondAttribute="bottom" constant="20" id="NqN-NE-efk"/>
+                <constraint firstAttribute="bottom" secondItem="e3b-sD-EXS" secondAttribute="bottom" constant="20" id="P0D-uu-b86"/>
                 <constraint firstAttribute="trailing" secondItem="jAP-UH-8lC" secondAttribute="trailing" constant="40" id="R6b-Yh-bgL"/>
                 <constraint firstItem="hup-Pv-RM7" firstAttribute="leading" secondItem="jAP-UH-8lC" secondAttribute="leading" id="Sgb-Ox-i7U"/>
                 <constraint firstItem="tly-Cs-mIQ" firstAttribute="leading" secondItem="jAP-UH-8lC" secondAttribute="leading" id="aHa-Kj-4xK"/>
                 <constraint firstItem="jAP-UH-8lC" firstAttribute="top" secondItem="V0q-xk-0Pv" secondAttribute="top" constant="40" id="e7P-aS-LcL"/>
+                <constraint firstItem="e3b-sD-EXS" firstAttribute="centerX" secondItem="V0q-xk-0Pv" secondAttribute="centerX" id="lmx-UK-qmD"/>
                 <constraint firstItem="tly-Cs-mIQ" firstAttribute="top" secondItem="jAP-UH-8lC" secondAttribute="bottom" constant="30" id="sF0-WE-Lgr"/>
             </constraints>
             <connections>
@@ -55,8 +69,8 @@
     </objects>
     <resources>
         <image name="Profile Picture Placeholder" width="360" height="360"/>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

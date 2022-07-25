@@ -9,13 +9,14 @@
 #import "RequestCell.h"
 #import <Parse/Parse.h>
 #import "User.h"
+#import "ProfileDetailsViewController.h"
 #import "SwipeView.h"
 
 #import "Roommatch-Swift.h"
 
 int userIdx;
 
-@interface DiscoverViewController ()
+@interface DiscoverViewController () <SwipeViewDelegate>
 
 @property (strong, nonatomic) SwipeView *currentSwipeView;
 
@@ -95,6 +96,7 @@ int userIdx;
     [view initWithUserObject:user];
     view.frame = self.swipeContentView.frame;
     self.currentSwipeView = view;
+    view.delegate = self; 
     [self.view addSubview:view];
 }
 
@@ -151,6 +153,15 @@ int userIdx;
           [self displayNextUser];
       });
     });
+}
+
+- (void)showDetailedView {
+    [self performSegueWithIdentifier:@"discoverDetailedView" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    ProfileDetailsViewController *detailsVC = [segue destinationViewController];
+    detailsVC.user = self.usersToDisplay[userIdx];
 }
 
 @end
