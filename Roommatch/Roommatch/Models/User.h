@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface User : PFUser
+@interface User : PFUser<PFSubclassing>
 
 @property (strong, nonatomic) NSString* name;
 @property (strong, nonatomic) NSString* age;
@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL profileCreated;
 
 @property (strong, nonatomic) NSMutableArray *usersSeen;
+
+- (void)initAllEmpty; 
 
 @end
 

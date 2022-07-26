@@ -12,11 +12,15 @@
 		D801C5D9287765F400F3A5FC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D801C5D8287765F400F3A5FC /* User.m */; };
 		D8838B4A28873AAE00C72808 /* RequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B4928873AAE00C72808 /* RequestsViewController.m */; };
 		D8838B50288749A900C72808 /* MatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B4F288749A900C72808 /* MatchesViewController.m */; };
-		D8838B532887661B00C72808 /* MatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B522887661B00C72808 /* MatchCell.m */; };
+		D8838B532887661B00C72808 /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B522887661B00C72808 /* ChatCell.m */; };
 		D8838B56288780DE00C72808 /* ProfileDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B55288780DE00C72808 /* ProfileDetailsViewController.m */; };
 		D8838B5C2889D19100C72808 /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B5B2889D19100C72808 /* SwipeView.m */; };
 		D8838B602889EFCE00C72808 /* SwipeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8838B5F2889EFCE00C72808 /* SwipeView.xib */; };
 		D8838B6C288B22F300C72808 /* ConfettiAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8838B6B288B22F300C72808 /* ConfettiAnimation.swift */; };
+		D8838B73288F551500C72808 /* Chat.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B72288F551500C72808 /* Chat.m */; };
+		D8838B76288F552000C72808 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B75288F552000C72808 /* Message.m */; };
+		D8838B792890862B00C72808 /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B782890862B00C72808 /* MessagesViewController.m */; };
+		D8838B7C28908ED900C72808 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B7B28908ED900C72808 /* MessageCell.m */; };
 		D88C852D2878A339009533BB /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852C2878A339009533BB /* TabViewController.m */; };
 		D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852F2878C542009533BB /* CreateProfileViewController.m */; };
 		D88C85332878D2DA009533BB /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85322878D2DA009533BB /* Utils.m */; };
@@ -32,7 +36,6 @@
 		D8A9E3802874C1F6000ACF9A /* RoommatchUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E37F2874C1F6000ACF9A /* RoommatchUITestsLaunchTests.m */; };
 		D8A9E38D2874D356000ACF9A /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8A9E38C2874D356000ACF9A /* Keys.plist */; };
 		D8A9E39528774B1D000ACF9A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E39428774B1D000ACF9A /* LoginViewController.m */; };
-		D8E8307E287F647B007EA0D0 /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E8307D287F647B007EA0D0 /* Items.m */; };
 		D8EE169C2880CC950068FD1B /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE169B2880CC950068FD1B /* LocationViewController.m */; };
 		D8EE16A02880D4CE0068FD1B /* CityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE169F2880D4CE0068FD1B /* CityTableViewCell.m */; };
 		D8EE16AD28861E990068FD1B /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE16AC28861E990068FD1B /* RequestCell.m */; };
@@ -72,8 +75,8 @@
 		D8838B4928873AAE00C72808 /* RequestsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestsViewController.m; sourceTree = "<group>"; };
 		D8838B4E288749A900C72808 /* MatchesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchesViewController.h; sourceTree = "<group>"; };
 		D8838B4F288749A900C72808 /* MatchesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchesViewController.m; sourceTree = "<group>"; };
-		D8838B512887661B00C72808 /* MatchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchCell.h; sourceTree = "<group>"; };
-		D8838B522887661B00C72808 /* MatchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchCell.m; sourceTree = "<group>"; };
+		D8838B512887661B00C72808 /* ChatCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
+		D8838B522887661B00C72808 /* ChatCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
 		D8838B54288780DE00C72808 /* ProfileDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileDetailsViewController.h; sourceTree = "<group>"; };
 		D8838B55288780DE00C72808 /* ProfileDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailsViewController.m; sourceTree = "<group>"; };
 		D8838B5A2889D19100C72808 /* SwipeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
@@ -81,6 +84,14 @@
 		D8838B5F2889EFCE00C72808 /* SwipeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwipeView.xib; sourceTree = "<group>"; };
 		D8838B6B288B22F300C72808 /* ConfettiAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiAnimation.swift; sourceTree = "<group>"; };
 		D8838B70288B48BE00C72808 /* Roommatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Roommatch-Bridging-Header.h"; sourceTree = "<group>"; };
+		D8838B71288F551500C72808 /* Chat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Chat.h; sourceTree = "<group>"; };
+		D8838B72288F551500C72808 /* Chat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chat.m; sourceTree = "<group>"; };
+		D8838B74288F552000C72808 /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		D8838B75288F552000C72808 /* Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		D8838B772890862B00C72808 /* MessagesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
+		D8838B782890862B00C72808 /* MessagesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
+		D8838B7A28908ED900C72808 /* MessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		D8838B7B28908ED900C72808 /* MessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		D88C852B2878A339009533BB /* TabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		D88C852C2878A339009533BB /* TabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		D88C852E2878C542009533BB /* CreateProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProfileViewController.h; sourceTree = "<group>"; };
@@ -107,8 +118,6 @@
 		D8A9E38C2874D356000ACF9A /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		D8A9E39328774B1D000ACF9A /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D8A9E39428774B1D000ACF9A /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		D8E8307C287F647B007EA0D0 /* Items.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Items.h; sourceTree = "<group>"; };
-		D8E8307D287F647B007EA0D0 /* Items.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Items.m; sourceTree = "<group>"; };
 		D8EE169A2880CC950068FD1B /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		D8EE169B2880CC950068FD1B /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		D8EE169E2880D4CE0068FD1B /* CityTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityTableViewCell.h; sourceTree = "<group>"; };
@@ -258,8 +267,10 @@
 			children = (
 				D801C5D7287765F400F3A5FC /* User.h */,
 				D801C5D8287765F400F3A5FC /* User.m */,
-				D8E8307C287F647B007EA0D0 /* Items.h */,
-				D8E8307D287F647B007EA0D0 /* Items.m */,
+				D8838B71288F551500C72808 /* Chat.h */,
+				D8838B72288F551500C72808 /* Chat.m */,
+				D8838B74288F552000C72808 /* Message.h */,
+				D8838B75288F552000C72808 /* Message.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,6 +296,8 @@
 				D8838B4F288749A900C72808 /* MatchesViewController.m */,
 				D8838B54288780DE00C72808 /* ProfileDetailsViewController.h */,
 				D8838B55288780DE00C72808 /* ProfileDetailsViewController.m */,
+				D8838B772890862B00C72808 /* MessagesViewController.h */,
+				D8838B782890862B00C72808 /* MessagesViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -296,8 +309,10 @@
 				D8EE169F2880D4CE0068FD1B /* CityTableViewCell.m */,
 				D8EE16AB28861E990068FD1B /* RequestCell.h */,
 				D8EE16AC28861E990068FD1B /* RequestCell.m */,
-				D8838B512887661B00C72808 /* MatchCell.h */,
-				D8838B522887661B00C72808 /* MatchCell.m */,
+				D8838B512887661B00C72808 /* ChatCell.h */,
+				D8838B522887661B00C72808 /* ChatCell.m */,
+				D8838B7A28908ED900C72808 /* MessageCell.h */,
+				D8838B7B28908ED900C72808 /* MessageCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -543,16 +558,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8E8307E287F647B007EA0D0 /* Items.m in Sources */,
 				D88C852D2878A339009533BB /* TabViewController.m in Sources */,
 				D801C5D9287765F400F3A5FC /* User.m in Sources */,
 				D8A9E3592874C1F4000ACF9A /* AppDelegate.m in Sources */,
 				D8A9E36A2874C1F5000ACF9A /* main.m in Sources */,
 				D8838B4A28873AAE00C72808 /* RequestsViewController.m in Sources */,
+				D8838B73288F551500C72808 /* Chat.m in Sources */,
+				D8838B792890862B00C72808 /* MessagesViewController.m in Sources */,
 				D8838B50288749A900C72808 /* MatchesViewController.m in Sources */,
-				D8838B532887661B00C72808 /* MatchCell.m in Sources */,
+				D8838B532887661B00C72808 /* ChatCell.m in Sources */,
 				D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */,
+				D8838B7C28908ED900C72808 /* MessageCell.m in Sources */,
 				D8838B56288780DE00C72808 /* ProfileDetailsViewController.m in Sources */,
+				D8838B76288F552000C72808 /* Message.m in Sources */,
 				D8838B6C288B22F300C72808 /* ConfettiAnimation.swift in Sources */,
 				D8EE169C2880CC950068FD1B /* LocationViewController.m in Sources */,
 				D8A9E35C2874C1F4000ACF9A /* SceneDelegate.m in Sources */,

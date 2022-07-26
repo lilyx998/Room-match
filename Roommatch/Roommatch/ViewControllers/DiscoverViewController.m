@@ -11,6 +11,7 @@
 #import "User.h"
 #import "ProfileDetailsViewController.h"
 #import "SwipeView.h"
+#import "Chat.h"
 
 #import "Roommatch-Swift.h"
 
@@ -107,8 +108,8 @@ int userIdx;
 - (void)swipedLeft {
     User *curUser = [User currentUser];
     User *them = self.usersToDisplay[userIdx++];
-    [curUser.usersSeen addObject:them.objectId];
-    curUser.usersSeen = curUser.usersSeen;
+    
+    [curUser addObject:them.objectId forKey:@"usersSeen"];
     [curUser saveInBackground];
 }
 
@@ -116,27 +117,28 @@ int userIdx;
     User *curUser = [User currentUser];
     User *them = self.usersToDisplay[userIdx++];
     
-    [curUser.usersSeen addObject:them.objectId];
-    curUser.usersSeen = curUser.usersSeen;
+    [curUser addObject:them.objectId forKey:@"usersSeen"];
     [curUser saveInBackground];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Requests"];
-    [query whereKey:@"from" equalTo:them.objectId];
-    [query whereKey:@"to" equalTo:curUser.objectId];
+    PFQuery *query = [PFQuery queryWithClassName:@"Request"];
+    [query whereKey:@"from" equalTo:them];
+    [query whereKey:@"to" equalTo:curUser];
     NSArray* results = [query findObjects];
     if(results.count != 0){
         [results[0] deleteInBackground];
         [self matchAnimation];
-        PFObject *match = [PFObject objectWithClassName:@"Matches"];
-        match[@"user1"] = them.objectId;
-        match[@"user2"] = curUser.objectId;
-        [match saveInBackground];
+        Chat *chat = [Chat new];
+        chat.user1 = curUser;
+        chat.user2 = them;
+        chat.lastMessageText = @"Send a message!";
+        chat.messages = [NSMutableArray array];
+        [chat saveInBackground]; 
         return;
     }
     
-    PFObject *request = [PFObject objectWithClassName:@"Requests"];
-    request[@"from"] = curUser.objectId;
-    request[@"to"] = them.objectId;
+    PFObject *request = [PFObject objectWithClassName:@"Request"];
+    request[@"from"] = curUser;
+    request[@"to"] = them;
     [request saveInBackground];
     [self displayNextUser];
 }

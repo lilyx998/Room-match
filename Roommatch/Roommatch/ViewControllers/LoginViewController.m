@@ -31,6 +31,7 @@
     }
 
     User *user = [User user];
+    [user initAllEmpty];
     user.username = username;
     user.password = password;
     user.profileCreated = NO;
@@ -42,8 +43,7 @@
         } else {
             NSLog(@"User registered successfully");
             User* curUser = [User currentUser];
-            curUser.usersSeen = [NSMutableArray array];
-            [curUser.usersSeen addObject:curUser.objectId];
+            [curUser addObject:curUser.objectId forKey:@"usersSeen"];
             [curUser saveInBackground]; 
             [self performSegueWithIdentifier:@"Sign Up Segue" sender:nil];
         }

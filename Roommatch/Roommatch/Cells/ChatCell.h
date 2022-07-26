@@ -7,18 +7,18 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "Chat.h"
 @import Parse;
 #import "User.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MatchCell : UITableViewCell
+@interface ChatCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet PFImageView *profilePictureImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *instagramLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bioLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lastMessagePreview;
 
-- (void)initWithUserObject:(User *)user;
+- (void)initWithChatObject:(Chat *)chat;
 
 @end
 

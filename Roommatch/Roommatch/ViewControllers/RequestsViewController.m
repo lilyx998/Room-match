@@ -36,18 +36,17 @@
 }
 
 - (void)queryAndDisplayRequests {
-    PFQuery *query = [PFQuery queryWithClassName:@"Requests"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Request"];
     User *curUser = [User currentUser];
     
-    [query whereKey:@"to" equalTo:curUser.objectId];
+    [query whereKey:@"to" equalTo:curUser];
     [query orderByDescending:@"updatedAt"]; 
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *requests, NSError *error) {
         if (requests) {
             self.usersToDisplay = [NSMutableArray array];
             for(PFObject *request in requests){
-                PFUser* user = [PFQuery getUserObjectWithId:request[@"from"]];
-                [self.usersToDisplay addObject:user];
+                [self.usersToDisplay addObject:request[@"from"]];
             }
             [self.tableView reloadData];
         } else {
@@ -67,7 +66,7 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    RequestCell *cell = [tableView dequeueReusableCellWithIdentifier:@"profileCell" forIndexPath:indexPath];
+    RequestCell *cell = [tableView dequeueReusableCellWithIdentifier:@"requestCell" forIndexPath:indexPath];
     
     User* user = self.usersToDisplay[indexPath.row];
     [cell initWithUserObject:user];

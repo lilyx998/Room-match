@@ -7,6 +7,7 @@
 
 #import "RequestCell.h"
 #import "Utils.h"
+#import "Chat.h"
 
 @implementation RequestCell
 
@@ -33,6 +34,7 @@
 }
 
 - (void)initWithUserObject:(User *)user {
+    [user fetchIfNeeded];
     self.user = user;
     self.nameLabel.text = user.name;
     self.bioLabel.text = user.bio;
@@ -43,8 +45,7 @@
 - (IBAction)tapNo:(id)sender {
     User *curUser = [User currentUser];
     
-    [curUser.usersSeen addObject:self.user.objectId];
-    curUser.usersSeen = curUser.usersSeen;
+    [curUser addObject:self.user.objectId forKey:@"usersSeen"];
     [curUser saveInBackground];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Requests"];
@@ -58,22 +59,26 @@
 
 - (IBAction)tapYes:(id)sender {
     User *curUser = [User currentUser];
+    User *them = self.user;
     
-    [curUser.usersSeen addObject:self.user.objectId];
-    curUser.usersSeen = curUser.usersSeen;
+    [curUser addObject:them.objectId forKey:@"usersSeen"];
     [curUser saveInBackground];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Requests"];
-    [query whereKey:@"from" equalTo:self.user.objectId];
-    [query whereKey:@"to" equalTo:curUser.objectId];
+    PFQuery *query = [PFQuery queryWithClassName:@"Request"];
+    [query whereKey:@"from" equalTo:them];
+    [query whereKey:@"to" equalTo:curUser];
     NSArray* results = [query findObjects];
 
     [self clearCellAndDisplayMessage:@"It's a match! 🥳"];
     [results[0] deleteInBackground];
-    PFObject *match = [PFObject objectWithClassName:@"Matches"];
-    match[@"user1"] = self.user.objectId;
-    match[@"user2"] = curUser.objectId;
-    [match saveInBackground];
+    
+    Chat *chat = [Chat new];
+    chat.user1 = curUser;
+    chat.user2 = them;
+    chat.lastMessageText = @"Send a message!";
+    chat.messages = [NSMutableArray array];
+    [chat saveInBackground]; 
+    
     return;
 }
 
