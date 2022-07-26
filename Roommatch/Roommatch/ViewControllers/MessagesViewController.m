@@ -25,6 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.messagesCount = self.chat.messages.count;
+    [self registerForKeyboardNotifications];
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    gestureRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:gestureRecognizer];
     
     self.messagesTableView.dataSource = self;
     self.messagesTableView.transform = CGAffineTransformMakeScale(1, -1);
@@ -72,6 +76,40 @@
 
 - (User *)getOtherUser {
     return [self.chat.user1.objectId isEqualToString:[User currentUser].objectId] ? self.chat.user2 : self.chat.user1;
+}
+
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    
+    float newVerticalPosition = -keyboardSize.height;
+    [self moveFrameToVerticalPosition:newVerticalPosition forDuration:0.3f];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    [self moveFrameToVerticalPosition:0.0f forDuration:0.3f];
+}
+
+- (void)moveFrameToVerticalPosition:(float)position forDuration:(float)duration {
+    CGRect frame = self.view.frame;
+    frame.origin.y = position;
+    
+    [UIView animateWithDuration:duration animations:^{
+        self.view.frame = frame;
+    }];
+}
+
+-(void)hideKeyboard {
+    [self.view endEditing:YES];
 }
 
 @end

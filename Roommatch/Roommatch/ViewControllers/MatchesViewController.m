@@ -64,14 +64,13 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     
     Chat *chatToPass = self.chatsToDisplay[indexPath.row];
-    // pass the chat
     MessagesViewController *messagesVC = [segue destinationViewController];
     messagesVC.chat = chatToPass;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"chatCell" forIndexPath:indexPath];
-//
+
     Chat* chat = self.chatsToDisplay[indexPath.row];
     [cell initWithChatObject:chat];
     
