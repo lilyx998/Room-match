@@ -6,6 +6,7 @@
 //
 
 #import "MessagesViewController.h"
+#import "ParseLiveQuery/ParseLiveQuery-umbrella.h"
 #import "ProfileDetailsViewController.h"
 #import "Message.h"
 #import "MessageCell.h"
@@ -16,7 +17,12 @@
 @property (weak, nonatomic) IBOutlet UITableView *messagesTableView;
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
 
-@property (nonatomic) NSUInteger messagesCount;
+@property (strong, nonatomic) PFLiveQueryClient *liveQueryClient;
+@property (strong, nonatomic) PFQuery *msgQuery;
+@property (strong, nonatomic) PFLiveQuerySubscription *subscription;
+
+@property (strong, nonatomic) User *otherUser;
+@property (strong, nonatomic) NSMutableArray *messages;
 
 @end
 
@@ -24,7 +30,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.messagesCount = self.chat.messages.count;
+    
+    self.otherUser = [self getOtherUser];
+    self.messages = [NSMutableArray arrayWithArray:self.chat.messages];
+    
+    [self setUpLiveQuery];
+    
     [self registerForKeyboardNotifications];
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     gestureRecognizer.cancelsTouchesInView = NO;
@@ -34,28 +45,53 @@
     self.messagesTableView.transform = CGAffineTransformMakeScale(1, -1);
     [self.messagesTableView reloadData];
     
-    User *otherUser = [self getOtherUser];
+    self.navigationTitleItem.title = self.otherUser.name;
+}
+
+- (void)setUpLiveQuery {
+    NSString *path = [[NSBundle mainBundle] pathForResource: @"Keys" ofType: @"plist"];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
+    NSString *applicationId = [dict objectForKey: @"App ID"];
+    NSString *clientKey = [dict objectForKey: @"Client Key"];
+    self.liveQueryClient = [[PFLiveQueryClient alloc] initWithServer:@"wss://roommatch.b4a.io" applicationId:applicationId clientKey:clientKey];
     
-    self.navigationTitleItem.title = otherUser.name;
+    self.msgQuery = [PFQuery queryWithClassName:@"Message"];
+    
+    __weak typeof(self) weakSelf = self;
+    self.subscription = [self.liveQueryClient subscribeToQuery:self.msgQuery];
+    [self.subscription addCreateHandler:^(PFQuery<PFObject *> * _Nonnull query, PFObject * _Nonnull message) {
+        User *from = message[@"fromUser"];
+        User *to = message[@"toUser"];
+        if([from.objectId isEqualToString:self.otherUser.objectId] && [to.objectId isEqualToString:[User currentUser].objectId]){
+            __strong typeof(self) strongSelf = weakSelf;
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [strongSelf.messages addObject:message];
+                [strongSelf.messagesTableView reloadData];
+            });
+        }
+       
+    }];
 }
 
 - (IBAction)tapSendButton:(id)sender {
     Message *newMessage = [Message new];
     newMessage.fromUser = [User currentUser];
+    newMessage.toUser = self.otherUser; 
     newMessage.text = self.inputTextField.text;
     
     self.inputTextField.text = @"";
     
-    [newMessage saveInBackground];
+    [newMessage save];
     
+    [self.messages addObject:newMessage];
     [self.chat addObject:newMessage forKey:@"messages"];
-    [self.chat saveInBackground];
-    self.messagesCount = self.chat.messages.count;
+    self.chat.lastMessageText = newMessage.text;
+    [self.chat save];
     [self.messagesTableView reloadData];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    Message *message = self.chat.messages[self.messagesCount - indexPath.row - 1];
+    Message *message = self.messages[self.messages.count - indexPath.row - 1];
     [message fetchIfNeeded];
     
     MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"messageCell" forIndexPath:indexPath];
@@ -65,13 +101,12 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.messagesCount;
+    return self.messages.count;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    User *user = [self getOtherUser];
     ProfileDetailsViewController *detailsVC = [segue destinationViewController];
-    detailsVC.user = user;
+    detailsVC.user = self.otherUser;
 }
 
 - (User *)getOtherUser {

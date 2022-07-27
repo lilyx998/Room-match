@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) NSString *text;
 @property (strong, nonatomic) User *fromUser;
+@property (strong, nonatomic) User *toUser; 
 
 @end
 

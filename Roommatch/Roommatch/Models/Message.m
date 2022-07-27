@@ -10,7 +10,8 @@
 @implementation Message
 
 @dynamic text;
-@dynamic fromUser; 
+@dynamic fromUser;
+@dynamic toUser; 
 
 + (nonnull NSString *)parseClassName { 
     return @"Message"; 
