@@ -13,7 +13,7 @@
 		D8838B4A28873AAE00C72808 /* RequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B4928873AAE00C72808 /* RequestsViewController.m */; };
 		D8838B50288749A900C72808 /* MatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B4F288749A900C72808 /* MatchesViewController.m */; };
 		D8838B532887661B00C72808 /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B522887661B00C72808 /* ChatCell.m */; };
-		D8838B56288780DE00C72808 /* ProfileDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B55288780DE00C72808 /* ProfileDetailsViewController.m */; };
+		D8838B56288780DE00C72808 /* TheirProfileDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B55288780DE00C72808 /* TheirProfileDetailsViewController.m */; };
 		D8838B5C2889D19100C72808 /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B5B2889D19100C72808 /* SwipeView.m */; };
 		D8838B602889EFCE00C72808 /* SwipeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8838B5F2889EFCE00C72808 /* SwipeView.xib */; };
 		D8838B6C288B22F300C72808 /* ConfettiAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8838B6B288B22F300C72808 /* ConfettiAnimation.swift */; };
@@ -21,10 +21,9 @@
 		D8838B76288F552000C72808 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B75288F552000C72808 /* Message.m */; };
 		D8838B792890862B00C72808 /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B782890862B00C72808 /* MessagesViewController.m */; };
 		D8838B7C28908ED900C72808 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B7B28908ED900C72808 /* MessageCell.m */; };
-		D88C852D2878A339009533BB /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852C2878A339009533BB /* TabViewController.m */; };
 		D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852F2878C542009533BB /* CreateProfileViewController.m */; };
 		D88C85332878D2DA009533BB /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85322878D2DA009533BB /* Utils.m */; };
-		D88C85362878F6A4009533BB /* ViewProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85352878F6A4009533BB /* ViewProfileViewController.m */; };
+		D88C85362878F6A4009533BB /* ViewMyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85352878F6A4009533BB /* ViewMyProfileViewController.m */; };
 		D8A9E3592874C1F4000ACF9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E3582874C1F4000ACF9A /* AppDelegate.m */; };
 		D8A9E35C2874C1F4000ACF9A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E35B2874C1F4000ACF9A /* SceneDelegate.m */; };
 		D8A9E3622874C1F4000ACF9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8A9E3602874C1F4000ACF9A /* Main.storyboard */; };
@@ -77,8 +76,8 @@
 		D8838B4F288749A900C72808 /* MatchesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchesViewController.m; sourceTree = "<group>"; };
 		D8838B512887661B00C72808 /* ChatCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
 		D8838B522887661B00C72808 /* ChatCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
-		D8838B54288780DE00C72808 /* ProfileDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileDetailsViewController.h; sourceTree = "<group>"; };
-		D8838B55288780DE00C72808 /* ProfileDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailsViewController.m; sourceTree = "<group>"; };
+		D8838B54288780DE00C72808 /* TheirProfileDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TheirProfileDetailsViewController.h; sourceTree = "<group>"; };
+		D8838B55288780DE00C72808 /* TheirProfileDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TheirProfileDetailsViewController.m; sourceTree = "<group>"; };
 		D8838B5A2889D19100C72808 /* SwipeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
 		D8838B5B2889D19100C72808 /* SwipeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
 		D8838B5F2889EFCE00C72808 /* SwipeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwipeView.xib; sourceTree = "<group>"; };
@@ -92,14 +91,12 @@
 		D8838B782890862B00C72808 /* MessagesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
 		D8838B7A28908ED900C72808 /* MessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
 		D8838B7B28908ED900C72808 /* MessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
-		D88C852B2878A339009533BB /* TabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
-		D88C852C2878A339009533BB /* TabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		D88C852E2878C542009533BB /* CreateProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProfileViewController.h; sourceTree = "<group>"; };
 		D88C852F2878C542009533BB /* CreateProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateProfileViewController.m; sourceTree = "<group>"; };
 		D88C85312878D2DA009533BB /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		D88C85322878D2DA009533BB /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		D88C85342878F6A4009533BB /* ViewProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewProfileViewController.h; sourceTree = "<group>"; };
-		D88C85352878F6A4009533BB /* ViewProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewProfileViewController.m; sourceTree = "<group>"; };
+		D88C85342878F6A4009533BB /* ViewMyProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewMyProfileViewController.h; sourceTree = "<group>"; };
+		D88C85352878F6A4009533BB /* ViewMyProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewMyProfileViewController.m; sourceTree = "<group>"; };
 		D8A9E3542874C1F4000ACF9A /* Roommatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roommatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A9E3572874C1F4000ACF9A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D8A9E3582874C1F4000ACF9A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -198,6 +195,82 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
+		D8838B7E2891FEAA00C72808 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		D8838B7F2891FEE200C72808 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				D8838B4E288749A900C72808 /* MatchesViewController.h */,
+				D8838B4F288749A900C72808 /* MatchesViewController.m */,
+				D8838B772890862B00C72808 /* MessagesViewController.h */,
+				D8838B782890862B00C72808 /* MessagesViewController.m */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		D8838B802891FEF100C72808 /* Profile Creation */ = {
+			isa = PBXGroup;
+			children = (
+				D88C852E2878C542009533BB /* CreateProfileViewController.h */,
+				D88C852F2878C542009533BB /* CreateProfileViewController.m */,
+				D8EE169A2880CC950068FD1B /* LocationViewController.h */,
+				D8EE169B2880CC950068FD1B /* LocationViewController.m */,
+			);
+			path = "Profile Creation";
+			sourceTree = "<group>";
+		};
+		D8838B822891FF5000C72808 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D8A9E39328774B1D000ACF9A /* LoginViewController.h */,
+				D8A9E39428774B1D000ACF9A /* LoginViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D8838B832891FF5700C72808 /* View Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D88C85342878F6A4009533BB /* ViewMyProfileViewController.h */,
+				D88C85352878F6A4009533BB /* ViewMyProfileViewController.m */,
+				D8838B54288780DE00C72808 /* TheirProfileDetailsViewController.h */,
+				D8838B55288780DE00C72808 /* TheirProfileDetailsViewController.m */,
+			);
+			path = "View Profile";
+			sourceTree = "<group>";
+		};
+		D8838B842891FF5E00C72808 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				D8EE16AE28861F050068FD1B /* DiscoverViewController.h */,
+				D8EE16AF28861F050068FD1B /* DiscoverViewController.m */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		D8838B852891FF6400C72808 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				D8838B4828873AAE00C72808 /* RequestsViewController.h */,
+				D8838B4928873AAE00C72808 /* RequestsViewController.m */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		D8838B862891FFF000C72808 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D88C85312878D2DA009533BB /* Utils.h */,
+				D88C85322878D2DA009533BB /* Utils.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		D8A9E34B2874C1F4000ACF9A = {
 			isa = PBXGroup;
 			children = (
@@ -224,11 +297,13 @@
 			isa = PBXGroup;
 			children = (
 				D8838B70288B48BE00C72808 /* Roommatch-Bridging-Header.h */,
+				D8A9E3982877542E000ACF9A /* ViewControllers */,
 				D8838B6A288B22AA00C72808 /* Animation */,
 				D8A9E38F2874FBC7000ACF9A /* Models */,
-				D8A9E3982877542E000ACF9A /* ViewControllers */,
+				D8838B7E2891FEAA00C72808 /* New Group */,
 				D8838B4B28873ECB00C72808 /* Views */,
 				D8EE16AA28861E570068FD1B /* Cells */,
+				D8838B862891FFF000C72808 /* Util */,
 				D8A9E3572874C1F4000ACF9A /* AppDelegate.h */,
 				D8A9E3582874C1F4000ACF9A /* AppDelegate.m */,
 				D8A9E35A2874C1F4000ACF9A /* SceneDelegate.h */,
@@ -237,8 +312,6 @@
 				D8A9E3682874C1F5000ACF9A /* Info.plist */,
 				D8A9E38C2874D356000ACF9A /* Keys.plist */,
 				D8A9E3652874C1F5000ACF9A /* LaunchScreen.storyboard */,
-				D88C85312878D2DA009533BB /* Utils.h */,
-				D88C85322878D2DA009533BB /* Utils.m */,
 				D8A9E3692874C1F5000ACF9A /* main.m */,
 				D8A9E3602874C1F4000ACF9A /* Main.storyboard */,
 			);
@@ -278,26 +351,12 @@
 		D8A9E3982877542E000ACF9A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D8A9E39328774B1D000ACF9A /* LoginViewController.h */,
-				D8A9E39428774B1D000ACF9A /* LoginViewController.m */,
-				D88C852B2878A339009533BB /* TabViewController.h */,
-				D88C852C2878A339009533BB /* TabViewController.m */,
-				D88C852E2878C542009533BB /* CreateProfileViewController.h */,
-				D88C852F2878C542009533BB /* CreateProfileViewController.m */,
-				D88C85342878F6A4009533BB /* ViewProfileViewController.h */,
-				D88C85352878F6A4009533BB /* ViewProfileViewController.m */,
-				D8EE169A2880CC950068FD1B /* LocationViewController.h */,
-				D8EE169B2880CC950068FD1B /* LocationViewController.m */,
-				D8EE16AE28861F050068FD1B /* DiscoverViewController.h */,
-				D8EE16AF28861F050068FD1B /* DiscoverViewController.m */,
-				D8838B4828873AAE00C72808 /* RequestsViewController.h */,
-				D8838B4928873AAE00C72808 /* RequestsViewController.m */,
-				D8838B4E288749A900C72808 /* MatchesViewController.h */,
-				D8838B4F288749A900C72808 /* MatchesViewController.m */,
-				D8838B54288780DE00C72808 /* ProfileDetailsViewController.h */,
-				D8838B55288780DE00C72808 /* ProfileDetailsViewController.m */,
-				D8838B772890862B00C72808 /* MessagesViewController.h */,
-				D8838B782890862B00C72808 /* MessagesViewController.m */,
+				D8838B822891FF5000C72808 /* Login */,
+				D8838B802891FEF100C72808 /* Profile Creation */,
+				D8838B832891FF5700C72808 /* View Profile */,
+				D8838B842891FF5E00C72808 /* Discover */,
+				D8838B852891FF6400C72808 /* Requests */,
+				D8838B7F2891FEE200C72808 /* Chat */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -558,7 +617,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D88C852D2878A339009533BB /* TabViewController.m in Sources */,
 				D801C5D9287765F400F3A5FC /* User.m in Sources */,
 				D8A9E3592874C1F4000ACF9A /* AppDelegate.m in Sources */,
 				D8A9E36A2874C1F5000ACF9A /* main.m in Sources */,
@@ -569,7 +627,7 @@
 				D8838B532887661B00C72808 /* ChatCell.m in Sources */,
 				D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */,
 				D8838B7C28908ED900C72808 /* MessageCell.m in Sources */,
-				D8838B56288780DE00C72808 /* ProfileDetailsViewController.m in Sources */,
+				D8838B56288780DE00C72808 /* TheirProfileDetailsViewController.m in Sources */,
 				D8838B76288F552000C72808 /* Message.m in Sources */,
 				D8838B6C288B22F300C72808 /* ConfettiAnimation.swift in Sources */,
 				D8EE169C2880CC950068FD1B /* LocationViewController.m in Sources */,
@@ -577,7 +635,7 @@
 				D8A9E39528774B1D000ACF9A /* LoginViewController.m in Sources */,
 				D8EE16B028861F050068FD1B /* DiscoverViewController.m in Sources */,
 				D8EE16AD28861E990068FD1B /* RequestCell.m in Sources */,
-				D88C85362878F6A4009533BB /* ViewProfileViewController.m in Sources */,
+				D88C85362878F6A4009533BB /* ViewMyProfileViewController.m in Sources */,
 				D8838B5C2889D19100C72808 /* SwipeView.m in Sources */,
 				D8EE16A02880D4CE0068FD1B /* CityTableViewCell.m in Sources */,
 				D88C85332878D2DA009533BB /* Utils.m in Sources */,

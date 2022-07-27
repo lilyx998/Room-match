@@ -5,10 +5,10 @@
 //  Created by Lily Yang on 7/19/22.
 //
 
-#import "ProfileDetailsViewController.h"
+#import "TheirProfileDetailsViewController.h"
 @import Parse;
 
-@interface ProfileDetailsViewController ()
+@interface TheirProfileDetailsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *profilePictureImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -24,7 +24,7 @@
 
 @end
 
-@implementation ProfileDetailsViewController
+@implementation TheirProfileDetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

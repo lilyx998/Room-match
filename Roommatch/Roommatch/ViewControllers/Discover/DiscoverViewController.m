@@ -9,7 +9,7 @@
 #import "RequestCell.h"
 #import <Parse/Parse.h>
 #import "User.h"
-#import "ProfileDetailsViewController.h"
+#import "TheirProfileDetailsViewController.h"
 #import "SwipeView.h"
 #import "Chat.h"
 
@@ -162,7 +162,7 @@ int userIdx;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ProfileDetailsViewController *detailsVC = [segue destinationViewController];
+    TheirProfileDetailsViewController *detailsVC = [segue destinationViewController];
     detailsVC.user = self.usersToDisplay[userIdx];
 }
 

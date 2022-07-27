@@ -10,7 +10,7 @@
 #import "Chat.h"
 #import <Parse/Parse.h>
 #import "ChatCell.h"
-#import "ProfileDetailsViewController.h"
+#import "TheirProfileDetailsViewController.h"
 #import "MessagesViewController.h"
 
 @interface MatchesViewController () <UITableViewDataSource>

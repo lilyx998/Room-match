@@ -7,7 +7,7 @@
 
 #import "MessagesViewController.h"
 #import "ParseLiveQuery/ParseLiveQuery-umbrella.h"
-#import "ProfileDetailsViewController.h"
+#import "TheirProfileDetailsViewController.h"
 #import "Message.h"
 #import "MessageCell.h"
 
@@ -69,7 +69,6 @@
                 [strongSelf.messagesTableView reloadData];
             });
         }
-       
     }];
 }
 
@@ -105,7 +104,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ProfileDetailsViewController *detailsVC = [segue destinationViewController];
+    TheirProfileDetailsViewController *detailsVC = [segue destinationViewController];
     detailsVC.user = self.otherUser;
 }
 

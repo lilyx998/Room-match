@@ -5,7 +5,7 @@
 //  Created by Lily Yang on 7/8/22.
 //
 
-#import "ViewProfileViewController.h"
+#import "ViewMyProfileViewController.h"
 #import "LocationViewController.h"
 #import "LoginViewController.h"
 #import "SceneDelegate.h"
@@ -13,7 +13,7 @@
 @import Parse;
 #import <Parse/Parse.h>
 
-@interface ViewProfileViewController ()
+@interface ViewMyProfileViewController ()
 @property (weak, nonatomic) IBOutlet PFImageView *profilePictureImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ageLabel;
@@ -29,7 +29,7 @@
 
 @end
 
-@implementation ViewProfileViewController
+@implementation ViewMyProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -107,7 +107,7 @@
         <!--My Profile-->
         <scene sceneID="sej-da-2VM">
             <objects>
-                <viewController id="V0e-aN-i4d" customClass="ViewProfileViewController" sceneMemberID="viewController">
+                <viewController id="V0e-aN-i4d" customClass="ViewMyProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wJL-lE-Fbw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -262,10 +262,10 @@
             </objects>
             <point key="canvasLocation" x="1409" y="1690"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="JXv-vN-fmv">
             <objects>
-                <tabBarController storyboardIdentifier="TabController" modalPresentationStyle="fullScreen" id="PHu-uE-b9G" customClass="TabViewController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabController" modalPresentationStyle="fullScreen" id="PHu-uE-b9G" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="pO3-Mk-XSt"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rgD-lR-2xb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -1155,7 +1155,7 @@
         <!--Profile Details-->
         <scene sceneID="9Mp-XI-Qap">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="joN-45-iII" userLabel="Profile Details" customClass="ProfileDetailsViewController" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="joN-45-iII" userLabel="Profile Details" customClass="TheirProfileDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ciK-y0-GWQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1305,7 +1305,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="3ON-vH-3h6"/>
         <segue reference="7kD-9Z-NMe"/>
-        <segue reference="suR-Qc-pOH"/>
+        <segue reference="nNj-SB-mLI"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="House" width="1414" height="1414"/>

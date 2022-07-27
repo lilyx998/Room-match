@@ -6,7 +6,7 @@
 //
 
 #import "RequestsViewController.h"
-#import "ProfileDetailsViewController.h"
+#import "TheirProfileDetailsViewController.h"
 #import "User.h"
 #import "RequestCell.h"
 #import <Parse/Parse.h>
@@ -61,7 +61,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     
     User *userToPass = self.usersToDisplay[indexPath.row];
-    ProfileDetailsViewController *detailsVC = [segue destinationViewController];
+    TheirProfileDetailsViewController *detailsVC = [segue destinationViewController];
     detailsVC.user = userToPass;
 }
 
