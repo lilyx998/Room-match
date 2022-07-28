@@ -68,7 +68,10 @@
             __strong typeof(self) strongSelf = weakSelf;
             dispatch_sync(dispatch_get_main_queue(), ^{
                 [strongSelf.messages addObject:message];
-                [strongSelf.messagesTableView reloadData];
+                [strongSelf.messagesTableView beginUpdates];
+                NSIndexPath *row = [NSIndexPath indexPathForRow:0 inSection:0];
+                [strongSelf.messagesTableView insertRowsAtIndexPaths: [NSArray arrayWithObject:row] withRowAnimation:UITableViewRowAnimationBottom ];
+                [strongSelf.messagesTableView endUpdates];
             });
         }
     }];
