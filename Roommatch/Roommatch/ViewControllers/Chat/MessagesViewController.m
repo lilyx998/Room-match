@@ -9,7 +9,8 @@
 #import "ParseLiveQuery/ParseLiveQuery-umbrella.h"
 #import "TheirProfileDetailsViewController.h"
 #import "Message.h"
-#import "MessageCell.h"
+#import "SendMessageCell.h"
+#import "ReceiveMessageCell.h"
 
 @interface MessagesViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationTitleItem;
@@ -44,6 +45,8 @@
     self.messagesTableView.dataSource = self;
     self.messagesTableView.transform = CGAffineTransformMakeScale(1, -1);
     [self.messagesTableView reloadData];
+    [self.messagesTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+
     
     self.navigationTitleItem.title = self.otherUser.name;
 }
@@ -73,6 +76,9 @@
 }
 
 - (IBAction)tapSendButton:(id)sender {
+    if(self.inputTextField.text.length == 0)
+        return;
+    
     Message *newMessage = [Message new];
     newMessage.fromUser = [User currentUser];
     newMessage.toUser = self.otherUser; 
@@ -92,11 +98,20 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     Message *message = self.messages[self.messages.count - indexPath.row - 1];
+    [message.fromUser fetchIfNeeded];
     
-    MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"messageCell" forIndexPath:indexPath];
-    cell.contentView.transform = CGAffineTransformMakeScale (1,-1);
-    cell.messageTextLabel.text = message.text;
-    return cell;
+    if([message.fromUser.objectId isEqualToString:[User currentUser].objectId]){
+        SendMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"sendCell" forIndexPath:indexPath];
+        cell.contentView.transform = CGAffineTransformMakeScale (1,-1);
+        [cell initWithMessageObject:message];
+        return cell;
+    }
+    else {
+        ReceiveMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"receiveCell" forIndexPath:indexPath];
+        cell.contentView.transform = CGAffineTransformMakeScale (1,-1);
+        [cell initWithMessageObject:message];
+        return cell;
+    }
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -142,7 +157,7 @@
     }];
 }
 
--(void)hideKeyboard {
+- (void)hideKeyboard {
     [self.view endEditing:YES];
 }
 

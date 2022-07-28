@@ -20,7 +20,8 @@
 		D8838B73288F551500C72808 /* Chat.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B72288F551500C72808 /* Chat.m */; };
 		D8838B76288F552000C72808 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B75288F552000C72808 /* Message.m */; };
 		D8838B792890862B00C72808 /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B782890862B00C72808 /* MessagesViewController.m */; };
-		D8838B7C28908ED900C72808 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B7B28908ED900C72808 /* MessageCell.m */; };
+		D8838B8F289331F100C72808 /* SendMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B8E289331F100C72808 /* SendMessageCell.m */; };
+		D8838B982893328800C72808 /* ReceiveMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8838B972893328800C72808 /* ReceiveMessageCell.m */; };
 		D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852F2878C542009533BB /* CreateProfileViewController.m */; };
 		D88C85332878D2DA009533BB /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85322878D2DA009533BB /* Utils.m */; };
 		D88C85362878F6A4009533BB /* ViewMyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85352878F6A4009533BB /* ViewMyProfileViewController.m */; };
@@ -89,8 +90,10 @@
 		D8838B75288F552000C72808 /* Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		D8838B772890862B00C72808 /* MessagesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
 		D8838B782890862B00C72808 /* MessagesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
-		D8838B7A28908ED900C72808 /* MessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
-		D8838B7B28908ED900C72808 /* MessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		D8838B8D289331F100C72808 /* SendMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendMessageCell.h; sourceTree = "<group>"; };
+		D8838B8E289331F100C72808 /* SendMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendMessageCell.m; sourceTree = "<group>"; };
+		D8838B962893328800C72808 /* ReceiveMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReceiveMessageCell.h; sourceTree = "<group>"; };
+		D8838B972893328800C72808 /* ReceiveMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReceiveMessageCell.m; sourceTree = "<group>"; };
 		D88C852E2878C542009533BB /* CreateProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProfileViewController.h; sourceTree = "<group>"; };
 		D88C852F2878C542009533BB /* CreateProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateProfileViewController.m; sourceTree = "<group>"; };
 		D88C85312878D2DA009533BB /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
@@ -370,8 +373,10 @@
 				D8EE16AC28861E990068FD1B /* RequestCell.m */,
 				D8838B512887661B00C72808 /* ChatCell.h */,
 				D8838B522887661B00C72808 /* ChatCell.m */,
-				D8838B7A28908ED900C72808 /* MessageCell.h */,
-				D8838B7B28908ED900C72808 /* MessageCell.m */,
+				D8838B8D289331F100C72808 /* SendMessageCell.h */,
+				D8838B8E289331F100C72808 /* SendMessageCell.m */,
+				D8838B962893328800C72808 /* ReceiveMessageCell.h */,
+				D8838B972893328800C72808 /* ReceiveMessageCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -626,14 +631,15 @@
 				D8838B50288749A900C72808 /* MatchesViewController.m in Sources */,
 				D8838B532887661B00C72808 /* ChatCell.m in Sources */,
 				D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */,
-				D8838B7C28908ED900C72808 /* MessageCell.m in Sources */,
 				D8838B56288780DE00C72808 /* TheirProfileDetailsViewController.m in Sources */,
 				D8838B76288F552000C72808 /* Message.m in Sources */,
 				D8838B6C288B22F300C72808 /* ConfettiAnimation.swift in Sources */,
 				D8EE169C2880CC950068FD1B /* LocationViewController.m in Sources */,
 				D8A9E35C2874C1F4000ACF9A /* SceneDelegate.m in Sources */,
+				D8838B982893328800C72808 /* ReceiveMessageCell.m in Sources */,
 				D8A9E39528774B1D000ACF9A /* LoginViewController.m in Sources */,
 				D8EE16B028861F050068FD1B /* DiscoverViewController.m in Sources */,
+				D8838B8F289331F100C72808 /* SendMessageCell.m in Sources */,
 				D8EE16AD28861E990068FD1B /* RequestCell.m in Sources */,
 				D88C85362878F6A4009533BB /* ViewMyProfileViewController.m in Sources */,
 				D8838B5C2889D19100C72808 /* SwipeView.m in Sources */,
