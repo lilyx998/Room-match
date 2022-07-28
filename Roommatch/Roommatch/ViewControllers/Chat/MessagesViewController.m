@@ -46,7 +46,6 @@
     self.messagesTableView.transform = CGAffineTransformMakeScale(1, -1);
     [self.messagesTableView reloadData];
     [self.messagesTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-
     
     self.navigationTitleItem.title = self.otherUser.name;
 }
@@ -92,7 +91,11 @@
     [self.chat addObject:newMessage forKey:@"messages"];
     self.chat.lastMessageText = newMessage.text;
     [self.chat save];
-    [self.messagesTableView reloadData];
+    
+    [self.messagesTableView beginUpdates];
+    NSIndexPath *row = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.messagesTableView insertRowsAtIndexPaths: [NSArray arrayWithObject:row] withRowAnimation:UITableViewRowAnimationBottom ];
+    [self.messagesTableView endUpdates];
 }
 
 
