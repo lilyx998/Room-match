@@ -89,9 +89,9 @@
     [self.messagesTableView reloadData];
 }
 
+
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     Message *message = self.messages[self.messages.count - indexPath.row - 1];
-    [message fetchIfNeeded];
     
     MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"messageCell" forIndexPath:indexPath];
     cell.contentView.transform = CGAffineTransformMakeScale (1,-1);

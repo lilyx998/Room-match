@@ -48,6 +48,7 @@
     
     PFQuery *query = [PFQuery orQueryWithSubqueries:@[queryCurrentUserIsUser1, queryCurrentUserIsUser2]];
     [query orderByDescending:@"updatedAt"];
+    [query includeKey:@"messages"]; 
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *chats, NSError *error) {
         if (chats) {
