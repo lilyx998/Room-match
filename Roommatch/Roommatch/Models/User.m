@@ -22,7 +22,6 @@
 @dynamic pets;
 @dynamic inCollege;
 @dynamic collegeName;
-@dynamic instagramTag;
 @dynamic profileCreated;
 @dynamic usersSeen;
 
@@ -38,7 +37,6 @@
     self.pets = @"";
     self.inCollege = @"";
     self.collegeName = @"";
-    self.instagramTag = @"";
     self.profileCreated = NO;
     self.usersSeen = [NSMutableArray array]; 
 }
