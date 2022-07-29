@@ -152,7 +152,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="VdR-rd-xNi">
-                                <rect key="frame" x="25" y="298" width="369" height="269"/>
+                                <rect key="frame" x="25" y="298" width="369" height="233.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnG-8x-AGH">
                                         <rect key="frame" x="0.0" y="0.0" width="369" height="20.5"/>
@@ -192,12 +192,6 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="College Name:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejS-Je-YRG">
                                         <rect key="frame" x="0.0" y="213" width="369" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxa-3O-7qQ">
-                                        <rect key="frame" x="0.0" y="248.5" width="369" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -248,7 +242,6 @@
                         <outlet property="bioLabel" destination="GI4-Xz-Q6w" id="BNa-OP-hsU"/>
                         <outlet property="collegeNameLabel" destination="ejS-Je-YRG" id="6pT-eu-lSN"/>
                         <outlet property="inCollegeLabel" destination="Bv1-FJ-7dr" id="4gu-bZ-B4X"/>
-                        <outlet property="instagramTagLabel" destination="mxa-3O-7qQ" id="pXM-3W-Z49"/>
                         <outlet property="locationLabel" destination="jnG-8x-AGH" id="tZ5-aJ-36T"/>
                         <outlet property="nameLabel" destination="GVZ-HE-Qa6" id="ktR-uE-VnV"/>
                         <outlet property="petsLabel" destination="T5x-no-aa7" id="A5N-sB-2hH"/>
@@ -311,7 +304,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LyT-ii-uFH" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="948"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="899"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile Picture Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="hUu-Wt-fyt" customClass="PFImageView">
                                                 <rect key="frame" x="20" y="10" width="150" height="149"/>
@@ -391,7 +384,7 @@
                                                 </segments>
                                             </segmentedControl>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hd-4O-rwV">
-                                                <rect key="frame" x="335.5" y="617" width="58.5" height="31"/>
+                                                <rect key="frame" x="335.5" y="568" width="58.5" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Done"/>
                                                 <connections>
@@ -410,18 +403,13 @@
                                                 <color key="textColor" red="0.43422506309999997" green="0.43422506309999997" blue="0.43422506309999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Instagram tag (i.e. &quot;@zuck&quot;) *" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2qV-F1-Ujh">
-                                                <rect key="frame" x="20" y="563" width="374" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="College Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DDl-I1-zbm">
                                                 <rect key="frame" x="20" y="514" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* indicates required" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLp-do-U7G">
-                                                <rect key="frame" x="20" y="625.5" width="111" height="14.5"/>
+                                                <rect key="frame" x="20" y="576.5" width="111" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.52379261359999996" green="0.52379261359999996" blue="0.52379261359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -478,6 +466,7 @@
                                             <constraint firstItem="tub-Bz-Etm" firstAttribute="trailing" secondItem="59n-cx-Dnj" secondAttribute="trailing" id="0tH-Ce-95I"/>
                                             <constraint firstItem="rmz-Cy-tr1" firstAttribute="centerY" secondItem="L0K-KV-qg6" secondAttribute="centerY" id="1SP-PD-JB1"/>
                                             <constraint firstItem="GgN-Sa-tTX" firstAttribute="top" secondItem="2OU-is-bsh" secondAttribute="bottom" constant="10" id="4qQ-a5-qhw"/>
+                                            <constraint firstItem="1Hd-4O-rwV" firstAttribute="top" secondItem="DDl-I1-zbm" secondAttribute="bottom" constant="20" id="5C5-MS-77c"/>
                                             <constraint firstItem="2OU-is-bsh" firstAttribute="leading" secondItem="SAI-6y-JnX" secondAttribute="trailing" constant="10" id="5vW-OT-Efh"/>
                                             <constraint firstItem="ixh-2e-L4p" firstAttribute="centerX" secondItem="hUu-Wt-fyt" secondAttribute="centerX" id="9ct-re-Iz8"/>
                                             <constraint firstItem="sLp-do-U7G" firstAttribute="leading" secondItem="hUu-Wt-fyt" secondAttribute="leading" id="9eX-ye-J9S"/>
@@ -505,12 +494,8 @@
                                             <constraint firstAttribute="trailing" secondItem="ZDm-Yi-leg" secondAttribute="trailing" constant="20" id="R1q-X7-t7p"/>
                                             <constraint firstItem="DDl-I1-zbm" firstAttribute="leading" secondItem="hUu-Wt-fyt" secondAttribute="leading" id="RlG-G2-gWB"/>
                                             <constraint firstItem="tub-Bz-Etm" firstAttribute="bottom" secondItem="59n-cx-Dnj" secondAttribute="bottom" id="Vy5-hR-kd0"/>
-                                            <constraint firstAttribute="trailing" secondItem="2qV-F1-Ujh" secondAttribute="trailing" constant="20" id="Wk7-MH-KLa"/>
                                             <constraint firstItem="ixh-2e-L4p" firstAttribute="top" secondItem="hUu-Wt-fyt" secondAttribute="bottom" id="XG7-av-SXQ"/>
-                                            <constraint firstItem="2qV-F1-Ujh" firstAttribute="top" secondItem="DDl-I1-zbm" secondAttribute="bottom" constant="15" id="awx-Lg-4Cf"/>
                                             <constraint firstAttribute="trailing" secondItem="1Hd-4O-rwV" secondAttribute="trailing" constant="20" id="d7j-Cg-y2s"/>
-                                            <constraint firstItem="2qV-F1-Ujh" firstAttribute="leading" secondItem="hUu-Wt-fyt" secondAttribute="leading" id="dDI-BQ-AnU"/>
-                                            <constraint firstItem="1Hd-4O-rwV" firstAttribute="top" secondItem="2qV-F1-Ujh" secondAttribute="bottom" constant="20" id="dU5-5A-W4V"/>
                                             <constraint firstAttribute="trailing" secondItem="59n-cx-Dnj" secondAttribute="trailing" constant="20" id="eJx-5i-ALX"/>
                                             <constraint firstItem="hUu-Wt-fyt" firstAttribute="leading" secondItem="LyT-ii-uFH" secondAttribute="leading" constant="20" id="fBk-zx-wNd"/>
                                             <constraint firstItem="DrI-89-Pcm" firstAttribute="bottom" secondItem="ZDm-Yi-leg" secondAttribute="bottom" id="g1B-AC-fJ2"/>
@@ -561,7 +546,6 @@
                         <outlet property="collegeNameTextField" destination="DDl-I1-zbm" id="beY-FQ-P0H"/>
                         <outlet property="imageView" destination="hUu-Wt-fyt" id="tcP-lh-MQU"/>
                         <outlet property="inCollegeSegmentedControl" destination="0XE-Zv-cDB" id="xbS-h2-za8"/>
-                        <outlet property="instagramTagTextField" destination="2qV-F1-Ujh" id="Rcy-mu-Cff"/>
                         <outlet property="nameTextField" destination="kCb-35-vdh" id="Uto-z3-qvQ"/>
                         <outlet property="petsSegmentedControl" destination="GgN-Sa-tTX" id="cr6-cx-oPU"/>
                         <outlet property="priceHigh" destination="rmz-Cy-tr1" id="w6b-Nl-n8L"/>
@@ -658,6 +642,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pc-hE-d8t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-739" y="973"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="YUf-hi-fJi">
+            <objects>
+                <viewController id="DA2-dq-tP4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vH9-9x-vJ2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="fdG-bX-yMT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AOj-Nt-A0i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-959" y="1780"/>
         </scene>
         <!--Discover-->
         <scene sceneID="yPf-TF-OAt">
@@ -1403,7 +1402,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="3ON-vH-3h6"/>
         <segue reference="7kD-9Z-NMe"/>
-        <segue reference="nNj-SB-mLI"/>
+        <segue reference="suR-Qc-pOH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="House" width="1414" height="1414"/>

@@ -31,7 +31,6 @@ static const int charLimit = 280;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *inCollegeSegmentedControl;
 
 @property (weak, nonatomic) IBOutlet UITextField *collegeNameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *instagramTagTextField;
 
 @property (nonatomic) BOOL choseImage;
 
@@ -83,7 +82,6 @@ static const int charLimit = 280;
         [self.inCollegeSegmentedControl setSelectedSegmentIndex:1];
     
     self.collegeNameTextField.text = user.collegeName;
-    self.instagramTagTextField.text = user.instagramTag;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -139,7 +137,6 @@ static const int charLimit = 280;
     user.inCollege = inCollegeIndex == 0 ? @"No" : @"Yes";
     
     user.collegeName = self.collegeNameTextField.text;
-    user.instagramTag = self.instagramTagTextField.text;
     user.profileCreated = YES; 
     
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error){
@@ -155,8 +152,7 @@ static const int charLimit = 280;
     if(!self.choseImage
        || [self.nameTextField.text isEqualToString:@""]
        || [self.ageTextField.text isEqualToString:@""]
-       || [self.bioTextView.text isEqualToString:@""]
-       || [self.instagramTagTextField.text isEqualToString:@""]){
+       || [self.bioTextView.text isEqualToString:@""]){
         return NO;
     }
     return YES;
