@@ -12,8 +12,9 @@
 #import "ChatCell.h"
 #import "TheirProfileDetailsViewController.h"
 #import "MessagesViewController.h"
+#import "Message.h"
 
-@interface MatchesViewController () <UITableViewDataSource>
+@interface MatchesViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *chatsToDisplay;
@@ -30,6 +31,7 @@
     [self.refreshControl addTarget:self action:@selector(queryAndDisplayChats) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     
+    self.tableView.delegate = self;
     self.tableView.dataSource = self;
 }
 
@@ -76,6 +78,20 @@
     [cell initWithChatObject:chat];
     
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    Chat *chat = self.chatsToDisplay[indexPath.row];
+    for(Message *message in chat.messages){
+        [message delete];
+    }
+    [self.chatsToDisplay removeObjectAtIndex:indexPath.row];
+    [chat deleteInBackground];
+    [tableView reloadData];
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
