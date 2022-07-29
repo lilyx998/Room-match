@@ -185,9 +185,7 @@ static const int fetchAmount = 10;
 }
 
 - (void)fetchMoreMessages {
-    //switch to background thread
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        //back to the main thread for the UI call
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.fetchMoreMessagesActivityIndicator startAnimating];
         });
@@ -196,8 +194,7 @@ static const int fetchAmount = 10;
         for(int i = 0; i<actualFetchAmount; i++){
             [self.messages[self.messages.count - self.fetchedMessagesCount - i - 1].fromUser fetchIfNeeded];
         }
-
-        //back to the main thread for the UI call
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             self.fetchedMessagesCount += actualFetchAmount;
             [self.messagesTableView reloadData];

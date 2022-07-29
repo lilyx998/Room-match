@@ -903,7 +903,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" systemColor="linkColor"/>
+                                                                    <color key="backgroundColor" systemColor="tintColor"/>
                                                                     <constraints>
                                                                         <constraint firstItem="gnD-Tv-AZG" firstAttribute="top" secondItem="CHW-VV-Eey" secondAttribute="top" constant="25" id="WnB-PR-NZI"/>
                                                                         <constraint firstAttribute="trailing" secondItem="jng-77-wZN" secondAttribute="trailing" constant="25" id="ZP4-XP-hun"/>
@@ -1429,6 +1429,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
