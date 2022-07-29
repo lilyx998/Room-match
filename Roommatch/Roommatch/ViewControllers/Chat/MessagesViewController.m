@@ -12,18 +12,24 @@
 #import "SendMessageCell.h"
 #import "ReceiveMessageCell.h"
 
+static const int fetchAmount = 10;
+
 @interface MessagesViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationTitleItem;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITableView *messagesTableView;
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *fetchMoreMessagesActivityIndicator;
+
 @property (strong, nonatomic) PFLiveQueryClient *liveQueryClient;
 @property (strong, nonatomic) PFQuery *msgQuery;
 @property (strong, nonatomic) PFLiveQuerySubscription *subscription;
 
 @property (strong, nonatomic) User *otherUser;
-@property (strong, nonatomic) NSMutableArray *messages;
+@property (strong, nonatomic) NSMutableArray<Message *> *messages;
+
+@property (nonatomic) NSInteger fetchedMessagesCount;
 
 @end
 
@@ -34,6 +40,12 @@
     
     self.otherUser = [self getOtherUser];
     self.messages = [NSMutableArray arrayWithArray:self.chat.messages];
+    
+    NSInteger n = self.messages.count;
+    for(int i = 0; i<MIN(fetchAmount, n); i++){
+        [self.messages[n - i - 1].fromUser fetchIfNeeded];
+    }
+    self.fetchedMessagesCount = MIN(fetchAmount, n);
     
     [self setUpLiveQuery];
     
@@ -68,6 +80,7 @@
             __strong typeof(self) strongSelf = weakSelf;
             dispatch_sync(dispatch_get_main_queue(), ^{
                 [strongSelf.messages addObject:message];
+                strongSelf.fetchedMessagesCount++;
                 [strongSelf.messagesTableView beginUpdates];
                 NSIndexPath *row = [NSIndexPath indexPathForRow:0 inSection:0];
                 [strongSelf.messagesTableView insertRowsAtIndexPaths: [NSArray arrayWithObject:row] withRowAnimation:UITableViewRowAnimationBottom ];
@@ -91,18 +104,22 @@
     [newMessage save];
     
     [self.messages addObject:newMessage];
+    self.fetchedMessagesCount++;
     [self.chat addObject:newMessage forKey:@"messages"];
     self.chat.lastMessageText = newMessage.text;
     [self.chat save];
     
     [self.messagesTableView beginUpdates];
     NSIndexPath *row = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.messagesTableView insertRowsAtIndexPaths: [NSArray arrayWithObject:row] withRowAnimation:UITableViewRowAnimationBottom ];
+    [self.messagesTableView insertRowsAtIndexPaths:[NSArray arrayWithObject:row] withRowAnimation:UITableViewRowAnimationBottom];
     [self.messagesTableView endUpdates];
 }
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    if(indexPath.row == self.fetchedMessagesCount-1 && indexPath.row != self.messages.count-1){
+        [self fetchMoreMessages];
+    }
     Message *message = self.messages[self.messages.count - indexPath.row - 1];
     [message.fromUser fetchIfNeeded];
     
@@ -121,7 +138,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.messages.count;
+    return self.fetchedMessagesCount;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -165,6 +182,28 @@
 
 - (void)hideKeyboard {
     [self.view endEditing:YES];
+}
+
+- (void)fetchMoreMessages {
+    //switch to background thread
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        //back to the main thread for the UI call
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.fetchMoreMessagesActivityIndicator startAnimating];
+        });
+        
+        NSInteger actualFetchAmount = MIN(fetchAmount, self.messages.count - self.fetchedMessagesCount);
+        for(int i = 0; i<actualFetchAmount; i++){
+            [self.messages[self.messages.count - self.fetchedMessagesCount - i - 1].fromUser fetchIfNeeded];
+        }
+
+        //back to the main thread for the UI call
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.fetchedMessagesCount += actualFetchAmount;
+            [self.messagesTableView reloadData];
+            [self.fetchMoreMessagesActivityIndicator stopAnimating];
+        });
+    });
 }
 
 @end

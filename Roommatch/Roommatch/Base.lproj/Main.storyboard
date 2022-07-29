@@ -1010,6 +1010,10 @@
                                                     <action selector="tapSendButton:" destination="3uS-2m-qHE" eventType="touchUpInside" id="N7B-Kc-bv0"/>
                                                 </connections>
                                             </button>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="ZTH-QL-sGo">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -1055,6 +1059,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="fetchMoreMessagesActivityIndicator" destination="ZTH-QL-sGo" id="boP-Nl-bDf"/>
                         <outlet property="inputTextField" destination="u50-Nf-ean" id="j62-Eo-mfQ"/>
                         <outlet property="messagesTableView" destination="1qF-GU-uCq" id="tJ4-UI-ddn"/>
                         <outlet property="navigationTitleItem" destination="Vrq-aB-Vrd" id="ZCM-uV-VMe"/>
