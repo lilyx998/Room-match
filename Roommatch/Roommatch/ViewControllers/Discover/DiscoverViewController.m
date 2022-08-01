@@ -76,21 +76,27 @@ int userIdx;
 
 - (void)addPreferencesToQuery:(PFQuery *)query {
     User *curUser = [User currentUser];
-    if(!curUser.preferenceMale)
-        [query whereKey:@"gender" notEqualTo:@"Male"];
-    if(!curUser.preferenceFemale)
-        [query whereKey:@"gender" notEqualTo:@"Female"];
-    if(!curUser.preferenceNonbinary)
-        [query whereKey:@"gender" notEqualTo:@"Nonbinary/Other"];
     
-    if(!curUser.preferenceDogs){
-        [query whereKey:@"pets" notEqualTo:@"Dog(s)"];
-    }
-    if(!curUser.preferenceCats){
-        [query whereKey:@"pets" notEqualTo:@"Cat(s)"];
-    }
-    if(!curUser.preferenceOtherPets)
-        [query whereKey:@"pets" notEqualTo:@"Other"];
+    NSMutableArray *gendersPreferred = [NSMutableArray array];
+    if(curUser.preferenceMale)
+       [gendersPreferred addObject:@"Male"];
+    if(curUser.preferenceFemale)
+        [gendersPreferred addObject:@"Female"];
+    if(curUser.preferenceNonbinary)
+        [gendersPreferred addObject:@"Nonbinary/Other"];
+    [query whereKey:@"gender" containedIn:gendersPreferred];
+    
+    NSMutableArray *petsPreferred = [NSMutableArray array];
+    [petsPreferred addObject:@"No"]; 
+    if(curUser.preferenceDogs)
+        [petsPreferred addObject:@"Dog(s)"];
+    if(curUser.preferenceCats)
+        [petsPreferred addObject:@"Cat(s)"];
+    if(curUser.preferenceOtherPets)
+        [petsPreferred addObject:@"Other"];
+    if(curUser.preferenceDogs && curUser.preferenceCats)
+        [petsPreferred addObject:@"Dog(s) and cat(s)"];
+    [query whereKey:@"pets" containedIn:petsPreferred];
     
     if(curUser.preferenceCollege)
         [query whereKey:@"inCollege" equalTo:@"Yes"];
@@ -98,9 +104,7 @@ int userIdx;
     if(!curUser.preferenceSmoking)
         [query whereKey:@"smoking" equalTo:@"No"];
     
-    if(!curUser.preferenceDogs || !curUser.preferenceCats){
-        [query whereKey:@"pets" notEqualTo:@"Dog(s) and cat(s)"];
-    }
+    
 }
 
 - (void)viewDidCancelSwipe:(UIView *)view {
