@@ -85,11 +85,9 @@ int userIdx;
     
     if(!curUser.preferenceDogs){
         [query whereKey:@"pets" notEqualTo:@"Dog(s)"];
-        [query whereKey:@"pets" notEqualTo:@"Dog(s) and cat(s)"];
     }
     if(!curUser.preferenceCats){
         [query whereKey:@"pets" notEqualTo:@"Cat(s)"];
-        [query whereKey:@"pets" notEqualTo:@"Dog(s) and cat(s)"];
     }
     if(!curUser.preferenceOtherPets)
         [query whereKey:@"pets" notEqualTo:@"Other"];
@@ -98,7 +96,11 @@ int userIdx;
         [query whereKey:@"inCollege" equalTo:@"Yes"];
     
     if(!curUser.preferenceSmoking)
-        [query whereKey:@"smoking" equalTo:@"No"]; 
+        [query whereKey:@"smoking" equalTo:@"No"];
+    
+    if(!curUser.preferenceDogs || !curUser.preferenceCats){
+        [query whereKey:@"pets" notEqualTo:@"Dog(s) and cat(s)"];
+    }
 }
 
 - (void)viewDidCancelSwipe:(UIView *)view {
