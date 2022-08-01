@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *otherPetsButton;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *collegePreferencesSegementedControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *smokingPreferencesSegmentedControl;
 
 @end
 
@@ -26,11 +27,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setSelected];
+    [self setFields];
     // Do any additional setup after loading the view.
 }
 
-- (void)setSelected {
+- (void)setFields {
     User *curUser = [User currentUser];
     
     self.maleButton.selected = curUser.preferenceMale;
@@ -42,6 +43,7 @@
     self.otherPetsButton.selected = curUser.preferenceOtherPets;
     
     self.collegePreferencesSegementedControl.selectedSegmentIndex = (curUser.preferenceCollege ? 1 : 0);
+    self.smokingPreferencesSegmentedControl.selectedSegmentIndex = (curUser.preferenceSmoking ? 0 : 1);
 }
 
 - (IBAction)tapDone:(id)sender {
@@ -55,6 +57,7 @@
     curUser.preferenceOtherPets = self.otherPetsButton.selected;
     
     curUser.preferenceCollege = (self.collegePreferencesSegementedControl.selectedSegmentIndex == 1);
+    curUser.preferenceSmoking = (self.smokingPreferencesSegmentedControl.selectedSegmentIndex == 0);
     [curUser saveInBackground];
     [self.navigationController popViewControllerAnimated:YES];
 }

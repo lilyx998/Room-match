@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL preferenceCats;
 @property (nonatomic) BOOL preferenceOtherPets;
 @property (nonatomic) BOOL preferenceCollege;
+@property (nonatomic) BOOL preferenceSmoking; 
 
 @property (strong, nonatomic) NSMutableArray *usersSeen;
 

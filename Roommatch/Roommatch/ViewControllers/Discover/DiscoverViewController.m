@@ -96,6 +96,9 @@ int userIdx;
     
     if(curUser.preferenceCollege)
         [query whereKey:@"inCollege" equalTo:@"Yes"];
+    
+    if(!curUser.preferenceSmoking)
+        [query whereKey:@"smoking" equalTo:@"No"]; 
 }
 
 - (void)viewDidCancelSwipe:(UIView *)view {

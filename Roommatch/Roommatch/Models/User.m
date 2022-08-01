@@ -32,6 +32,7 @@
 @dynamic preferenceOtherPets;
 @dynamic preferenceCollege;
 @dynamic usersSeen;
+@dynamic preferenceSmoking;
 
 - (void)initAllEmpty {
     self.age = @"";
@@ -55,6 +56,7 @@
     self.preferenceCats = YES;
     self.preferenceOtherPets = YES;
     self.preferenceCollege = NO;
+    self.preferenceSmoking = YES; 
     
     self.usersSeen = [NSMutableArray array]; 
 }
