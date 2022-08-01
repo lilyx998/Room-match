@@ -57,6 +57,8 @@ int userIdx;
     [query whereKey:@"priceHigh" greaterThanOrEqualTo:curUser.priceLow];
     [query whereKey:@"priceLow" lessThanOrEqualTo:curUser.priceHigh];
     
+    [self addPreferencesToQuery:query];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         if (users) {
             self.usersToDisplay = [NSMutableArray array];
@@ -70,6 +72,30 @@ int userIdx;
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+}
+
+- (void)addPreferencesToQuery:(PFQuery *)query {
+    User *curUser = [User currentUser];
+    if(!curUser.preferenceMale)
+        [query whereKey:@"gender" notEqualTo:@"Male"];
+    if(!curUser.preferenceFemale)
+        [query whereKey:@"gender" notEqualTo:@"Female"];
+    if(!curUser.preferenceNonbinary)
+        [query whereKey:@"gender" notEqualTo:@"Nonbinary/Other"];
+    
+    if(!curUser.preferenceDogs){
+        [query whereKey:@"pets" notEqualTo:@"Dog(s)"];
+        [query whereKey:@"pets" notEqualTo:@"Dog(s) and cat(s)"];
+    }
+    if(!curUser.preferenceCats){
+        [query whereKey:@"pets" notEqualTo:@"Cat(s)"];
+        [query whereKey:@"pets" notEqualTo:@"Dog(s) and cat(s)"];
+    }
+    if(!curUser.preferenceOtherPets)
+        [query whereKey:@"pets" notEqualTo:@"Other"];
+    
+    if(curUser.preferenceCollege)
+        [query whereKey:@"inCollege" equalTo:@"Yes"];
 }
 
 - (void)viewDidCancelSwipe:(UIView *)view {
@@ -162,8 +188,10 @@ int userIdx;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    TheirProfileDetailsViewController *detailsVC = [segue destinationViewController];
-    detailsVC.user = self.usersToDisplay[userIdx];
+    if([segue.identifier isEqualToString:@"discoverDetailedView"]){
+        TheirProfileDetailsViewController *detailsVC = [segue destinationViewController];
+        detailsVC.user = self.usersToDisplay[userIdx];
+    }
 }
 
 @end

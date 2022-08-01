@@ -22,10 +22,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString* city;
 @property (strong, nonatomic) NSString* bio;
 @property (strong, nonatomic) NSString* smoking;
+@property (strong, nonatomic) NSString* gender;
 @property (strong, nonatomic) NSString* pets;
 @property (strong, nonatomic) NSString* inCollege;
 @property (strong, nonatomic) NSString* collegeName;
 @property (nonatomic) BOOL profileCreated;
+
+@property (nonatomic) BOOL preferenceMale;
+@property (nonatomic) BOOL preferenceFemale;
+@property (nonatomic) BOOL preferenceNonbinary;
+@property (nonatomic) BOOL preferenceDogs;
+@property (nonatomic) BOOL preferenceCats;
+@property (nonatomic) BOOL preferenceOtherPets;
+@property (nonatomic) BOOL preferenceCollege;
 
 @property (strong, nonatomic) NSMutableArray *usersSeen;
 

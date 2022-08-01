@@ -26,6 +26,7 @@ static const int charLimit = 280;
 
 @property (weak, nonatomic) IBOutlet UILabel *charactersRemainingLabel;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *genderSegmentedControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *smokingSegmentedControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *petsSegmentedControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *inCollegeSegmentedControl;
@@ -57,6 +58,13 @@ static const int charLimit = 280;
     
     self.imageView.file = user.profilePicture;
     [self.imageView loadInBackground];
+    
+    if([user.gender isEqualToString:@"Male"])
+        [self.genderSegmentedControl setSelectedSegmentIndex:0];
+    else if([user.gender isEqualToString:@"Female"])
+        [self.genderSegmentedControl setSelectedSegmentIndex:1];
+    else
+        [self.genderSegmentedControl setSelectedSegmentIndex:2];
     
     if([user.smoking isEqualToString:@"No"])
         [self.smokingSegmentedControl setSelectedSegmentIndex:0];
@@ -124,6 +132,9 @@ static const int charLimit = 280;
     user.priceHigh = [NSNumber numberWithInteger:[self.priceHigh.text integerValue]];
     
     user.bio = self.bioTextView.text;
+    
+    NSInteger genderIndex = [self.genderSegmentedControl selectedSegmentIndex];
+    user.gender = genderIndex == 0 ? @"Male" : (genderIndex == 1 ? @"Female" : @"Nonbinary/Other");
         
     NSInteger smokingIndex = [self.smokingSegmentedControl selectedSegmentIndex];
     user.smoking = smokingIndex == 0 ? @"No" : (smokingIndex == 1 ? @"Sometimes" : @"Yes");
