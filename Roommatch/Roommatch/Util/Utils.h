@@ -17,7 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
 
-+ (NSDate *)getDateFromString:(NSString *)string;
++ (NSDate *)getDateFrom_MM_dd_YYYY_String:(NSString *)string;
+
++ (NSDate *)getDateFrom_MM_dd_YYYY_HH_mm_ss_String:(NSString *)string;
 
 @end
 
