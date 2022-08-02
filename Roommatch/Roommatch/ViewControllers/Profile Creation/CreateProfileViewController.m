@@ -26,12 +26,12 @@ static const int charLimit = 280;
 
 @property (weak, nonatomic) IBOutlet UILabel *charactersRemainingLabel;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *genderSegmentedControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *smokingSegmentedControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *petsSegmentedControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *inCollegeSegmentedControl;
 
 @property (weak, nonatomic) IBOutlet UITextField *collegeNameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *instagramTagTextField;
 
 @property (nonatomic) BOOL choseImage;
 
@@ -59,6 +59,13 @@ static const int charLimit = 280;
     self.imageView.file = user.profilePicture;
     [self.imageView loadInBackground];
     
+    if([user.gender isEqualToString:@"Male"])
+        [self.genderSegmentedControl setSelectedSegmentIndex:0];
+    else if([user.gender isEqualToString:@"Female"])
+        [self.genderSegmentedControl setSelectedSegmentIndex:1];
+    else
+        [self.genderSegmentedControl setSelectedSegmentIndex:2];
+    
     if([user.smoking isEqualToString:@"No"])
         [self.smokingSegmentedControl setSelectedSegmentIndex:0];
     else if([user.smoking isEqualToString:@"Sometimes"])
@@ -83,7 +90,6 @@ static const int charLimit = 280;
         [self.inCollegeSegmentedControl setSelectedSegmentIndex:1];
     
     self.collegeNameTextField.text = user.collegeName;
-    self.instagramTagTextField.text = user.instagramTag;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -126,6 +132,9 @@ static const int charLimit = 280;
     user.priceHigh = [NSNumber numberWithInteger:[self.priceHigh.text integerValue]];
     
     user.bio = self.bioTextView.text;
+    
+    NSInteger genderIndex = [self.genderSegmentedControl selectedSegmentIndex];
+    user.gender = genderIndex == 0 ? @"Male" : (genderIndex == 1 ? @"Female" : @"Nonbinary/Other");
         
     NSInteger smokingIndex = [self.smokingSegmentedControl selectedSegmentIndex];
     user.smoking = smokingIndex == 0 ? @"No" : (smokingIndex == 1 ? @"Sometimes" : @"Yes");
@@ -139,7 +148,6 @@ static const int charLimit = 280;
     user.inCollege = inCollegeIndex == 0 ? @"No" : @"Yes";
     
     user.collegeName = self.collegeNameTextField.text;
-    user.instagramTag = self.instagramTagTextField.text;
     user.profileCreated = YES; 
     
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error){
@@ -155,8 +163,7 @@ static const int charLimit = 280;
     if(!self.choseImage
        || [self.nameTextField.text isEqualToString:@""]
        || [self.ageTextField.text isEqualToString:@""]
-       || [self.bioTextView.text isEqualToString:@""]
-       || [self.instagramTagTextField.text isEqualToString:@""]){
+       || [self.bioTextView.text isEqualToString:@""]){
         return NO;
     }
     return YES;

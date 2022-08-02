@@ -36,6 +36,8 @@
 		D8A9E3802874C1F6000ACF9A /* RoommatchUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E37F2874C1F6000ACF9A /* RoommatchUITestsLaunchTests.m */; };
 		D8A9E38D2874D356000ACF9A /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8A9E38C2874D356000ACF9A /* Keys.plist */; };
 		D8A9E39528774B1D000ACF9A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E39428774B1D000ACF9A /* LoginViewController.m */; };
+		D8D706E1289857940057A795 /* SelectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D706E0289857940057A795 /* SelectionTableViewCell.m */; };
+		D8D706E428985C830057A795 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D706E328985C830057A795 /* PreferencesViewController.m */; };
 		D8EE169C2880CC950068FD1B /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE169B2880CC950068FD1B /* LocationViewController.m */; };
 		D8EE16A02880D4CE0068FD1B /* CityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE169F2880D4CE0068FD1B /* CityTableViewCell.m */; };
 		D8EE16AD28861E990068FD1B /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EE16AC28861E990068FD1B /* RequestCell.m */; };
@@ -118,6 +120,10 @@
 		D8A9E38C2874D356000ACF9A /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		D8A9E39328774B1D000ACF9A /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D8A9E39428774B1D000ACF9A /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D8D706DF289857940057A795 /* SelectionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectionTableViewCell.h; sourceTree = "<group>"; };
+		D8D706E0289857940057A795 /* SelectionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectionTableViewCell.m; sourceTree = "<group>"; };
+		D8D706E228985C830057A795 /* PreferencesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
+		D8D706E328985C830057A795 /* PreferencesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
 		D8EE169A2880CC950068FD1B /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		D8EE169B2880CC950068FD1B /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		D8EE169E2880D4CE0068FD1B /* CityTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityTableViewCell.h; sourceTree = "<group>"; };
@@ -250,6 +256,8 @@
 		D8838B842891FF5E00C72808 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				D8D706E228985C830057A795 /* PreferencesViewController.h */,
+				D8D706E328985C830057A795 /* PreferencesViewController.m */,
 				D8EE16AE28861F050068FD1B /* DiscoverViewController.h */,
 				D8EE16AF28861F050068FD1B /* DiscoverViewController.m */,
 			);
@@ -377,6 +385,8 @@
 				D8838B8E289331F100C72808 /* SendMessageCell.m */,
 				D8838B962893328800C72808 /* ReceiveMessageCell.h */,
 				D8838B972893328800C72808 /* ReceiveMessageCell.m */,
+				D8D706DF289857940057A795 /* SelectionTableViewCell.h */,
+				D8D706E0289857940057A795 /* SelectionTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -642,7 +652,9 @@
 				D8838B8F289331F100C72808 /* SendMessageCell.m in Sources */,
 				D8EE16AD28861E990068FD1B /* RequestCell.m in Sources */,
 				D88C85362878F6A4009533BB /* ViewMyProfileViewController.m in Sources */,
+				D8D706E1289857940057A795 /* SelectionTableViewCell.m in Sources */,
 				D8838B5C2889D19100C72808 /* SwipeView.m in Sources */,
+				D8D706E428985C830057A795 /* PreferencesViewController.m in Sources */,
 				D8EE16A02880D4CE0068FD1B /* CityTableViewCell.m in Sources */,
 				D88C85332878D2DA009533BB /* Utils.m in Sources */,
 			);

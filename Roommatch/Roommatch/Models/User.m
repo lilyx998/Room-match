@@ -19,12 +19,20 @@
 @dynamic city;
 @dynamic bio;
 @dynamic smoking;
+@dynamic gender;
 @dynamic pets;
 @dynamic inCollege;
 @dynamic collegeName;
-@dynamic instagramTag;
 @dynamic profileCreated;
+@dynamic preferenceMale;
+@dynamic preferenceFemale;
+@dynamic preferenceNonbinary;
+@dynamic preferenceDogs;
+@dynamic preferenceCats;
+@dynamic preferenceOtherPets;
+@dynamic preferenceCollege;
 @dynamic usersSeen;
+@dynamic preferenceSmoking;
 
 - (void)initAllEmpty {
     self.age = @"";
@@ -35,11 +43,21 @@
     self.city = @"";
     self.bio = @"";
     self.smoking = @"";
+    self.gender = @""; 
     self.pets = @"";
     self.inCollege = @"";
     self.collegeName = @"";
-    self.instagramTag = @"";
     self.profileCreated = NO;
+    
+    self.preferenceMale = YES;
+    self.preferenceFemale = YES;
+    self.preferenceNonbinary = YES;
+    self.preferenceDogs = YES;
+    self.preferenceCats = YES;
+    self.preferenceOtherPets = YES;
+    self.preferenceCollege = NO;
+    self.preferenceSmoking = YES; 
+    
     self.usersSeen = [NSMutableArray array]; 
 }
 

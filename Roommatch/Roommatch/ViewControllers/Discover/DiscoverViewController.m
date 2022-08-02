@@ -57,6 +57,8 @@ int userIdx;
     [query whereKey:@"priceHigh" greaterThanOrEqualTo:curUser.priceLow];
     [query whereKey:@"priceLow" lessThanOrEqualTo:curUser.priceHigh];
     
+    [self addPreferencesToQuery:query];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         if (users) {
             self.usersToDisplay = [NSMutableArray array];
@@ -70,6 +72,39 @@ int userIdx;
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+}
+
+- (void)addPreferencesToQuery:(PFQuery *)query {
+    User *curUser = [User currentUser];
+    
+    NSMutableArray *gendersPreferred = [NSMutableArray array];
+    if(curUser.preferenceMale)
+       [gendersPreferred addObject:@"Male"];
+    if(curUser.preferenceFemale)
+        [gendersPreferred addObject:@"Female"];
+    if(curUser.preferenceNonbinary)
+        [gendersPreferred addObject:@"Nonbinary/Other"];
+    [query whereKey:@"gender" containedIn:gendersPreferred];
+    
+    NSMutableArray *petsPreferred = [NSMutableArray array];
+    [petsPreferred addObject:@"No"]; 
+    if(curUser.preferenceDogs)
+        [petsPreferred addObject:@"Dog(s)"];
+    if(curUser.preferenceCats)
+        [petsPreferred addObject:@"Cat(s)"];
+    if(curUser.preferenceOtherPets)
+        [petsPreferred addObject:@"Other"];
+    if(curUser.preferenceDogs && curUser.preferenceCats)
+        [petsPreferred addObject:@"Dog(s) and cat(s)"];
+    [query whereKey:@"pets" containedIn:petsPreferred];
+    
+    if(curUser.preferenceCollege)
+        [query whereKey:@"inCollege" equalTo:@"Yes"];
+    
+    if(!curUser.preferenceSmoking)
+        [query whereKey:@"smoking" equalTo:@"No"];
+    
+    
 }
 
 - (void)viewDidCancelSwipe:(UIView *)view {
@@ -162,8 +197,10 @@ int userIdx;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    TheirProfileDetailsViewController *detailsVC = [segue destinationViewController];
-    detailsVC.user = self.usersToDisplay[userIdx];
+    if([segue.identifier isEqualToString:@"discoverDetailedView"]){
+        TheirProfileDetailsViewController *detailsVC = [segue destinationViewController];
+        detailsVC.user = self.usersToDisplay[userIdx];
+    }
 }
 
 @end

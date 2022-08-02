@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceRangeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bioLabel;
+@property (weak, nonatomic) IBOutlet UILabel *genderLabel;
 @property (weak, nonatomic) IBOutlet UILabel *smokingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *petsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *inCollegeLabel;
@@ -46,6 +47,7 @@
     NSString *priceRange = [[[@(self.user.priceLow.integerValue) stringValue] stringByAppendingString:@" - "] stringByAppendingString:[@(self.user.priceHigh.integerValue) stringValue]];
     self.priceRangeLabel.text = [@"Price Range: $" stringByAppendingString:priceRange];
     self.bioLabel.text = [@"Bio: " stringByAppendingString:self.user.bio];
+    self.genderLabel.text = [@"Gender: " stringByAppendingString:self.user.gender];
     self.smokingLabel.text = [@"Smoking: " stringByAppendingString:self.user.smoking];
     self.petsLabel.text = [@"Pets: " stringByAppendingString:self.user.pets];
     self.inCollegeLabel.text = [@"Student: " stringByAppendingString:self.user.inCollege];
