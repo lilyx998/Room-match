@@ -38,4 +38,11 @@
     return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
+
++ (NSDate *)getDateFromString:(NSString *)string {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    return [dateFormatter dateFromString:string];
+}
+
 @end

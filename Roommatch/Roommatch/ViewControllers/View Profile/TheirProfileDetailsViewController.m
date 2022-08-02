@@ -33,7 +33,7 @@
 }
 
 - (void)setFields {
-    self.titleLabel.text = [self.user.name stringByAppendingString:@"'s Profile"];
+    self.titleLabel.text = [self.user.username stringByAppendingString:@"'s Profile"];
     
     self.profilePictureImageView.file = self.user.profilePicture;
     [self.profilePictureImageView loadInBackground];

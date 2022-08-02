@@ -61,4 +61,10 @@
     self.usersSeen = [NSMutableArray array]; 
 }
 
++ (User *)getUserFromUsername:(NSString *)username {
+    PFQuery *userQuery = [User query];
+    [userQuery whereKey:@"username" equalTo:username];
+    return [userQuery getFirstObject];
+}
+
 @end

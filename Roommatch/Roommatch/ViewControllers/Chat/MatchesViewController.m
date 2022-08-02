@@ -13,12 +13,14 @@
 #import "TheirProfileDetailsViewController.h"
 #import "MessagesViewController.h"
 #import "Message.h"
+#import "Utils.h"
 
-@interface MatchesViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MatchesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *chatsToDisplay;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -31,12 +33,22 @@
     [self.refreshControl addTarget:self action:@selector(queryAndDisplayChats) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     
+    self.searchBar.delegate = self;
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    gestureRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:gestureRecognizer];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [self queryAndDisplayChats];
+}
+
+- (void)hideKeyboard {
+    [self.view endEditing:YES];
 }
 
 - (void)queryAndDisplayChats {
@@ -96,6 +108,52 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.chatsToDisplay.count;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    PFQuery *query = [PFQuery queryWithClassName:@"Message"];
+    
+    [self addFiltersToQuery:query fromSearchString:searchBar.text];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        for(Message *message in objects){
+            NSLog(@"%@", message.description);
+        }
+    }];
+}
+
+- (void)addFiltersToQuery:(PFQuery *)query fromSearchString:(NSString *)searchString {
+    NSArray *tokens = [searchString componentsSeparatedByString:@" "];
+    
+    for(NSString *token in tokens){
+        if([token hasPrefix:@"from:"]){ // WORKS
+            NSString *username = [token substringFromIndex:5];
+            [query whereKey:@"fromUser" equalTo:[User getUserFromUsername:username]];
+        }
+        else if([token hasPrefix:@"to:"]){ // WORKS
+            NSString *username = [token substringFromIndex:3];
+            [query whereKey:@"toUser" equalTo:[User getUserFromUsername:username]];
+        }
+        else if([token hasPrefix:@"beforeDate:"]){ // WORKS
+            NSString *dateString = [token substringFromIndex:11]; //MM-DD-YYYY
+            NSDate *date = [Utils getDateFromString:dateString];
+            [query whereKey:@"updatedAt" lessThan:date];
+        }
+        else if([token hasPrefix:@"duringDate"]){ // INCLUDE TIME
+            NSString *dateString = [token substringFromIndex:11];
+            NSDate *date = [Utils getDateFromString:dateString];
+            [query whereKey:@"updatedAt" equalTo:date];
+        }
+        else if([token hasPrefix:@"afterDate:"]){ // INCLUDE TIME
+            NSString *dateString = [token substringFromIndex:10];
+            NSDate *date = [Utils getDateFromString:dateString];
+            [query whereKey:@"updatedAt" greaterThan:date];
+        }
+        else if([token hasPrefix:@"includesText:"]){ // WORKS 
+            NSString *text = [token substringFromIndex:13];
+            [query whereKey:@"text" containsString:text];
+        }
+    }
 }
 
 @end

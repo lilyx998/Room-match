@@ -103,8 +103,6 @@ int userIdx;
     
     if(!curUser.preferenceSmoking)
         [query whereKey:@"smoking" equalTo:@"No"];
-    
-    
 }
 
 - (void)viewDidCancelSwipe:(UIView *)view {
