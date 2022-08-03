@@ -15,6 +15,8 @@
 #import "Message.h"
 #import "Utils.h"
 #import "SearchMessageCell.h"
+#import "SearchMessagesFiltersViewController.h"
+#import "SearchFilters.h"
 
 @interface MatchesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
@@ -24,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *searchMessagesTableView;
 @property (strong, nonatomic) NSMutableArray *searchMessages;
+@property (strong, nonatomic) SearchFilters *filters; 
 
 @end
 
@@ -36,6 +39,7 @@
     [self.refreshControl addTarget:self action:@selector(queryAndDisplayChats) forControlEvents:UIControlEventValueChanged];
     [self.chatsTableView addSubview:self.refreshControl];
     
+    self.filters = [[SearchFilters alloc] init];
     self.searchBar.delegate = self;
     
     self.chatsTableView.delegate = self;
@@ -80,6 +84,11 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"searchFiltersSegue"]){
+        SearchMessagesFiltersViewController *filtersVC = [segue destinationViewController];
+        filtersVC.filters = self.filters;
+        return;
+    }
     NSIndexPath *indexPath = [self.chatsTableView indexPathForSelectedRow];
     
     Chat *chatToPass = self.chatsToDisplay[indexPath.row];
@@ -145,7 +154,7 @@
     [query includeKey:@"fromUser"]; 
     [query includeKey:@"text"];
     
-    [self addFiltersToQuery:query fromSearchString:searchBar.text];
+    [self addFiltersToQuery:query];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         self.searchMessages = [NSMutableArray arrayWithArray:objects];
@@ -153,45 +162,27 @@
     }];
 }
 
-- (void)addFiltersToQuery:(PFQuery *)query fromSearchString:(NSString *)searchString {
-    NSArray *tokens = [searchString componentsSeparatedByString:@" "];
-    
-    for(NSString *token in tokens){
-        if([token hasPrefix:@"from:"]){
-            NSString *username = [token substringFromIndex:5];
-            User *user = [User getUserFromUsername:username];
-            if(user)
-                [query whereKey:@"fromUser" equalTo:user];
-        }
-        else if([token hasPrefix:@"to:"]){
-            NSString *username = [token substringFromIndex:3];
-            User *user = [User getUserFromUsername:username];
-            if(user)
-                [query whereKey:@"toUser" equalTo:user];
-        }
-        else if([token hasPrefix:@"beforeDate:"]){
-            NSString *dateString = [token substringFromIndex:11];
-            NSDate *date = [Utils getDateFrom_MM_dd_YYYY_String:dateString];
-            [query whereKey:@"updatedAt" lessThan:date];
-        }
-        else if([token hasPrefix:@"duringDate"]){
-            NSString *dateString = [token substringFromIndex:11];
-            NSDate *date = [Utils getDateFrom_MM_dd_YYYY_String:dateString];
-            [query whereKey:@"updatedAt" greaterThanOrEqualTo:date];
-            
-            dateString = [dateString stringByAppendingString:@" 23:59:59"];
-            date = [Utils getDateFrom_MM_dd_YYYY_HH_mm_ss_String:dateString];
-            [query whereKey:@"updatedAt" lessThan:date];
-        }
-        else if([token hasPrefix:@"afterDate:"]){
-            NSString *dateString = [[token substringFromIndex:10] stringByAppendingFormat:@" 23:59:59"];
-            NSDate *date = [Utils getDateFrom_MM_dd_YYYY_HH_mm_ss_String:dateString];
-            [query whereKey:@"updatedAt" greaterThan:date];
-        }
-        else{
-            [query whereKey:@"text" containsString:token];
-        }
+- (void)addFiltersToQuery:(PFQuery *)query {
+    if(self.filters.from){
+        User *user = [User getUserFromUsername:self.filters.fromUsername];
+        if(user)
+            [query whereKey:@"fromUser" equalTo:user];
     }
+    if(self.filters.to){
+        User *user = [User getUserFromUsername:self.filters.toUsername];
+        if(user)
+            [query whereKey:@"toUser" equalTo:user];
+    }
+    if(self.filters.before){
+        [query whereKey:@"updatedAt" lessThanOrEqualTo:self.filters.beforeDate];
+    }
+    if(self.filters.to){
+        [query whereKey:@"updatedAt" lessThanOrEqualTo:self.filters.afterDate];
+    }
+    
+    NSArray *words = [self.searchBar.text componentsSeparatedByString:@" "];
+    for(NSString *word in words)
+        [query whereKey:@"text" containsString:word];
 }
 
 @end
