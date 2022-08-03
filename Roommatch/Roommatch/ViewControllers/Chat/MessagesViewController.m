@@ -65,6 +65,10 @@ static const int fetchAmount = 10;
     self.navigationTitleItem.title = self.otherUser.name;
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.liveQueryClient disconnect];
+}
+
 - (void)setUpLiveQuery {
     NSString *path = [[NSBundle mainBundle] pathForResource: @"Keys" ofType: @"plist"];
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
