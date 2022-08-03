@@ -30,6 +30,7 @@ static const int fetchAmount = 10;
 @property (strong, nonatomic) NSMutableArray<Message *> *messages;
 
 @property (nonatomic) NSInteger fetchedMessagesCount;
+@property (nonatomic) BOOL amUser1;
 
 @end
 
@@ -40,6 +41,8 @@ static const int fetchAmount = 10;
     
     self.otherUser = [self getOtherUser];
     self.messages = [NSMutableArray arrayWithArray:self.chat.messages];
+    
+    [self updateLastSeenDate];
     
     NSInteger n = self.messages.count;
     for(int i = 0; i<MIN(fetchAmount, n); i++){
@@ -85,6 +88,7 @@ static const int fetchAmount = 10;
                 NSIndexPath *row = [NSIndexPath indexPathForRow:0 inSection:0];
                 [strongSelf.messagesTableView insertRowsAtIndexPaths: [NSArray arrayWithObject:row] withRowAnimation:UITableViewRowAnimationBottom ];
                 [strongSelf.messagesTableView endUpdates];
+                [strongSelf updateLastSeenDate];
             });
         }
     }];
@@ -107,7 +111,8 @@ static const int fetchAmount = 10;
     self.fetchedMessagesCount++;
     [self.chat addObject:newMessage forKey:@"messages"];
     self.chat.lastMessageText = newMessage.text;
-    [self.chat save];
+    self.chat.lastMessageDate = [[NSDate alloc] init]; 
+    [self updateLastSeenDate];
     
     [self.messagesTableView beginUpdates];
     NSIndexPath *row = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -147,7 +152,8 @@ static const int fetchAmount = 10;
 }
 
 - (User *)getOtherUser {
-    return [self.chat.user1.objectId isEqualToString:[User currentUser].objectId] ? self.chat.user2 : self.chat.user1;
+    self.amUser1 = [self.chat.user1.objectId isEqualToString:[User currentUser].objectId];
+    return self.amUser1 ? self.chat.user2 : self.chat.user1;
 }
 
 - (void)registerForKeyboardNotifications
@@ -201,6 +207,14 @@ static const int fetchAmount = 10;
             [self.fetchMoreMessagesActivityIndicator stopAnimating];
         });
     });
+}
+
+- (void)updateLastSeenDate {
+    if(self.amUser1)
+        self.chat.user1LastSeenDate = [[NSDate alloc] init];
+    else
+        self.chat.user2LastSeenDate = [[NSDate alloc] init];
+    [self.chat save];
 }
 
 @end

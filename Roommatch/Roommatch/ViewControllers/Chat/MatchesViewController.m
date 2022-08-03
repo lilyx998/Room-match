@@ -69,7 +69,7 @@
     [queryCurrentUserIsUser2 whereKey:@"user2" equalTo:curUser];
     
     PFQuery *query = [PFQuery orQueryWithSubqueries:@[queryCurrentUserIsUser1, queryCurrentUserIsUser2]];
-    [query orderByDescending:@"updatedAt"];
+    [query orderByDescending:@"lastMessageDate"];
     [query includeKey:@"messages"]; 
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *chats, NSError *error) {
@@ -137,10 +137,12 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     self.searchMessagesTableView.hidden = NO;
+    searchBar.showsCancelButton = YES;
 }
 
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     self.searchMessagesTableView.hidden = YES;
+    searchBar.showsCancelButton = NO;
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
@@ -176,8 +178,8 @@
     if(self.filters.before){
         [query whereKey:@"updatedAt" lessThanOrEqualTo:self.filters.beforeDate];
     }
-    if(self.filters.to){
-        [query whereKey:@"updatedAt" lessThanOrEqualTo:self.filters.afterDate];
+    if(self.filters.after){
+        [query whereKey:@"updatedAt" greaterThanOrEqualTo:self.filters.afterDate];
     }
     
     NSArray *words = [self.searchBar.text componentsSeparatedByString:@" "];
