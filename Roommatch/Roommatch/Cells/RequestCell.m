@@ -75,6 +75,7 @@
     Chat *chat = [Chat new];
     chat.user1 = curUser;
     chat.user2 = them;
+    chat.lastMessageDate = [[NSDate alloc] init]; 
     chat.lastMessageText = @"Send a message!";
     chat.messages = [NSMutableArray array];
     [chat saveInBackground]; 

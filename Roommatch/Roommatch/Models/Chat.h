@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) User* user2;
 @property (strong, nonatomic) NSString* lastMessageText;
 @property (strong, nonatomic) NSMutableArray *messages;
+@property (strong, nonatomic) NSDate *user1LastSeenDate;
+@property (strong, nonatomic) NSDate *user2LastSeenDate;
+@property (strong, nonatomic) NSDate *lastMessageDate; 
 
 @end
 

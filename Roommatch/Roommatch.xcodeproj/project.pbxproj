@@ -25,6 +25,9 @@
 		D88C85302878C542009533BB /* CreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C852F2878C542009533BB /* CreateProfileViewController.m */; };
 		D88C85332878D2DA009533BB /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85322878D2DA009533BB /* Utils.m */; };
 		D88C85362878F6A4009533BB /* ViewMyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C85352878F6A4009533BB /* ViewMyProfileViewController.m */; };
+		D8958F242899E2910078C0A7 /* SearchMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8958F232899E2910078C0A7 /* SearchMessageCell.m */; };
+		D8958F27289AEA5E0078C0A7 /* SearchMessagesFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8958F26289AEA5E0078C0A7 /* SearchMessagesFiltersViewController.m */; };
+		D8958F2A289AF75C0078C0A7 /* SearchFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = D8958F29289AF75C0078C0A7 /* SearchFilters.m */; };
 		D8A9E3592874C1F4000ACF9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E3582874C1F4000ACF9A /* AppDelegate.m */; };
 		D8A9E35C2874C1F4000ACF9A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A9E35B2874C1F4000ACF9A /* SceneDelegate.m */; };
 		D8A9E3622874C1F4000ACF9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8A9E3602874C1F4000ACF9A /* Main.storyboard */; };
@@ -101,6 +104,12 @@
 		D88C85322878D2DA009533BB /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		D88C85342878F6A4009533BB /* ViewMyProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewMyProfileViewController.h; sourceTree = "<group>"; };
 		D88C85352878F6A4009533BB /* ViewMyProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewMyProfileViewController.m; sourceTree = "<group>"; };
+		D8958F222899E2910078C0A7 /* SearchMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchMessageCell.h; sourceTree = "<group>"; };
+		D8958F232899E2910078C0A7 /* SearchMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchMessageCell.m; sourceTree = "<group>"; };
+		D8958F25289AEA5E0078C0A7 /* SearchMessagesFiltersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchMessagesFiltersViewController.h; sourceTree = "<group>"; };
+		D8958F26289AEA5E0078C0A7 /* SearchMessagesFiltersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchMessagesFiltersViewController.m; sourceTree = "<group>"; };
+		D8958F28289AF75C0078C0A7 /* SearchFilters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchFilters.h; sourceTree = "<group>"; };
+		D8958F29289AF75C0078C0A7 /* SearchFilters.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchFilters.m; sourceTree = "<group>"; };
 		D8A9E3542874C1F4000ACF9A /* Roommatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roommatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A9E3572874C1F4000ACF9A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D8A9E3582874C1F4000ACF9A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -201,13 +210,6 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
-		D8838B7E2891FEAA00C72808 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		D8838B7F2891FEE200C72808 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +217,8 @@
 				D8838B4F288749A900C72808 /* MatchesViewController.m */,
 				D8838B772890862B00C72808 /* MessagesViewController.h */,
 				D8838B782890862B00C72808 /* MessagesViewController.m */,
+				D8958F25289AEA5E0078C0A7 /* SearchMessagesFiltersViewController.h */,
+				D8958F26289AEA5E0078C0A7 /* SearchMessagesFiltersViewController.m */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -308,7 +312,6 @@
 				D8A9E3982877542E000ACF9A /* ViewControllers */,
 				D8838B6A288B22AA00C72808 /* Animation */,
 				D8A9E38F2874FBC7000ACF9A /* Models */,
-				D8838B7E2891FEAA00C72808 /* New Group */,
 				D8838B4B28873ECB00C72808 /* Views */,
 				D8EE16AA28861E570068FD1B /* Cells */,
 				D8838B862891FFF000C72808 /* Util */,
@@ -352,6 +355,8 @@
 				D8838B72288F551500C72808 /* Chat.m */,
 				D8838B74288F552000C72808 /* Message.h */,
 				D8838B75288F552000C72808 /* Message.m */,
+				D8958F28289AF75C0078C0A7 /* SearchFilters.h */,
+				D8958F29289AF75C0078C0A7 /* SearchFilters.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -382,6 +387,8 @@
 				D8838B8E289331F100C72808 /* SendMessageCell.m */,
 				D8838B962893328800C72808 /* ReceiveMessageCell.h */,
 				D8838B972893328800C72808 /* ReceiveMessageCell.m */,
+				D8958F222899E2910078C0A7 /* SearchMessageCell.h */,
+				D8958F232899E2910078C0A7 /* SearchMessageCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -632,6 +639,7 @@
 				D8A9E36A2874C1F5000ACF9A /* main.m in Sources */,
 				D8838B4A28873AAE00C72808 /* RequestsViewController.m in Sources */,
 				D8838B73288F551500C72808 /* Chat.m in Sources */,
+				D8958F2A289AF75C0078C0A7 /* SearchFilters.m in Sources */,
 				D8838B792890862B00C72808 /* MessagesViewController.m in Sources */,
 				D8838B50288749A900C72808 /* MatchesViewController.m in Sources */,
 				D8838B532887661B00C72808 /* ChatCell.m in Sources */,
@@ -640,10 +648,12 @@
 				D8838B76288F552000C72808 /* Message.m in Sources */,
 				D8838B6C288B22F300C72808 /* ConfettiAnimation.swift in Sources */,
 				D8EE169C2880CC950068FD1B /* LocationViewController.m in Sources */,
+				D8958F242899E2910078C0A7 /* SearchMessageCell.m in Sources */,
 				D8A9E35C2874C1F4000ACF9A /* SceneDelegate.m in Sources */,
 				D8838B982893328800C72808 /* ReceiveMessageCell.m in Sources */,
 				D8A9E39528774B1D000ACF9A /* LoginViewController.m in Sources */,
 				D8EE16B028861F050068FD1B /* DiscoverViewController.m in Sources */,
+				D8958F27289AEA5E0078C0A7 /* SearchMessagesFiltersViewController.m in Sources */,
 				D8838B8F289331F100C72808 /* SendMessageCell.m in Sources */,
 				D8EE16AD28861E990068FD1B /* RequestCell.m in Sources */,
 				D88C85362878F6A4009533BB /* ViewMyProfileViewController.m in Sources */,

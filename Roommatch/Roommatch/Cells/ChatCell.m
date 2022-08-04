@@ -7,6 +7,7 @@
 
 #import "ChatCell.h"
 #import "Chat.h"
+#import "Message.h"
 
 @implementation ChatCell
 
@@ -17,14 +18,16 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)initWithChatObject:(Chat *)chat {
     User *curUser = [User currentUser];
-    User *them = [chat.user1.objectId isEqualToString:curUser.objectId] ? chat.user2 : chat.user1;
-    [them fetchIfNeeded]; 
+    BOOL amUser1 = [chat.user1.objectId isEqualToString:curUser.objectId];
+    User *them = amUser1 ? chat.user2 : chat.user1;
+    [them fetchIfNeeded];
+    
+    NSDate *lastOpenedByMe = amUser1 ? chat.user1LastSeenDate : chat.user2LastSeenDate;
+    self.unreadIndicatorImageView.hidden = !(!lastOpenedByMe || (chat.lastMessageDate && ![chat.lastMessageDate isEqualToDate:lastOpenedByMe] && [[lastOpenedByMe earlierDate:chat.lastMessageDate] isEqualToDate:lastOpenedByMe]));
     
     self.nameLabel.text = them.name;
     self.profilePictureImageView.file = them.profilePicture;

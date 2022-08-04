@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet PFImageView *profilePictureImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastMessagePreview;
+@property (weak, nonatomic) IBOutlet UIImageView *unreadIndicatorImageView;
 
 - (void)initWithChatObject:(Chat *)chat;
 
