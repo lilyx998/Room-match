@@ -38,7 +38,6 @@ int userIdx;
 - (void)viewDidLoad {
     [super viewDidLoad];
         
-    // You can customize MDCSwipeToChooseView using MDCSwipeToChooseViewOptions.
     self.options = [MDCSwipeToChooseViewOptions new];
     self.options.likedText = @"Yes";
     self.options.nopeText = @"Nope";
