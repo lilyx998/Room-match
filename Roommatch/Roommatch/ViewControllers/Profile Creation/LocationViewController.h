@@ -11,8 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LocationViewController : UIViewController
 
-@property (strong, nonatomic) NSString *selectedCity;
-
 @end
 
 NS_ASSUME_NONNULL_END

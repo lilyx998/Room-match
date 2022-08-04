@@ -32,6 +32,9 @@ int userIdx;
 
 @implementation DiscoverViewController
 
+
+#pragma mark - View initialization
+
 - (void)viewDidLoad {
     [super viewDidLoad];
         
@@ -105,9 +108,8 @@ int userIdx;
         [query whereKey:@"smoking" equalTo:@"No"];
 }
 
-- (void)viewDidCancelSwipe:(UIView *)view {
-    NSLog(@"Couldn't decide, huh?");
-}
+
+#pragma mark - Handle user swipes
 
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
     if (direction == MDCSwipeDirectionLeft) {
@@ -116,26 +118,6 @@ int userIdx;
     } else {
         [self swipedRight];
     }
-}
-
-- (void)displayNextUser {
-    if(userIdx == self.usersToDisplay.count){
-        [self noMoreUsersToDisplay];
-        return;
-    }
-    User *user = self.usersToDisplay[userIdx];
-    
-    SwipeView *view = [[[NSBundle mainBundle] loadNibNamed:@"SwipeView" owner:self options:nil] objectAtIndex:0];
-    view = [view initWithFrame:self.swipeContentView.frame options:self.options];
-    [view initWithUserObject:user];
-    view.frame = self.swipeContentView.frame;
-    self.currentSwipeView = view;
-    view.delegate = self; 
-    [self.view addSubview:view];
-}
-
-- (void)noMoreUsersToDisplay {
-    [self.noUsersToDisplayLabel setHidden:NO]; 
 }
 
 - (void)swipedLeft {
@@ -190,6 +172,29 @@ int userIdx;
       });
     });
 }
+
+- (void)displayNextUser {
+    if(userIdx == self.usersToDisplay.count){
+        [self noMoreUsersToDisplay];
+        return;
+    }
+    User *user = self.usersToDisplay[userIdx];
+    
+    SwipeView *view = [[[NSBundle mainBundle] loadNibNamed:@"SwipeView" owner:self options:nil] objectAtIndex:0];
+    view = [view initWithFrame:self.swipeContentView.frame options:self.options];
+    [view initWithUserObject:user];
+    view.frame = self.swipeContentView.frame;
+    self.currentSwipeView = view;
+    view.delegate = self;
+    [self.view addSubview:view];
+}
+
+- (void)noMoreUsersToDisplay {
+    [self.noUsersToDisplayLabel setHidden:NO];
+}
+
+
+#pragma mark - Segue to detailed view
 
 - (void)showDetailedView {
     [self performSegueWithIdentifier:@"discoverDetailedView" sender:nil];

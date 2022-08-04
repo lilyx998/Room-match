@@ -21,6 +21,9 @@
 
 @implementation RequestsViewController
 
+
+#pragma mark - View initialization
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -57,13 +60,7 @@
 }
 
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    
-    User *userToPass = self.usersToDisplay[indexPath.row];
-    TheirProfileDetailsViewController *detailsVC = [segue destinationViewController];
-    detailsVC.user = userToPass;
-}
+#pragma mark - Table view of Requests
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     RequestCell *cell = [tableView dequeueReusableCellWithIdentifier:@"requestCell" forIndexPath:indexPath];
@@ -79,9 +76,23 @@
     return self.usersToDisplay.count;
 }
 
+
+#pragma mark - Refresh after user interaction
+
 - (void)didInteractWithUser {
     [self.class cancelPreviousPerformRequestsWithTarget:self selector:@selector(queryAndDisplayRequests) object:nil];
     [self performSelector:@selector(queryAndDisplayRequests) withObject:nil afterDelay:2.0];
+}
+
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    
+    User *userToPass = self.usersToDisplay[indexPath.row];
+    TheirProfileDetailsViewController *detailsVC = [segue destinationViewController];
+    detailsVC.user = userToPass;
 }
 
 @end

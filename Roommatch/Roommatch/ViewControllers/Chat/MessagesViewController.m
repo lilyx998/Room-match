@@ -36,6 +36,9 @@ static const int fetchAmount = 10;
 
 @implementation MessagesViewController
 
+
+#pragma mark - View initialization and disappearing
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -98,6 +101,9 @@ static const int fetchAmount = 10;
     }];
 }
 
+
+#pragma mark - Send message
+
 - (IBAction)tapSendButton:(id)sender {
     if(self.inputTextField.text.length == 0)
         return;
@@ -125,6 +131,8 @@ static const int fetchAmount = 10;
 }
 
 
+#pragma mark - Table view of messages
+
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     if(indexPath.row == self.fetchedMessagesCount-1 && indexPath.row != self.messages.count-1){
         [self fetchMoreMessages];
@@ -150,15 +158,27 @@ static const int fetchAmount = 10;
     return self.fetchedMessagesCount;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    TheirProfileDetailsViewController *detailsVC = [segue destinationViewController];
-    detailsVC.user = self.otherUser;
+- (void)fetchMoreMessages {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.fetchMoreMessagesActivityIndicator startAnimating];
+        });
+        
+        NSInteger actualFetchAmount = MIN(fetchAmount, self.messages.count - self.fetchedMessagesCount);
+        for(int i = 0; i<actualFetchAmount; i++){
+            [self.messages[self.messages.count - self.fetchedMessagesCount - i - 1].fromUser fetchIfNeeded];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.fetchedMessagesCount += actualFetchAmount;
+            [self.messagesTableView reloadData];
+            [self.fetchMoreMessagesActivityIndicator stopAnimating];
+        });
+    });
 }
 
-- (User *)getOtherUser {
-    self.amUser1 = [self.chat.user1.objectId isEqualToString:[User currentUser].objectId];
-    return self.amUser1 ? self.chat.user2 : self.chat.user1;
-}
+
+#pragma mark - Moving view above keyboard to avoid blocking
 
 - (void)registerForKeyboardNotifications
 {
@@ -194,24 +214,8 @@ static const int fetchAmount = 10;
     [self.view endEditing:YES];
 }
 
-- (void)fetchMoreMessages {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.fetchMoreMessagesActivityIndicator startAnimating];
-        });
-        
-        NSInteger actualFetchAmount = MIN(fetchAmount, self.messages.count - self.fetchedMessagesCount);
-        for(int i = 0; i<actualFetchAmount; i++){
-            [self.messages[self.messages.count - self.fetchedMessagesCount - i - 1].fromUser fetchIfNeeded];
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.fetchedMessagesCount += actualFetchAmount;
-            [self.messagesTableView reloadData];
-            [self.fetchMoreMessagesActivityIndicator stopAnimating];
-        });
-    });
-}
+
+#pragma mark - Update for unread message indicator
 
 - (void)updateLastSeenDate {
     if(self.amUser1)
@@ -219,6 +223,22 @@ static const int fetchAmount = 10;
     else
         self.chat.user2LastSeenDate = [[NSDate alloc] init];
     [self.chat save];
+}
+
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    TheirProfileDetailsViewController *detailsVC = [segue destinationViewController];
+    detailsVC.user = self.otherUser;
+}
+
+
+#pragma mark - Helper functions
+
+- (User *)getOtherUser {
+    self.amUser1 = [self.chat.user1.objectId isEqualToString:[User currentUser].objectId];
+    return self.amUser1 ? self.chat.user2 : self.chat.user1;
 }
 
 @end

@@ -39,12 +39,26 @@ static const int charLimit = 280;
 
 @implementation CreateProfileViewController
 
+#pragma mark - View initialization
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
     self.bioTextView.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    User *user = [User currentUser];
+    if(user.profileCreated){
+        [self setFields:user];
+        self.choseImage = YES;
+    }
+}
+
+-(void)hideKeyboard {
+    [self.view endEditing:YES];
 }
 
 - (void)setFields:(User *)user {
@@ -92,13 +106,7 @@ static const int charLimit = 280;
     self.collegeNameTextField.text = user.collegeName;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    User *user = [User currentUser];
-    if(user.profileCreated){
-        [self setFields:user];
-        self.choseImage = YES;
-    }
-}
+#pragma mark - User picks profile picture
 
 - (IBAction)chooseImage:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
@@ -115,6 +123,9 @@ static const int charLimit = 280;
     [self dismissViewControllerAnimated:YES completion:nil];
     self.choseImage = YES;
 }
+
+
+#pragma mark - Create profile
 
 - (IBAction)tapDoneButton:(id)sender {
     if(![self areRequiredFeaturesFilled]){
@@ -169,9 +180,7 @@ static const int charLimit = 280;
     return YES;
 }
 
--(void)hideKeyboard {
-    [self.view endEditing:YES];
-}
+#pragma mark - Bio 280 character count limit implementation
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     NSString *newText = [textView.text stringByReplacingCharactersInRange:range withString:text];

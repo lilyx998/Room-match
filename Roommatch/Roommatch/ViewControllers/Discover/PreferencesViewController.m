@@ -25,6 +25,9 @@
 
 @implementation PreferencesViewController
 
+
+#pragma mark - View initialization
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setFields];
@@ -46,6 +49,16 @@
     self.smokingPreferencesSegmentedControl.selectedSegmentIndex = (curUser.preferenceSmoking ? 0 : 1);
 }
 
+
+#pragma mark - Handle user input 
+
+- (IBAction)selectCheckbox:(UIButton *)sender {
+    if(sender.selected)
+        sender.selected = NO;
+    else
+        sender.selected = YES;
+}
+
 - (IBAction)tapDone:(id)sender {
     User *curUser = [User currentUser];
     curUser.preferenceMale = self.maleButton.selected;
@@ -60,13 +73,6 @@
     curUser.preferenceSmoking = (self.smokingPreferencesSegmentedControl.selectedSegmentIndex == 0);
     [curUser saveInBackground];
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (IBAction)selectCheckbox:(UIButton *)sender {
-    if(sender.selected)
-        sender.selected = NO;
-    else
-        sender.selected = YES;
 }
 
 /*
