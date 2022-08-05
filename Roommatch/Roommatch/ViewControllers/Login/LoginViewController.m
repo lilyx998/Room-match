@@ -12,6 +12,7 @@
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -29,6 +30,8 @@
         [Utils alertViewController:self WithMessage:@"Please enter a valid username and password"];
         return;
     }
+    
+    [self.activityIndicator startAnimating];
 
     User *user = [User user];
     [user initAllEmpty];
@@ -47,6 +50,7 @@
             [curUser saveInBackground]; 
             [self performSegueWithIdentifier:@"Sign Up Segue" sender:nil];
         }
+        [self.activityIndicator stopAnimating];
     }];
 }
 
@@ -59,6 +63,8 @@
         return;
     }
     
+    [self.activityIndicator startAnimating];
+    
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error) {
             NSLog(@"User log in failed: %@", error.localizedDescription);
@@ -67,6 +73,7 @@
             NSLog(@"🤓🤓🤓 User logged in successfully");
             [self performSegueWithIdentifier:@"Login Segue" sender:nil];
         }
+        [self.activityIndicator stopAnimating];
     }];
 }
 

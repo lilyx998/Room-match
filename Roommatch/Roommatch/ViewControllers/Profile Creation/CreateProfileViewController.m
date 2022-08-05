@@ -33,6 +33,8 @@ static const int charLimit = 280;
 
 @property (weak, nonatomic) IBOutlet UITextField *collegeNameTextField;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 @property (nonatomic) BOOL choseImage;
 
 @end
@@ -133,6 +135,7 @@ static const int charLimit = 280;
         return;
     }
     
+    [self.activityIndicator startAnimating];
     User* user = [User currentUser];
     user.name = self.nameTextField.text;
     user.age = self.ageTextField.text;
@@ -167,6 +170,7 @@ static const int charLimit = 280;
         else{
             [self performSegueWithIdentifier:@"Create Profile Segue" sender:nil];
         }
+        [self.activityIndicator stopAnimating]; 
     }];
 }
 

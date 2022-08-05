@@ -47,11 +47,8 @@ static const int fetchAmount = 10;
     
     [self updateLastSeenDate];
     
-    NSInteger n = self.messages.count;
-    for(int i = 0; i<MIN(fetchAmount, n); i++){
-        [self.messages[n - i - 1].fromUser fetchIfNeeded];
-    }
-    self.fetchedMessagesCount = MIN(fetchAmount, n);
+    self.fetchedMessagesCount = 0;
+    [self fetchMoreMessages];
     
     [self setUpLiveQuery];
     

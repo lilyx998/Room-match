@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSMutableArray *usersToDisplay;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -35,6 +36,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self.activityIndicator startAnimating];
     [self queryAndDisplayRequests];
 }
 
@@ -56,6 +58,7 @@
             NSLog(@"%@", error.localizedDescription);
         }
         [self.refreshControl endRefreshing];
+        [self.activityIndicator stopAnimating];
     }];
 }
 

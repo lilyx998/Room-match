@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *searchMessagesTableView;
 @property (strong, nonatomic) NSMutableArray *searchMessages;
 @property (strong, nonatomic) SearchFilters *filters; 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -55,6 +56,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+    [self.activityIndicator startAnimating];
     [self queryAndDisplayChats];
 }
 
@@ -83,6 +85,7 @@
             NSLog(@"%@", error.localizedDescription);
         }
         [self.refreshControl endRefreshing];
+        [self.activityIndicator stopAnimating]; 
     }];
 }
 

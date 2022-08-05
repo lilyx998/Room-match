@@ -28,6 +28,8 @@ int userIdx;
 @property (weak, nonatomic) IBOutlet UILabel *noUsersToDisplayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *matchMessageLabel;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 @end
 
 @implementation DiscoverViewController
@@ -51,6 +53,7 @@ int userIdx;
 }
 
 - (void)queryUsers {
+    [self.activityIndicator startAnimating];
     userIdx = 0; 
     PFQuery *query = [User query];
     User *curUser = [User currentUser];
@@ -73,6 +76,7 @@ int userIdx;
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
+        [self.activityIndicator stopAnimating]; 
     }];
 }
 
