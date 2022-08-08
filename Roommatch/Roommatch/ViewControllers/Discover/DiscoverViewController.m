@@ -49,11 +49,11 @@ int userIdx;
 - (void)viewDidAppear:(BOOL)animated {
     if(self.currentSwipeView)
         [self.currentSwipeView removeFromSuperview];
+    [self.activityIndicator startAnimating];
     [self queryUsers];
 }
 
 - (void)queryUsers {
-    [self.activityIndicator startAnimating];
     userIdx = 0; 
     PFQuery *query = [User query];
     User *curUser = [User currentUser];

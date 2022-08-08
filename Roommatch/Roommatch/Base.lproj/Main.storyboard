@@ -46,7 +46,7 @@
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECA-eT-eou">
                                 <rect key="frame" x="90.5" y="480" width="75" height="31"/>
@@ -954,6 +954,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="nxo-BY-QNb" id="YPz-0v-9OV"/>
                         <outlet property="descriptionLabel" destination="oud-Jk-IOm" id="Ubk-sL-pLV"/>
                         <outlet property="matchMessageLabel" destination="xej-IT-kge" id="MYc-H1-6kl"/>
                         <outlet property="noUsersToDisplayLabel" destination="Jsu-Qa-RMB" id="hJr-Hx-B0M"/>
@@ -1891,7 +1892,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3ON-vH-3h6"/>
+        <segue reference="puf-lR-Rfb"/>
         <segue reference="7kD-9Z-NMe"/>
         <segue reference="nNj-SB-mLI"/>
     </inferredMetricsTieBreakers>
