@@ -13,6 +13,7 @@
 @interface LocationViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSString *selectedCity;
 
 @property (nonatomic) NSString *prefix;
 @property (nonatomic) NSArray *cities;
@@ -32,8 +33,24 @@
     self.tableView.delegate = self;
     self.searchBar.delegate = self;
     
+    User *curUser = [User currentUser];
+    if(curUser.profileCreated)
+        self.selectedCity = curUser.city; 
+    
     [self queryCitiesStartingWithPrefix];
 }
+
+- (IBAction)tappedNext:(id)sender {
+    if(!self.selectedCity){
+        [Utils alertViewController:self WithMessage:@"Must select a city"];
+        return;
+    }
+    [User currentUser].city = self.selectedCity;
+    [self performSegueWithIdentifier:@"Selected Location Segue" sender:nil];
+}
+
+
+#pragma mark - TableView with city names
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     CityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cityCell" forIndexPath:indexPath];
@@ -58,6 +75,9 @@
     self.selectedCell = cell;
     self.selectedCity = cell.cityNameLabel.text;
 }
+
+
+#pragma mark - Query city names with search text
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     [self.class cancelPreviousPerformRequestsWithTarget:self selector:@selector(queryCitiesStartingWithPrefix) object:nil];
@@ -111,15 +131,6 @@
     if(self.selectedCell)
         [self.selectedCell.checkImageView setImage:[UIImage systemImageNamed:@""]];
     [self.tableView reloadData];
-}
-
-- (IBAction)tappedNext:(id)sender {
-    if(!self.selectedCity){
-        [Utils alertViewController:self WithMessage:@"Must select a city"];
-        return;
-    }
-    [User currentUser].city = self.selectedCity;
-    [self performSegueWithIdentifier:@"Selected Location Segue" sender:nil]; 
 }
 
 @end

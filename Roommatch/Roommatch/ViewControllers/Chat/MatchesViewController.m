@@ -27,10 +27,14 @@
 @property (weak, nonatomic) IBOutlet UITableView *searchMessagesTableView;
 @property (strong, nonatomic) NSMutableArray *searchMessages;
 @property (strong, nonatomic) SearchFilters *filters; 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
 @implementation MatchesViewController
+
+
+#pragma mark - View initialization
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,6 +56,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+    [self.activityIndicator startAnimating];
     [self queryAndDisplayChats];
 }
 
@@ -80,21 +85,12 @@
             NSLog(@"%@", error.localizedDescription);
         }
         [self.refreshControl endRefreshing];
+        [self.activityIndicator stopAnimating]; 
     }];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"searchFiltersSegue"]){
-        SearchMessagesFiltersViewController *filtersVC = [segue destinationViewController];
-        filtersVC.filters = self.filters;
-        return;
-    }
-    NSIndexPath *indexPath = [self.chatsTableView indexPathForSelectedRow];
-    
-    Chat *chatToPass = self.chatsToDisplay[indexPath.row];
-    MessagesViewController *messagesVC = [segue destinationViewController];
-    messagesVC.chat = chatToPass;
-}
+
+#pragma mark - Table view of Chats
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     if(tableView == self.chatsTableView){
@@ -113,6 +109,12 @@
     }
 }
 
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if(tableView == self.chatsTableView)
+        return self.chatsToDisplay.count;
+    return self.searchMessages.count;
+}
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return tableView == self.chatsTableView;
 }
@@ -129,11 +131,8 @@
     [tableView reloadData];
 }
 
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(tableView == self.chatsTableView)
-        return self.chatsToDisplay.count;
-    return self.searchMessages.count;
-}
+
+#pragma mark - Search bar
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     self.searchMessagesTableView.hidden = NO;
@@ -185,6 +184,22 @@
     NSArray *words = [self.searchBar.text componentsSeparatedByString:@" "];
     for(NSString *word in words)
         [query whereKey:@"text" containsString:word];
+}
+
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"searchFiltersSegue"]){
+        SearchMessagesFiltersViewController *filtersVC = [segue destinationViewController];
+        filtersVC.filters = self.filters;
+        return;
+    }
+    NSIndexPath *indexPath = [self.chatsTableView indexPathForSelectedRow];
+    
+    Chat *chatToPass = self.chatsToDisplay[indexPath.row];
+    MessagesViewController *messagesVC = [segue destinationViewController];
+    messagesVC.chat = chatToPass;
 }
 
 @end

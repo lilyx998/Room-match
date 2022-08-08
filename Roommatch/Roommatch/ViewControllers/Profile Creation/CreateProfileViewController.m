@@ -33,11 +33,15 @@ static const int charLimit = 280;
 
 @property (weak, nonatomic) IBOutlet UITextField *collegeNameTextField;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 @property (nonatomic) BOOL choseImage;
 
 @end
 
 @implementation CreateProfileViewController
+
+#pragma mark - View initialization
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,6 +49,18 @@ static const int charLimit = 280;
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
     self.bioTextView.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    User *user = [User currentUser];
+    if(user.profileCreated){
+        [self setFields:user];
+        self.choseImage = YES;
+    }
+}
+
+-(void)hideKeyboard {
+    [self.view endEditing:YES];
 }
 
 - (void)setFields:(User *)user {
@@ -92,13 +108,7 @@ static const int charLimit = 280;
     self.collegeNameTextField.text = user.collegeName;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    User *user = [User currentUser];
-    if(user.profileCreated){
-        [self setFields:user];
-        self.choseImage = YES;
-    }
-}
+#pragma mark - User picks profile picture
 
 - (IBAction)chooseImage:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
@@ -116,12 +126,16 @@ static const int charLimit = 280;
     self.choseImage = YES;
 }
 
+
+#pragma mark - Create profile
+
 - (IBAction)tapDoneButton:(id)sender {
     if(![self areRequiredFeaturesFilled]){
         [Utils alertViewController:self WithMessage:@"Please fill out all required fields"];
         return;
     }
     
+    [self.activityIndicator startAnimating];
     User* user = [User currentUser];
     user.name = self.nameTextField.text;
     user.age = self.ageTextField.text;
@@ -156,6 +170,7 @@ static const int charLimit = 280;
         else{
             [self performSegueWithIdentifier:@"Create Profile Segue" sender:nil];
         }
+        [self.activityIndicator stopAnimating]; 
     }];
 }
 
@@ -169,9 +184,7 @@ static const int charLimit = 280;
     return YES;
 }
 
--(void)hideKeyboard {
-    [self.view endEditing:YES];
-}
+#pragma mark - Bio 280 character count limit implementation
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     NSString *newText = [textView.text stringByReplacingCharactersInRange:range withString:text];

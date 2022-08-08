@@ -25,10 +25,12 @@
 
 @implementation PreferencesViewController
 
+
+#pragma mark - View initialization
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setFields];
-    // Do any additional setup after loading the view.
 }
 
 - (void)setFields {
@@ -44,6 +46,16 @@
     
     self.collegePreferencesSegementedControl.selectedSegmentIndex = (curUser.preferenceCollege ? 1 : 0);
     self.smokingPreferencesSegmentedControl.selectedSegmentIndex = (curUser.preferenceSmoking ? 0 : 1);
+}
+
+
+#pragma mark - Handle user input 
+
+- (IBAction)selectCheckbox:(UIButton *)sender {
+    if(sender.selected)
+        sender.selected = NO;
+    else
+        sender.selected = YES;
 }
 
 - (IBAction)tapDone:(id)sender {
@@ -62,21 +74,5 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)selectCheckbox:(UIButton *)sender {
-    if(sender.selected)
-        sender.selected = NO;
-    else
-        sender.selected = YES;
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

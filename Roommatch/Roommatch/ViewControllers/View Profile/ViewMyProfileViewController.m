@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "SceneDelegate.h"
 #import "User.h"
+#import "Utils.h"
 @import Parse;
 #import <Parse/Parse.h>
 
@@ -55,19 +56,12 @@
     self.collegeNameLabel.text = [@"College Name: " stringByAppendingString:user.collegeName];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    LocationViewController *vc = [segue destinationViewController];
-    vc.selectedCity = [User currentUser].city;
-}
-
 - (IBAction)logout:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-        // PFUser.current() will now be nil
         if(error){
-            NSLog(@"☹️☹️☹️ Couldn't log out: %@", error.localizedDescription);
+            [Utils alertViewController:self WithMessage:@"Couldn't log out"];
         }
         else{
-            NSLog(@"😇😇😇 Logout success!");
             SceneDelegate *mySceneDelegate = (SceneDelegate * ) UIApplication.sharedApplication.connectedScenes.allObjects.firstObject.delegate;
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];

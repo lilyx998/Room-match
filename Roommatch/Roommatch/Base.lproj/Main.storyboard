@@ -46,7 +46,7 @@
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECA-eT-eou">
                                 <rect key="frame" x="90.5" y="480" width="75" height="31"/>
@@ -71,10 +71,14 @@
                                     <constraint firstAttribute="width" constant="128" id="je1-dg-vYQ"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="wQq-qA-erp">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="wQq-qA-erp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3YS-t9-9EH"/>
                             <constraint firstItem="Hms-X7-tgk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9hz-f3-7Ie"/>
                             <constraint firstItem="ECA-eT-eou" firstAttribute="leading" secondItem="Hms-X7-tgk" secondAttribute="leading" id="Ab0-AK-M26"/>
                             <constraint firstItem="uis-UV-8IS" firstAttribute="top" secondItem="Hms-X7-tgk" secondAttribute="bottom" constant="15" id="BPR-mw-kqz"/>
@@ -89,11 +93,13 @@
                             <constraint firstItem="c7r-Yq-jka" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oDG-60-bhz"/>
                             <constraint firstItem="DXY-IT-voz" firstAttribute="top" secondItem="c7r-Yq-jka" secondAttribute="bottom" constant="20" id="rHt-Ca-Ram"/>
                             <constraint firstItem="uis-UV-8IS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ECA-eT-eou" secondAttribute="trailing" constant="10" id="scT-Ja-DQ9"/>
+                            <constraint firstItem="wQq-qA-erp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="x4a-gI-nUL"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="vJy-rS-sia"/>
                     <navigationItem key="navigationItem" id="BBQ-Pk-RmI"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="wQq-qA-erp" id="wPs-1u-uuB"/>
                         <outlet property="passwordTextField" destination="Hms-X7-tgk" id="cdL-KL-ai4"/>
                         <outlet property="usernameTextField" destination="DXY-IT-voz" id="muK-Yq-bUh"/>
                         <segue destination="8jH-xs-tbR" kind="presentation" identifier="Sign Up Segue" id="CI2-RH-arV"/>
@@ -544,11 +550,16 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="y2Y-ET-G7U"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Y7V-7L-jgz"/>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="JSw-jK-ICy">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zcP-fq-0em"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="JSw-jK-ICy" firstAttribute="centerY" secondItem="Fm6-dG-TUP" secondAttribute="centerY" id="Gzx-W4-sYs"/>
                             <constraint firstItem="tC6-IK-QXg" firstAttribute="top" secondItem="Fm6-dG-TUP" secondAttribute="top" id="Nxt-jx-szu"/>
+                            <constraint firstItem="JSw-jK-ICy" firstAttribute="centerX" secondItem="Fm6-dG-TUP" secondAttribute="centerX" id="Zcf-JI-a3J"/>
                             <constraint firstAttribute="trailing" secondItem="tC6-IK-QXg" secondAttribute="trailing" id="bhm-og-nkT"/>
                             <constraint firstAttribute="bottom" secondItem="tC6-IK-QXg" secondAttribute="bottom" id="kWR-jd-L7q"/>
                             <constraint firstItem="tC6-IK-QXg" firstAttribute="leading" secondItem="Fm6-dG-TUP" secondAttribute="leading" id="vcR-JY-gbj"/>
@@ -562,6 +573,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="JSw-jK-ICy" id="cBL-dS-dzj"/>
                         <outlet property="ageTextField" destination="PrO-rr-cA0" id="jcv-qx-xOq"/>
                         <outlet property="bioTextView" destination="59n-cx-Dnj" id="mod-T2-eLh"/>
                         <outlet property="charactersRemainingLabel" destination="tub-Bz-Etm" id="3ic-x6-h1W"/>
@@ -907,17 +919,22 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="nxo-BY-QNb">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="H7B-S4-HCU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="H7B-S4-HCU" firstAttribute="trailing" secondItem="aNP-uv-AVu" secondAttribute="trailing" constant="30" id="2zR-zj-YGC"/>
                             <constraint firstItem="aNP-uv-AVu" firstAttribute="top" secondItem="oud-Jk-IOm" secondAttribute="bottom" constant="40" id="78N-Se-j72"/>
+                            <constraint firstItem="nxo-BY-QNb" firstAttribute="centerY" secondItem="iVz-8b-IZs" secondAttribute="centerY" id="9px-Qr-qCe"/>
                             <constraint firstItem="H7B-S4-HCU" firstAttribute="trailing" secondItem="POX-PL-THE" secondAttribute="trailing" id="BWv-wJ-xFY"/>
                             <constraint firstItem="aNP-uv-AVu" firstAttribute="leading" secondItem="H7B-S4-HCU" secondAttribute="leading" constant="30" id="Boe-QK-4oO"/>
                             <constraint firstItem="POX-PL-THE" firstAttribute="top" secondItem="H7B-S4-HCU" secondAttribute="top" constant="-30" id="DSY-Gx-12C"/>
                             <constraint firstItem="xej-IT-kge" firstAttribute="leading" secondItem="iVz-8b-IZs" secondAttribute="leading" id="JjZ-9C-aAD"/>
                             <constraint firstItem="xej-IT-kge" firstAttribute="top" secondItem="iVz-8b-IZs" secondAttribute="top" id="MLo-sn-p7s"/>
+                            <constraint firstItem="nxo-BY-QNb" firstAttribute="centerX" secondItem="iVz-8b-IZs" secondAttribute="centerX" id="Psu-bp-o9F"/>
                             <constraint firstItem="POX-PL-THE" firstAttribute="leading" secondItem="H7B-S4-HCU" secondAttribute="leading" id="c5U-0K-wQd"/>
                             <constraint firstAttribute="bottom" secondItem="xej-IT-kge" secondAttribute="bottom" id="hpa-jo-wBG"/>
                             <constraint firstItem="oud-Jk-IOm" firstAttribute="top" secondItem="POX-PL-THE" secondAttribute="bottom" constant="10" id="kZM-do-Vkq"/>
@@ -937,6 +954,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="nxo-BY-QNb" id="YPz-0v-9OV"/>
                         <outlet property="descriptionLabel" destination="oud-Jk-IOm" id="Ubk-sL-pLV"/>
                         <outlet property="matchMessageLabel" destination="xej-IT-kge" id="MYc-H1-6kl"/>
                         <outlet property="noUsersToDisplayLabel" destination="Jsu-Qa-RMB" id="hJr-Hx-B0M"/>
@@ -1117,6 +1135,9 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="mWM-i2-pdr">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Tad-m5-DIX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1126,6 +1147,7 @@
                             <constraint firstItem="vly-AT-9Rc" firstAttribute="leading" secondItem="Tad-m5-DIX" secondAttribute="leading" id="6yg-EW-LZw"/>
                             <constraint firstItem="aRv-Nu-UPa" firstAttribute="leading" secondItem="Tad-m5-DIX" secondAttribute="leading" constant="20" id="845-a5-vHb"/>
                             <constraint firstItem="sV1-SL-CJW" firstAttribute="top" secondItem="vly-AT-9Rc" secondAttribute="bottom" id="C1T-bu-C2t"/>
+                            <constraint firstItem="mWM-i2-pdr" firstAttribute="centerY" secondItem="Zqg-df-HHE" secondAttribute="centerY" id="EHe-Ke-et3"/>
                             <constraint firstItem="Tad-m5-DIX" firstAttribute="bottom" secondItem="sV1-SL-CJW" secondAttribute="bottom" id="EKu-bL-rIh"/>
                             <constraint firstItem="Tad-m5-DIX" firstAttribute="trailing" secondItem="9F1-PC-4va" secondAttribute="trailing" id="FUG-ez-abK"/>
                             <constraint firstItem="Tad-m5-DIX" firstAttribute="trailing" secondItem="sV1-SL-CJW" secondAttribute="trailing" id="Mje-ux-qnR"/>
@@ -1136,6 +1158,7 @@
                             <constraint firstItem="sV1-SL-CJW" firstAttribute="leading" secondItem="Tad-m5-DIX" secondAttribute="leading" id="jnn-GY-Rmy"/>
                             <constraint firstItem="Tad-m5-DIX" firstAttribute="trailing" secondItem="vQq-CW-oSA" secondAttribute="trailing" constant="10" id="m9x-xY-m17"/>
                             <constraint firstItem="9F1-PC-4va" firstAttribute="top" secondItem="vly-AT-9Rc" secondAttribute="bottom" id="oGo-5U-zNj"/>
+                            <constraint firstItem="mWM-i2-pdr" firstAttribute="centerX" secondItem="Zqg-df-HHE" secondAttribute="centerX" id="tPk-sz-H01"/>
                             <constraint firstItem="WOH-Ue-MYF" firstAttribute="leading" secondItem="Zqg-df-HHE" secondAttribute="leading" constant="20" id="vMj-Ly-7M9"/>
                             <constraint firstItem="Tad-m5-DIX" firstAttribute="bottom" secondItem="9F1-PC-4va" secondAttribute="bottom" id="wiJ-b6-wJi"/>
                             <constraint firstItem="aRv-Nu-UPa" firstAttribute="top" secondItem="WOH-Ue-MYF" secondAttribute="bottom" constant="5" id="xKw-7u-wUX"/>
@@ -1145,6 +1168,7 @@
                     <tabBarItem key="tabBarItem" title="Matches" image="person.2.fill" catalog="system" id="yqd-48-sEo"/>
                     <navigationItem key="navigationItem" id="OGe-9C-lmQ"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="mWM-i2-pdr" id="edK-Qa-0J1"/>
                         <outlet property="chatsTableView" destination="sV1-SL-CJW" id="4mj-ud-Q8D"/>
                         <outlet property="searchBar" destination="vly-AT-9Rc" id="Ig0-dP-wvA"/>
                         <outlet property="searchMessagesTableView" destination="9F1-PC-4va" id="MHi-9h-icd"/>
@@ -1644,6 +1668,9 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="m80-Ht-LwV">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X5h-QC-p3D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1654,15 +1681,18 @@
                             <constraint firstItem="LNV-YF-XDt" firstAttribute="leading" secondItem="X5h-QC-p3D" secondAttribute="leading" id="BUl-RI-gpB"/>
                             <constraint firstItem="X5h-QC-p3D" firstAttribute="trailing" secondItem="dsc-rs-acy" secondAttribute="trailing" id="Fnz-mw-GYn"/>
                             <constraint firstItem="JAl-H3-bFT" firstAttribute="leading" secondItem="X5h-QC-p3D" secondAttribute="leading" constant="40" id="JRN-w4-frT"/>
+                            <constraint firstItem="m80-Ht-LwV" firstAttribute="centerY" secondItem="GnK-qm-7pw" secondAttribute="centerY" id="JTV-jX-f8h"/>
                             <constraint firstItem="X5h-QC-p3D" firstAttribute="trailing" secondItem="LNV-YF-XDt" secondAttribute="trailing" id="N1E-Ds-V4p"/>
                             <constraint firstItem="X5h-QC-p3D" firstAttribute="trailing" secondItem="JAl-H3-bFT" secondAttribute="trailing" constant="40" id="NTS-yA-sg3"/>
                             <constraint firstItem="JAl-H3-bFT" firstAttribute="top" secondItem="LNV-YF-XDt" secondAttribute="bottom" constant="5" id="ReO-7C-iVq"/>
+                            <constraint firstItem="m80-Ht-LwV" firstAttribute="centerX" secondItem="GnK-qm-7pw" secondAttribute="centerX" id="oJU-YC-uhC"/>
                             <constraint firstItem="X5h-QC-p3D" firstAttribute="bottom" secondItem="dsc-rs-acy" secondAttribute="bottom" id="yJR-mF-6LZ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Requests" image="person.fill.questionmark" catalog="system" id="w4P-8L-lFk"/>
                     <navigationItem key="navigationItem" id="9Kr-dL-DdR"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="m80-Ht-LwV" id="1P1-Xv-6Xt"/>
                         <outlet property="tableView" destination="dsc-rs-acy" id="3PB-ah-Jun"/>
                     </connections>
                 </viewController>
@@ -1862,7 +1892,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3ON-vH-3h6"/>
+        <segue reference="puf-lR-Rfb"/>
         <segue reference="7kD-9Z-NMe"/>
         <segue reference="nNj-SB-mLI"/>
     </inferredMetricsTieBreakers>

@@ -14,7 +14,8 @@
 @dynamic lastMessageText;
 @dynamic messages;
 @dynamic user1LastSeenDate;
-@dynamic user2LastSeenDate; 
+@dynamic user2LastSeenDate;
+@dynamic lastMessageDate; 
 
 + (nonnull NSString *)parseClassName {
     return @"Chat"; 
