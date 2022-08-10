@@ -35,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    User* user = [User currentUser];
+    User *user = [User currentUser];
     
     self.profilePictureImageView.file = user.profilePicture;
     [self.profilePictureImageView loadInBackground];

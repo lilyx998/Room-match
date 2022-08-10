@@ -67,7 +67,7 @@ int userIdx;
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         if (users) {
             self.usersToDisplay = [NSMutableArray array];
-            for(PFObject* user in users){
+            for(PFObject *user in users){
                 if([curUser.usersSeen containsObject:user.objectId])
                     continue;
                 [self.usersToDisplay addObject:user];
@@ -141,7 +141,7 @@ int userIdx;
     PFQuery *query = [PFQuery queryWithClassName:@"Request"];
     [query whereKey:@"from" equalTo:them];
     [query whereKey:@"to" equalTo:curUser];
-    NSArray* results = [query findObjects];
+    NSArray *results = [query findObjects];
     if(results.count != 0){
         [results[0] deleteInBackground];
         [self matchAnimation];
@@ -163,7 +163,7 @@ int userIdx;
 }
 
 - (void)matchAnimation {
-    ConfettiAnimation * confettiAnimation = [[ConfettiAnimation alloc] init];
+    ConfettiAnimation *confettiAnimation = [[ConfettiAnimation alloc] init];
     [self.matchMessageLabel setHidden:NO];
 
     [confettiAnimation playMatchAnimationForView:self.view];

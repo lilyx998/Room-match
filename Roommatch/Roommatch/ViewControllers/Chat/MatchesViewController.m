@@ -96,7 +96,7 @@
     if(tableView == self.chatsTableView){
         ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"chatCell" forIndexPath:indexPath];
 
-        Chat* chat = self.chatsToDisplay[indexPath.row];
+        Chat *chat = self.chatsToDisplay[indexPath.row];
         [cell configureWithChatObject:chat];
         
         return cell;

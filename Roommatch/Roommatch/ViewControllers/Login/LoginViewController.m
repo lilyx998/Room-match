@@ -41,7 +41,7 @@
             [Utils alertViewController:self WithMessage:error.localizedDescription];
         } else {
             NSLog(@"User registered successfully");
-            User* curUser = [User currentUser];
+            User *curUser = [User currentUser];
             [curUser addObject:curUser.objectId forKey:@"usersSeen"];
             [curUser saveInBackground]; 
             [self performSegueWithIdentifier:@"Sign Up Segue" sender:nil];

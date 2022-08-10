@@ -136,7 +136,7 @@ static const int charLimit = 280;
     }
     
     [self.activityIndicator startAnimating];
-    User* user = [User currentUser];
+    User *user = [User currentUser];
     user.name = self.nameTextField.text;
     user.age = self.ageTextField.text;
     user.pronouns = self.pronounsTextField.text;

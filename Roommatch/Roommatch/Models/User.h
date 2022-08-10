@@ -11,21 +11,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface User : PFUser<PFSubclassing>
 
-@property (strong, nonatomic) NSString* name;
-@property (strong, nonatomic) NSString* age;
-@property (strong, nonatomic) NSString* pronouns;
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *age;
+@property (strong, nonatomic) NSString *pronouns;
 
-@property (strong, nonatomic) NSNumber* priceLow;
-@property (strong, nonatomic) NSNumber* priceHigh;
+@property (strong, nonatomic) NSNumber *priceLow;
+@property (strong, nonatomic) NSNumber *priceHigh;
 
-@property (strong, nonatomic) PFFileObject* profilePicture; 
-@property (strong, nonatomic) NSString* city;
-@property (strong, nonatomic) NSString* bio;
-@property (strong, nonatomic) NSString* smoking;
-@property (strong, nonatomic) NSString* gender;
-@property (strong, nonatomic) NSString* pets;
-@property (strong, nonatomic) NSString* inCollege;
-@property (strong, nonatomic) NSString* collegeName;
+@property (strong, nonatomic) PFFileObject *profilePicture;
+@property (strong, nonatomic) NSString *city;
+@property (strong, nonatomic) NSString *bio;
+@property (strong, nonatomic) NSString *smoking;
+@property (strong, nonatomic) NSString *gender;
+@property (strong, nonatomic) NSString *pets;
+@property (strong, nonatomic) NSString *inCollege;
+@property (strong, nonatomic) NSString *collegeName;
 @property (nonatomic) BOOL profileCreated;
 
 @property (nonatomic) BOOL preferenceMale;
