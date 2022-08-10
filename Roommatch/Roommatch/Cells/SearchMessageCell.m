@@ -11,14 +11,6 @@ BOOL fromMe;
 
 @implementation SearchMessageCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
-
 - (void)initWithMessageObject:(Message *)message {
     User *fromUser = message.fromUser;
     User *toUser = message.toUser;

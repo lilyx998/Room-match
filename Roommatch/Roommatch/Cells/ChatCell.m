@@ -11,14 +11,6 @@
 
 @implementation ChatCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
-
 - (void)initWithChatObject:(Chat *)chat {
     User *curUser = [User currentUser];
     BOOL amUser1 = [chat.user1.objectId isEqualToString:curUser.objectId];

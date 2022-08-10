@@ -18,10 +18,6 @@
 
 @implementation LoginViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 - (IBAction)signUp:(id)sender {
     NSString *username = self.usernameTextField.text;
     NSString *password = self.passwordTextField.text;
