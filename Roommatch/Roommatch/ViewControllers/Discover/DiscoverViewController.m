@@ -185,7 +185,7 @@ int userIdx;
     
     SwipeView *view = [[[NSBundle mainBundle] loadNibNamed:@"SwipeView" owner:self options:nil] objectAtIndex:0];
     view = [view initWithFrame:self.swipeContentView.frame options:self.options];
-    [view initWithUserObject:user];
+    [view configureWithUserObject:user];
     view.frame = self.swipeContentView.frame;
     self.currentSwipeView = view;
     view.delegate = self;

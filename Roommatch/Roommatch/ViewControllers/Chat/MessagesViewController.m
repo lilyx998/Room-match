@@ -140,13 +140,13 @@ static const int fetchAmount = 10;
     if([message.fromUser.objectId isEqualToString:[User currentUser].objectId]){
         SendMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"sendCell" forIndexPath:indexPath];
         cell.contentView.transform = CGAffineTransformMakeScale (1,-1);
-        [cell initWithMessageObject:message];
+        [cell configureWithMessageObject:message];
         return cell;
     }
     else {
         ReceiveMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"receiveCell" forIndexPath:indexPath];
         cell.contentView.transform = CGAffineTransformMakeScale (1,-1);
-        [cell initWithMessageObject:message];
+        [cell configureWithMessageObject:message];
         return cell;
     }
 }

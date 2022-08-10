@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) NSMutableArray *usersSeen;
 
-- (void)initAllEmpty;
+- (void)setAllPropertiesDefault;
 
 + (User *)getUserFromUsername:(NSString *)username; 
 

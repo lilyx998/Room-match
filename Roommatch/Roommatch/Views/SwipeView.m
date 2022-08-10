@@ -9,7 +9,7 @@
 
 @implementation SwipeView
 
-- (void)initWithUserObject:(User *)user {
+- (void)configureWithUserObject:(User *)user {
     self.nameAndAgeLabel.text = [[user.name stringByAppendingString:@", "] stringByAppendingString:user.age];
     self.bioLabel.text = user.bio;
     self.profilePictureImageView.file = user.profilePicture;

@@ -69,7 +69,7 @@
     RequestCell *cell = [tableView dequeueReusableCellWithIdentifier:@"requestCell" forIndexPath:indexPath];
     
     User* user = self.usersToDisplay[indexPath.row];
-    [cell initWithUserObject:user];
+    [cell configureWithUserObject:user];
     cell.delegate = self;
     
     return cell;

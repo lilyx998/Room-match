@@ -22,7 +22,7 @@
     [self.interactionMessage setHidden:YES];
 }
 
-- (void)initWithUserObject:(User *)user {
+- (void)configureWithUserObject:(User *)user {
     [user fetchIfNeeded];
     self.user = user;
     self.nameLabel.text = user.name;

@@ -30,7 +30,7 @@
     [self.activityIndicator startAnimating];
 
     User *user = [User user];
-    [user initAllEmpty];
+    [user setAllPropertiesDefault];
     user.username = username;
     user.password = password;
     user.profileCreated = NO;

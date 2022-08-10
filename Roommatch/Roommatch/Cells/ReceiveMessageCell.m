@@ -16,7 +16,7 @@
     self.userProfilePicture.layer.masksToBounds = YES;
 }
 
-- (void)initWithMessageObject:(Message *)message {
+- (void)configureWithMessageObject:(Message *)message {
     self.userProfilePicture.file = message.fromUser.profilePicture;
     [self.userProfilePicture loadInBackground];
     

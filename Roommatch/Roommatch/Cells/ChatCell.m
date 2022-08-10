@@ -11,7 +11,7 @@
 
 @implementation ChatCell
 
-- (void)initWithChatObject:(Chat *)chat {
+- (void)configureWithChatObject:(Chat *)chat {
     User *curUser = [User currentUser];
     BOOL amUser1 = [chat.user1.objectId isEqualToString:curUser.objectId];
     User *them = amUser1 ? chat.user2 : chat.user1;

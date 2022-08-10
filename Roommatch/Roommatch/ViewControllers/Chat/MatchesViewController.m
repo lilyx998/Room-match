@@ -97,14 +97,14 @@
         ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"chatCell" forIndexPath:indexPath];
 
         Chat* chat = self.chatsToDisplay[indexPath.row];
-        [cell initWithChatObject:chat];
+        [cell configureWithChatObject:chat];
         
         return cell;
     }
     else {
         SearchMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchMessageCell" forIndexPath:indexPath];
         Message *message = self.searchMessages[indexPath.row];
-        [cell initWithMessageObject:message]; 
+        [cell configureWithMessageObject:message]; 
         return cell; 
     }
 }

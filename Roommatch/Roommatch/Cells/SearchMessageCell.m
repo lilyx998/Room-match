@@ -11,7 +11,7 @@ BOOL fromMe;
 
 @implementation SearchMessageCell
 
-- (void)initWithMessageObject:(Message *)message {
+- (void)configureWithMessageObject:(Message *)message {
     User *fromUser = message.fromUser;
     User *toUser = message.toUser;
     fromMe = [fromUser.objectId isEqualToString:[User currentUser].objectId];
