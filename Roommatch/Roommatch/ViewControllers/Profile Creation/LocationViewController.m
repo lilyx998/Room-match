@@ -94,14 +94,14 @@
     NSDictionary *headers = @{ @"X-RapidAPI-Key": [dict objectForKey: @"GeoDB Key"],
                                @"X-RapidAPI-Host": [dict objectForKey: @"GeoDB Host"] };
     
-    NSString* URLString = [[@"https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=10&countryIds=Q30&namePrefix=" stringByAppendingString:self.prefix] stringByAppendingString:@"&sort=-population&types=CITY"];
+    NSString *URLString = [[@"https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=10&countryIds=Q30&namePrefix=" stringByAppendingString:self.prefix] stringByAppendingString:@"&sort=-population&types=CITY"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URLString]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:10.0];
     [request setHTTPMethod:@"GET"];
     [request setAllHTTPHeaderFields:headers];
     
-    NSMutableArray* cityNames = [NSMutableArray array];
+    NSMutableArray *cityNames = [NSMutableArray array];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {

@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<RequestCellDelegate> delegate;
 
-- (void)initWithUserObject:(User *)user;
+- (void)configureWithUserObject:(User *)user;
 
 @end
 

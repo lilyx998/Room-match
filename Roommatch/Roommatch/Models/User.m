@@ -34,7 +34,7 @@
 @dynamic usersSeen;
 @dynamic preferenceSmoking;
 
-- (void)initAllEmpty {
+- (void)setAllPropertiesDefault {
     self.age = @"";
     self.pronouns = @"";
     self.priceLow = [NSNumber numberWithInt:(-1)];

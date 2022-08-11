@@ -11,14 +11,6 @@
 
 @implementation RequestCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
-
 - (void)prepareForReuse {
     [super prepareForReuse];
     
@@ -30,7 +22,7 @@
     [self.interactionMessage setHidden:YES];
 }
 
-- (void)initWithUserObject:(User *)user {
+- (void)configureWithUserObject:(User *)user {
     [user fetchIfNeeded];
     self.user = user;
     self.nameLabel.text = user.name;
@@ -48,7 +40,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Requests"];
     [query whereKey:@"from" equalTo:self.user.objectId];
     [query whereKey:@"to" equalTo:curUser.objectId];
-    NSArray* results = [query findObjects];
+    NSArray *results = [query findObjects];
     [results[0] deleteInBackground];
     
     [self clearCellAndDisplayMessage:@"Rejected match request 🫢"];
@@ -64,7 +56,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Request"];
     [query whereKey:@"from" equalTo:them];
     [query whereKey:@"to" equalTo:curUser];
-    NSArray* results = [query findObjects];
+    NSArray *results = [query findObjects];
 
     [self clearCellAndDisplayMessage:@"It's a match! 🥳"];
     [results[0] deleteInBackground];

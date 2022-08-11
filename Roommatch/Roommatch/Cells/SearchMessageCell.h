@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
-- (void)initWithMessageObject:(Message *)message;
+- (void)configureWithMessageObject:(Message *)message;
 
 @end
 

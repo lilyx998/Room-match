@@ -16,11 +16,7 @@
     self.userProfilePicture.layer.masksToBounds = YES;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
-
-- (void)initWithMessageObject:(Message *)message {
+- (void)configureWithMessageObject:(Message *)message {
     self.userProfilePicture.file = message.fromUser.profilePicture;
     [self.userProfilePicture loadInBackground];
     

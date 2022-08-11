@@ -68,8 +68,8 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     RequestCell *cell = [tableView dequeueReusableCellWithIdentifier:@"requestCell" forIndexPath:indexPath];
     
-    User* user = self.usersToDisplay[indexPath.row];
-    [cell initWithUserObject:user];
+    User *user = self.usersToDisplay[indexPath.row];
+    [cell configureWithUserObject:user];
     cell.delegate = self;
     
     return cell;

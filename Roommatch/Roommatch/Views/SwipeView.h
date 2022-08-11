@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<SwipeViewDelegate> delegate;
 
-- (void)initWithUserObject:(User *)user;
+- (void)configureWithUserObject:(User *)user;
 
 @end
 
