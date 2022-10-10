@@ -16,12 +16,10 @@ Roommatch is an iOS app for meeting potential roommates, best described as a "Ti
 Demos:
 
 User sign-up and profile creation
-![profile creation](https://user-images.githubusercontent.com/34987475/194960918-2cf3528f-e101-45c7-b5e8-4355f7cd8c89.gif)
+![profile creation](https://user-images.githubusercontent.com/34987475/194961123-d1b4a6a5-dbce-4af6-bb53-8b3d635e597e.gif)
 
 Match with fun confetti animation!
-![match](https://user-images.githubusercontent.com/34987475/194960823-ff91b03a-b94e-4fcc-b682-f34fc85f65a3.gif)
+![match](https://user-images.githubusercontent.com/34987475/194961099-db93417b-db2c-4eb2-82e7-158fcd35163e.gif)
 
 Live chat with unread message indicators
-![chat](https://user-images.githubusercontent.com/34987475/194960817-eb871b17-1157-4341-ac56-9b584b2f9e81.gif)
-
-
+![chat](https://user-images.githubusercontent.com/34987475/194961101-cc993a7b-8db2-48f9-a8d7-3ab06f1ade87.gif)
