@@ -1,7 +1,7 @@
 Original App Design Project - README
 ===
 
-# Room-match
+# Roommatch
 
 Roommatch is an iOS app for meeting potential roommates, best described as a "Tinder" for finding roommates. Users can:
 - Signup and login
